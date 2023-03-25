@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.datamanage.datamanage.dao.InDataDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.datamanage.datamanage.entity.InDataEntity" id="inDataMap">
+        <result property="id" column="id"/>
+        <result property="time" column="time"/>
+        <result property="totalSaleMoney" column="total_sale_money"/>
+        <result property="totalSaleNum" column="total_sale_num"/>
+        <result property="shopNum" column="shop_num"/>
+        <result property="wlSaleMoney" column="wl_sale_money"/>
+        <result property="wlDevelopment" column="wl_development"/>
+        <result property="wlShopNum" column="wl_shop_num"/>
+        <result property="wlSaleNum" column="wl_sale_num"/>
+        <result property="wlWorkNum" column="wl_work_num"/>
+        <result property="dataAddress" column="data_address"/>
+    </resultMap>
+
+
+</mapper>

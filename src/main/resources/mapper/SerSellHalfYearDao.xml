@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.datamanage.datamanage.dao.SerSellHalfYearDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.datamanage.datamanage.entity.SerSellHalfYearEntity" id="serSellHalfYearMap">
+        <result property="id" column="id"/>
+        <result property="orderTime" column="order_time"/>
+        <result property="orderAmmount" column="order_ammount"/>
+        <result property="orderDate" column="order_date"/>
+        <result property="type" column="type"/>
+        <result property="dataAddress" column="data_address"/>
+    </resultMap>
+
+
+</mapper>

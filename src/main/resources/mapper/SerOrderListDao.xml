@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.datamanage.datamanage.dao.SerOrderListDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.datamanage.datamanage.entity.SerOrderListEntity" id="serOrderListMap">
+        <result property="id" column="id"/>
+        <result property="serOrderNum" column="ser_order_num"/>
+        <result property="serOrderType" column="ser_order_type"/>
+        <result property="serOrderAmmount" column="ser_order_ammount"/>
+        <result property="serOrderName" column="ser_order_name"/>
+        <result property="serOrderDate" column="ser_order_date"/>
+        <result property="dataAddress" column="data_address"/>
+    </resultMap>
+
+
+</mapper>
