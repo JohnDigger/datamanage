@@ -23,5 +23,6 @@ public interface SerOrderListDao extends BaseMapper<SerOrderListEntity> {
             "GROUP BY ser_order_list.data_address,DATE_FORMAT(ser_order_list.ser_order_date, '%Y-%m')" +
             "ORDER BY ser_order_list.ser_order_ammount")
     List<SerOrderListEntity> getRank(String data_address,String data_date);
-	
+
+
 }
