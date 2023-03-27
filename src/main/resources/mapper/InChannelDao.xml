@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.datamanage.datamanage.dao.InChannelDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.datamanage.datamanage.entity.InChannelEntity" id="inChannelMap">
+        <result property="id" column="id"/>
+        <result property="channelName" column="channel_name"/>
+        <result property="channelNum" column="channel_num"/>
+        <result property="channelDate" column="channel_date"/>
+        <result property="channelArea" column="channel_area"/>
+        <result property="type" column="type"/>
+    </resultMap>
+
+
+</mapper>

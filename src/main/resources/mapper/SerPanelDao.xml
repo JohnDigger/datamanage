@@ -6,10 +6,14 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.datamanage.datamanage.entity.SerPanelEntity" id="serPanelMap">
         <result property="id" column="id"/>
-        <result property="serName" column="ser_name"/>
-        <result property="serData" column="ser_data"/>
-        <result property="serDate" column="ser_date"/>
+        <result property="saleNum" column="sale_num"/>
+        <result property="buyNum" column="buy_num"/>
+        <result property="serNum" column="ser_num"/>
+        <result property="townNum" column="town_num"/>
+        <result property="villageNum" column="village_num"/>
+        <result property="serRane" column="ser_rane"/>
         <result property="dataAddress" column="data_address"/>
+        <result property="dataDate" column="data_date"/>
     </resultMap>
 
 

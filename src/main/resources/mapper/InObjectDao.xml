@@ -6,14 +6,10 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.datamanage.datamanage.entity.InObjectEntity" id="inObjectMap">
         <result property="id" column="id"/>
-        <result property="time" column="time"/>
-        <result property="saleMoney" column="sale_money"/>
-        <result property="saleNum" column="sale_num"/>
-        <result property="jingdong" column="jingdong"/>
-        <result property="tianmao" column="tianmao"/>
-        <result property="taobao" column="taobao"/>
-        <result property="other" column="other"/>
-        <result property="dataAddress" column="data_address"/>
+        <result property="objectPercent" column="object_percent"/>
+        <result property="objectName" column="object_name"/>
+        <result property="objectAddress" column="object_address"/>
+        <result property="objectDate" column="object_date"/>
     </resultMap>
 
 

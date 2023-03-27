@@ -76,8 +76,8 @@ public class FpTrendController {
     }
 
     @GetMapping("/trend")
-    public R trend(@RequestParam("address")String address,@RequestParam("time") String time){
-        return R.ok().put("trend",fpTrendService.getTrend(address, time));
+    public R trend(@RequestParam("address")String address){
+        return R.ok().put("trend",fpTrendService.getTrend(address));
     }
 
 }

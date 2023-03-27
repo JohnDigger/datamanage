@@ -35,4 +35,8 @@ public class SerShopEntity implements Serializable {
 
 	private String dataAddress;
 
+	private String orderType;
+
+	private Long orderCount;
+
 }

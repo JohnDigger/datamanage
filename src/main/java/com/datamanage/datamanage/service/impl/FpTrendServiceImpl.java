@@ -33,8 +33,8 @@ public class FpTrendServiceImpl extends ServiceImpl<FpTrendDao, FpTrendEntity> i
     }
 
     @Override
-    public List<NameValueEntity> getTrend(String address, String time) {
-        return fpTrendDao.getTrend(address, time);
+    public List<NameValueEntity> getTrend(String address) {
+        return fpTrendDao.getTrend(address);
     }
 
 }

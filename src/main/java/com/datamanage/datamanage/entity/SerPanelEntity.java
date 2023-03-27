@@ -12,7 +12,7 @@ import lombok.Data;
  * 
  * @author ${author}
  * @email ${email}
- * @date 2023-03-23 20:26:35
+ * @date 2023-03-27 15:47:26
  */
 @Data
 @TableName("ser_panel")
@@ -27,16 +27,34 @@ public class SerPanelEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String serName;
+	private Integer saleNum;
 	/**
 	 * 
 	 */
-	private String serData;
+	private Integer buyNum;
 	/**
 	 * 
 	 */
-	private String serDate;
-
+	private Integer serNum;
+	/**
+	 * 
+	 */
+	private Integer townNum;
+	/**
+	 * 
+	 */
+	private Integer villageNum;
+	/**
+	 * 
+	 */
+	private String serRane;
+	/**
+	 * 
+	 */
 	private String dataAddress;
+	/**
+	 * 
+	 */
+	private String dataDate;
 
 }

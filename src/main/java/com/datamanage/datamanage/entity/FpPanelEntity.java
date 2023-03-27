@@ -12,7 +12,7 @@ import lombok.Data;
  * 
  * @author ${author}
  * @email ${email}
- * @date 2023-03-23 20:26:35
+ * @date 2023-03-27 15:47:26
  */
 @Data
 @TableName("fp_panel")
@@ -23,20 +23,42 @@ public class FpPanelEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Long id;
+	private Integer id;
 	/**
 	 * 
 	 */
-	private String dataName;
+	private String qxPerson;
 	/**
 	 * 
 	 */
-	private String dataAmount;
+	private String qxArea;
 	/**
 	 * 
 	 */
-	private String dataTime;
-
+	private Integer poorNum;
+	/**
+	 * 
+	 */
+	private Integer poorPersonNum;
+	/**
+	 * 
+	 */
+	private Integer richNum;
+	/**
+	 * 
+	 */
+	private Integer richPersonNum;
+	/**
+	 * 
+	 */
+	private Integer stiilPoorNum;
+	/**
+	 * 
+	 */
+	private Integer stillPoorPersonNum;
+	/**
+	 * 
+	 */
 	private String dataAddress;
 
 }

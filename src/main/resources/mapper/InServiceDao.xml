@@ -6,14 +6,10 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.datamanage.datamanage.entity.InServiceEntity" id="inServiceMap">
         <result property="id" column="id"/>
-        <result property="time" column="time"/>
-        <result property="saleMoney" column="sale_money"/>
-        <result property="saleNum" column="sale_num"/>
-        <result property="meituan" column="meituan"/>
-        <result property="elema" column="elema"/>
-        <result property="tuangou" column="tuangou"/>
-        <result property="other" column="other"/>
-        <result property="dataAddress" column="data_address"/>
+        <result property="servicePercent" column="service_percent"/>
+        <result property="serviceName" column="service_name"/>
+        <result property="serviceAddress" column="service_address"/>
+        <result property="serviceDate" column="service_date"/>
     </resultMap>
 
 

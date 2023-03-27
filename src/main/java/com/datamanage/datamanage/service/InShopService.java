@@ -5,6 +5,7 @@ import com.datamanage.datamanage.entity.InShopEntity;
 import com.datamanage.datamanage.utils.PageUtils;
 
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,5 +18,7 @@ import java.util.Map;
 public interface InShopService extends IService<InShopEntity> {
 
     PageUtils queryPage(Map<String, Object> params) throws Exception;
+
+    List<InShopEntity> getAll(String address);
 }
 

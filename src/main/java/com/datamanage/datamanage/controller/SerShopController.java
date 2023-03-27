@@ -8,12 +8,7 @@ import com.datamanage.datamanage.service.SerShopService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -78,6 +73,16 @@ public class SerShopController {
 		serShopService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+    @GetMapping("/getTop")
+    public R getTop(@RequestParam("address") String address,@RequestParam("type") String type){
+        return R.ok().put("data",serShopService.getTopAmount(address,type));
+    }
+
+    @GetMapping("/getCount")
+    public R getTopCount(@RequestParam("address") String address,@RequestParam("type") String type){
+        return R.ok().put("data",serShopService.getTopCount(address,type));
     }
 
 }

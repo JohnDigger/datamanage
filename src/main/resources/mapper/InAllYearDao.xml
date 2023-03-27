@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.datamanage.datamanage.dao.InAllYearDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.datamanage.datamanage.entity.InAllYearEntity" id="inAllYearMap">
+        <result property="id" column="id"/>
+        <result property="yearTotalMoney" column="year_total_money"/>
+        <result property="yearTotalNum" column="year_total_num"/>
+        <result property="yearAddress" column="year_address"/>
+    </resultMap>
+
+
+</mapper>

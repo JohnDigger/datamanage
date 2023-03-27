@@ -6,9 +6,14 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.datamanage.datamanage.entity.FpPanelEntity" id="fpPanelMap">
         <result property="id" column="id"/>
-        <result property="dataName" column="data_name"/>
-        <result property="dataAmount" column="data_amount"/>
-        <result property="dataTime" column="data_time"/>
+        <result property="qxPerson" column="qx_person"/>
+        <result property="qxArea" column="qx_area"/>
+        <result property="poorNum" column="poor_num"/>
+        <result property="poorPersonNum" column="poor_person_num"/>
+        <result property="richNum" column="rich_num"/>
+        <result property="richPersonNum" column="rich_person_num"/>
+        <result property="stiilPoorNum" column="stiil_poor_num"/>
+        <result property="stillPoorPersonNum" column="still_poor_person_num"/>
         <result property="dataAddress" column="data_address"/>
     </resultMap>
 

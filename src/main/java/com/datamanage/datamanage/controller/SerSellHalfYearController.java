@@ -8,11 +8,7 @@ import com.datamanage.datamanage.service.SerSellHalfYearService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 
@@ -23,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("back/sersellhalfyear")
+@CrossOrigin(maxAge = 3600L,origins = "*")
 public class SerSellHalfYearController {
     @Autowired
     private SerSellHalfYearService serSellHalfYearService;
@@ -78,4 +75,12 @@ public class SerSellHalfYearController {
         return R.ok();
     }
 
+    @GetMapping("/halfyear")
+    public R getHalf(@RequestParam("type") String type,@RequestParam("city") String city){
+        return R.ok().put("data",serSellHalfYearService.getHalfYear(type, city));
+    }
+    @GetMapping("/count")
+    public R getCount(@RequestParam("type") String type,@RequestParam("city") String city){
+        return R.ok().put("data",serSellHalfYearService.getHaldYearCount(type, city));
+    }
 }

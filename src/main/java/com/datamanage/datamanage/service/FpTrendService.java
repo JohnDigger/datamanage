@@ -19,6 +19,6 @@ public interface FpTrendService extends IService<FpTrendEntity> {
 
     PageUtils queryPage(Map<String, Object> params) throws Exception;
 
-    List<NameValueEntity> getTrend(String address, String time);
+    List<NameValueEntity> getTrend(String address);
 }
 

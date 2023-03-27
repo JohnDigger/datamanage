@@ -9,6 +9,8 @@
         <result property="orderAmmount" column="order_ammount"/>
         <result property="shopName" column="shop_name"/>
         <result property="dataAddress" column="data_address"/>
+        <result property="orderType" column="order_type"/>
+        <result property="orderCount" column="order_count"/>
     </resultMap>
 
 

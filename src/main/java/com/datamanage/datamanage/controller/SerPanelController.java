@@ -8,12 +8,7 @@ import com.datamanage.datamanage.service.SerPanelService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -78,6 +73,11 @@ public class SerPanelController {
 		serPanelService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+    @GetMapping("/getList")
+    public R getList(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",serPanelService.getList(address, date));
     }
 
 }

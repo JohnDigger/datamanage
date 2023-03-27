@@ -16,6 +16,6 @@ import java.util.List;
 @Mapper
 public interface FpEnterpriseDao extends BaseMapper<FpEnterpriseEntity> {
 
-    @Select("SELECT fp_enterprise.id,fp_enterprise.enterprise_name FROM fp_enterprise GROUP BY #{dataAddress} LIMIT 20")
+    @Select("SELECT fp_enterprise.id,fp_enterprise.enterprise_name FROM fp_enterprise WHERE fp_enterprise.data_address = #{dataAddress} LIMIT 20")
     List<FpEnterpriseEntity> getTopTwenty(String dataAddress);
 }

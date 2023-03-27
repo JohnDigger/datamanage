@@ -18,10 +18,11 @@ import java.util.List;
 @Mapper
 public interface FpTrendDao extends BaseMapper<FpTrendEntity> {
 
-    @Select("SELECT fp_trend.change_ammount as value, fp_trend.change_date as name \n" +
-            "FROM fp_trend \n" +
-            "WHERE fp_trend.data_address = #{data_address} AND YEAR(fp_trend.change_date) = #{data_time} \n" +
-            "GROUP BY fp_trend.data_address, fp_trend.change_date ORDER BY fp_trend.change_date ")
-    List<NameValueEntity> getTrend(String data_address, String data_time);
+    @Select("SELECT fp_trend.change_date AS name,Sum(fp_trend.change_ammount) AS value\n" +
+            "FROM fp_trend\n" +
+            "WHERE fp_trend.data_address = #{data_address} \n" +
+            "GROUP BY fp_trend.change_date\n" +
+            "\n")
+    List<NameValueEntity> getTrend(String data_address);
 	
 }

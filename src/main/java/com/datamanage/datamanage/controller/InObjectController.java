@@ -8,13 +8,7 @@ import com.datamanage.datamanage.service.InObjectService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -22,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author ${author}
  * @email ${email}
- * @date 2023-03-23 20:26:35
+ * @date 2023-03-26 00:58:52
  */
 @RestController
 @RequestMapping("back/inobject")
@@ -79,6 +73,11 @@ public class InObjectController {
 		inObjectService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+    @GetMapping("/getPer")
+    public R getList(@RequestParam("address")String address,@RequestParam("date") String date){
+        return R.ok().put("data",inObjectService.getList(address, date));
     }
 
 }
