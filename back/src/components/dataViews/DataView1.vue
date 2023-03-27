@@ -59,7 +59,7 @@
                     <input type="text" id="wl-worker" v-model="wl.worker" /> 人
                 </div>
             </div>
-        </div><br>
+        </div><br><br>
         <!-- 实物型行业 -->
         <!-- 实物型标题 -->
         <div class="view-title">
@@ -79,7 +79,9 @@
             <div class="view-obj-bing" v-for="item, index in objList" :key="index">
                 <div class="view-obj-type">
                     <div style="display: flex;">
-                        <div class="view-obj-rect" :style="`background: ${item.color};`"></div>
+                        <div class="view-obj-rect"
+                            :style="`background: ${colorList[index]};`">
+                        </div>
                         <div>&nbsp;{{ item.name }}</div>
                     </div>
                     <input type="text" :value="item.money">
@@ -88,7 +90,7 @@
                 </div>
             </div>
             <!-- 百分条 -->
-            <div style="width: 100%;">
+            <div style="width: 100%; margin-right: 20px;">
                 <div class="block" v-for="item, index in objList" :key="index" style="display: flex;">
                     <div style="white-space: nowrap;">{{ item.name }}：</div>
                     <el-slider v-model="item.percent"></el-slider>
@@ -96,8 +98,8 @@
             </div>
             <div class="obj-percent">
                 <div v-for="item, index in objList" 
-                    :style="`background: ${item.color}; width: ${item.percent}%;`" 
-                    class="percent-rect">
+                    :style="`background: ${colorList[index]}; width: ${item.percent}%;`" 
+                    class="percent-rect" :key="index">
                     <div style="color: white; line-height: 32px;">{{ item.percent }}%</div>
                 </div>
             </div>
@@ -105,12 +107,12 @@
         <!-- 重点渠道 -->
         <div class="view-title">
             <div class="view-time">实物型重点渠道</div>
-        </div><br>
+        </div><br><br>
         <!-- 服务型行业 -->
         <div class="view-title">
             <div class="view-time">服务型行业</div>
             <div class="view-beizhu">注：各个品类数据依次为总额，总量，比例</div>
-        </div><br>
+        </div><br><br>
         <!-- 重点网商列表 -->
         <!-- 农产品列表 -->
     </div>
@@ -147,35 +149,67 @@
                 objList: [
                     {
                         name: '母婴',
-                        money: 0,
-                        num: 0,
-                        percent: 10,
-                        color: '#ff6b6b'
+                        money: 100,
+                        percent: 0,
+                        num: 1
                     },
                     {
                         name: '食品酒水',
-                        money: 0,
-                        num: 0,
-                        percent: 20,
-                        color: '#5c7cfa'
+                        money: 200,
+                        percent: 0,
+                        num: 2
                     },
                     {
                         name: '家具家装',
-                        money: 0,
-                        num: 0,
-                        percent: 30,
-                        color: '#51cf66'
+                        money: 300,
+                        percent: 0,
+                        num: 3
                     },
                     {
                         name: '户外运动',
-                        money: 0,
-                        num: 0,
-                        percent: 40,
-                        color: '#fcc419'
+                        money: 400,
+                        percent: 0,
+                        num: 4
                     }
+                ],
+                colorList: [
+                    '#f03e3e',
+                    '#d6336c',
+                    '#ae3ec9',
+                    '#7048e8',
+                    '#4263eb',
+                    '#1c7ed6',
+                    '#1098ad',
+                    '#0ca678',
+                    '#37b24d',
+                    '#74b816',
+                    '#f59f00',
+                    '#f76707'
                 ]
             }
         },
+        mounted() {
+            this.calcPercent()
+        },
+        methods: {
+            calcPercent(){
+                for(var i=0; i<this.objList.length; i++){
+                    this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
+                }
+            },
+            calcWatch(newVal, oldVal) {
+                
+            }
+        },
+        watch: {
+            objList: {
+                handler(newVal, oldVal) {
+                    console.log(newVal, '---', oldVal)
+                },
+                deep: true,
+                immediate: true
+            }
+        }
     }
 </script>
 
@@ -236,6 +270,9 @@
     .view-obj {
         display: flex;
         flex-wrap: wrap;
+        border: 1px white solid;
+        padding: 5px 0 10px 0;
+        margin: 10px 0 0 0;
         &> div {
             margin: 10px 0 0 20px;
         }
@@ -251,8 +288,8 @@
                 .view-obj-rect {
                     height: 24px;
                     width: 24px;
-                    border: 1px #999999 solid;
-                    box-shadow: 2px 2px 3px 0 #999999;
+                    // border: 1px #999999 solid;
+                    box-shadow: 1px 1px 3px 0 #b3beff;
                 }
                 &> input {
                     margin-top: 3px;
@@ -266,6 +303,7 @@
             border-radius: 5px;
             overflow: hidden;
             display: flex;
+            margin-right: 20px;
             .percent-rect {
                 height: 32px;
             }

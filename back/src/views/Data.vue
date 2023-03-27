@@ -30,7 +30,7 @@
     import V3 from '../components/dataViews/DataView3.vue'
     import { useRoute } from 'vue-router'
     export default {
-        name: 'data',
+        name: 'bigData',
         components: {
             Banner, Bgd,
             V1, V2, V3,
