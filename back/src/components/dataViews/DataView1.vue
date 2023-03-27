@@ -1,6 +1,5 @@
 <template>
     <div>
-        <hr>
         <div class="view-title">
             <!-- 时间 -->
             <div class="view-time">{{ month }}</div>
@@ -9,51 +8,57 @@
         </div>
         <!-- 统计部分 -->
         <div class="view-total">
-            <div>
-                <label for="total-money">全网销售额：</label>
-                <input type="text" id="total-money" v-model="totalMoney" /> 元
+            <div class="total-box">
+                <div class="little-title">全站数据</div>
+                <div>
+                    <label for="total-money">全网销售额：</label>
+                    <input type="text" id="total-money" v-model="totalMoney" /> 元
+                </div>
+                <div>
+                    <label for="total-num">全网销售量：</label>
+                    <input type="text" id="total-num" v-model="totalNum" /> 件
+                </div>
+                <div>
+                    <label for="shop-num">店铺数量：</label>
+                    <input type="text" id="shop-num" v-model="shopNum" /> 个
+                </div>
             </div>
-            <div>
-                <label for="total-num">全网销售量：</label>
-                <input type="text" id="total-num" v-model="totalNum" /> 件
-            </div>
-            <div>
-                <label for="shop-num">店铺数量：</label>
-                <input type="text" id="shop-num" v-model="shopNum" /> 个
-            </div>
-            <hr>
             <!-- 服务站大数据部分 -->
-            <div>
-                <label for="service-add-money">服务站累计交易额：</label>
-                <input type="text" id="service-add-money" v-model="serviceAddMoney" /> 元
+            <div class="total-box">
+                <div class="little-title">服务站大数据部分</div>
+                <div>
+                    <label for="service-add-money">服务站累计交易额：</label>
+                    <input type="text" id="service-add-money" v-model="serviceAddMoney" /> 元
+                </div>
+                <div>
+                    <label for="total-service-num">服务站总数量：</label>
+                    <input type="text" id="total-service-num" v-model="totalServiceNum" /> 个
+                </div>
             </div>
-            <div>
-                <label for="total-service-num">服务站总数量：</label>
-                <input type="text" id="total-service-num" v-model="totalServiceNum" /> 个
-            </div>
-            <hr>
             <!-- 网零发展指数 -->
-            <div>
-                <label for="wl-development">网零发展指数：</label>
-                <input type="text" id="wl-development" v-model="wl.devlopment" />
+            <div class="total-box">
+                <div class="little-title">网零发展指数</div>
+                <div>
+                    <label for="wl-development">网零发展指数：</label>
+                    <input type="text" id="wl-development" v-model="wl.devlopment" />
+                </div>
+                <div>
+                    <label for="wl-sale-money">零售额：</label>
+                    <input type="text" id="wl-sale-money" v-model="wl.saleMoney" /> 元
+                </div>
+                <div>
+                    <label for="wl-shop-num">店铺数量：</label>
+                    <input type="text" id="wl-shop-num" v-model="wl.shopNum" /> 个
+                </div>
+                <div>
+                    <label for="wl-sale-num">零售量：</label>
+                    <input type="text" id="wl-sale-num" v-model="wl.saleNum" /> 件
+                </div>
+                <div>
+                    <label for="wl-worker">从业人数：</label>
+                    <input type="text" id="wl-worker" v-model="wl.worker" /> 人
+                </div>
             </div>
-            <div>
-                <label for="wl-sale-money">零售额：</label>
-                <input type="text" id="wl-sale-money" v-model="wl.saleMoney" /> 元
-            </div>
-            <div>
-                <label for="wl-shop-num">店铺数量：</label>
-                <input type="text" id="wl-shop-num" v-model="wl.shopNum" /> 个
-            </div>
-            <div>
-                <label for="wl-sale-num">零售量：</label>
-                <input type="text" id="wl-sale-num" v-model="wl.saleNum" /> 件
-            </div>
-            <div>
-                <label for="wl-worker">从业人数：</label>
-                <input type="text" id="wl-worker" v-model="wl.worker" /> 人
-            </div>
-            <hr>
         </div><br>
         <!-- 实物型行业 -->
         <!-- 实物型标题 -->
@@ -100,12 +105,12 @@
         <!-- 重点渠道 -->
         <div class="view-title">
             <div class="view-time">实物型重点渠道</div>
-        </div><hr><br>
+        </div><br>
         <!-- 服务型行业 -->
         <div class="view-title">
             <div class="view-time">服务型行业</div>
             <div class="view-beizhu">注：各个品类数据依次为总额，总量，比例</div>
-        </div><hr><br>
+        </div><br>
         <!-- 重点网商列表 -->
         <!-- 农产品列表 -->
     </div>
@@ -178,6 +183,8 @@
     label {
         font-size: 16px;
         font-weight: 600;
+        display: inline-block;
+        min-width: 150px;
     }
     hr {
         width: 120%;
@@ -188,22 +195,41 @@
         justify-content: space-between;
         align-content: center;
         .view-time {
-            font-size: 18px;
+            font-size: 28px;
             font-weight: 600;
         }
         .view-beizhu {
-            border: 1px black solid;
-            background: #ffff80;
-            padding: 3px;
+            border: 1px #fff solid;
+            background: #2746aa;
+            padding: 5px 15px 5px 15px;
         }
     }
 
     .view-total {
         display: flex;
-        flex-wrap: wrap;
+        justify-content: space-evenly;
         margin: 10px 0 0 0;
-        &> div{
-            margin: 0 0 0 20px;
+        .total-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 34%;
+            border: 1px white solid;
+            // transform: skewX(10deg);
+            padding: 0 0 15px 0;
+            
+            &>div {
+                // transform: skewX(-10deg);
+                margin: 10px 0 0 10px;
+            }
+
+            .little-title {
+                font-size: 18px;
+                font-weight: 900;
+                width: 100%;
+                text-align: center;
+                margin: 10px 0 10px 0;
+            }
         }
     }
 

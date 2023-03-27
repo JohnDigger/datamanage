@@ -118,12 +118,6 @@
                 background: linear-gradient(0deg, #233e97, rgba(0, 0, 0, 0) 30%,
                     rgba(0, 0, 0, 0) 70%, #345ad6);
             }
-            .login-input:focus {
-                outline: none;
-            }
-            .login-input::placeholder {
-               color: #f1f1f1;
-            }
             .login-button {
                 font-size: 18px;
                 color: white;

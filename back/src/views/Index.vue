@@ -25,21 +25,21 @@
                 <div class="block-box-title">添加区域</div> 
                 <div>
                     <label for="name">区域名称：</label>
-                    <input type="text" id="name" v-model="form.name">
+                    <input style="width: 250px;" type="text" id="name" v-model="form.name">
                 </div>
                 <div>
                     <label for="host">二级域名：</label>
-                    <input type="text" id="host" v-model="form.host">.weutech.com
+                    <input style="width: 150px;" type="text" id="host" v-model="form.host">.weutech.com
                 </div>
                 <div>
                     <label for="serice">平台服务：</label>
-                    <input type="text" id="serice" v-model="form.service">
+                    <input style="width: 250px;" class="long-input" type="text" id="serice" v-model="form.service">
                 </div>
                 <div>
                     <label for="startTime">服务期限：</label>
-                    <input type="date" id="startTime" v-model="form.startTime" style="text-indent: 0px;">
+                    <input style="width: 110px; text-indent: 0px;" type="date" id="startTime" v-model="form.startTime">
                     <label for="endTime"> 至 </label>
-                    <input type="date" id="endTime" v-model="form.endTime" style="text-indent: 0px;">
+                    <input style="width: 110px; text-indent: 0px;" type="date" id="endTime" v-model="form.endTime">
                 </div>
                 <div style="float: right; display: flex;">
                     <div @click="block = false" class="input-button">取消</div>
