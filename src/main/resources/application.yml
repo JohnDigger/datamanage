@@ -10,8 +10,6 @@ server:
 #  port: 8098
   servlet:
     context-path: /
-
-
 spring:
   # 环境 dev|test|prod
   profiles:
