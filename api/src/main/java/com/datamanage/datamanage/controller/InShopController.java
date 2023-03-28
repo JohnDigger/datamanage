@@ -54,18 +54,8 @@ public class InShopController {
     @Autowired
     private InShopDao inShopDao;
     @RequestMapping("/save")
-    public R save(@RequestBody Map<String, Object> params){
-//    public R save(@RequestBody RequestEntity requestEntity){
-//        List<InShopEntity> list = (List<InShopEntity>) params.get("list");
-//        list.forEach(ele ->{
-//
-//            InShopEntity inShopEntity = new InShopEntity();
-//            inShopEntity.setIndex(ele.getIndex());
-//            inShopEntity.setName(ele.getName());
-//            inShopEntity.setBelongTo(ele.getBelongTo());
-//            inShopService.save(inShopEntity);
-//        });
-        List<Map<String, Object>> list = (List<Map<String, Object>>) params.get("list");
+    public R save(@RequestBody Object params){
+        List<Map<String, Object>> list = (List<Map<String, Object>>) params;
         for (Map<String, Object> obj : list) {
             int index = (int) obj.get("index");
             String name = (String) obj.get("name");
@@ -84,8 +74,9 @@ public class InShopController {
             inShopEntity.setDataAddress(dataAddress);
 //            inShopEntity.setSaleNum(saleNum);
 //            inShopEntity.setSaleMoney(saleMoney);
-            inShopService.save(inShopEntity);
+//            inShopService.save(inShopEntity);
 //            inShopDao.insert(inShopEntity);
+            inShopDao.insertInShop(index, name, belongTo, dataAddress, time);
         }
 
         return R.ok();

@@ -19,6 +19,6 @@ import java.util.List;
 public interface InShopDao extends BaseMapper<InShopEntity> {
 	@Select("SELECT * FROM in_shop WHERE in_shop.data_address = #{address} ORDER BY in_shop.sale_money")
     List<InShopEntity> getAll(String address);
-	@Insert("INSERT INTO in_shop (index, name,belongTo,dataAddress,time) VALUES (#{index}, #{name},#{belongTo},#{dataAddress},#{time}))")
-    int insert(InShopEntity inShopEntity);
+    @Insert("INSERT INTO in_shop(`index`, `name`, `belong_to`, `data_address`, `time`) VALUES (#{index},#{name},#{belongTo},#{dataAddress},#{time})")
+    void insertInShop(Integer index, String name, String belongTo, String dataAddress, String time);
 }
