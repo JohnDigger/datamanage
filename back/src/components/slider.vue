@@ -79,7 +79,7 @@ export default {
             var minLeft; // 滑块左侧的滑块坐标
             var maxLeft; // 滑块右侧滑块的坐标
             var handle = false; // 是否点击滑块
-            var divWidth = $(".f-hk").width() + 2; // 滑块宽 + 边框
+            var divWidth = $(".f-hk").outerWidth(); // 滑块宽 + padding + border
 
             // 鼠标点击
             $(".f-hk").mousedown(function (e) {
@@ -137,14 +137,14 @@ export default {
                         
                         // 百分比列表赋值
                         if (index != $(".f-hk").length - 1) {
-                            that.dataList[index].percent = Math.round(that.percentList[index + 1] - myTip < 1 ? 0 : that.percentList[index + 1] - myTip);
-                            that.dataList[index - 1].percent = Math.round(myTip - that.percentList[index - 1] < 1 ? 0 : myTip - that.percentList[index - 1]);
+                            that.dataList[index].percent = Math.round(that.percentList[index + 1] - myTip);
+                            that.dataList[index - 1].percent = Math.round(myTip - that.percentList[index - 1]);
                             that.divWidthList[index] = that.percentList[index + 1] - myTip;
                             that.divWidthList[index - 1] = myTip - that.percentList[index - 1];
                         }
                         else {
-                            that.dataList[index].percent = Math.round(100 - myTip < 1 ? 0 : 100 - myTip);
-                            that.dataList[index - 1].percent = Math.round(myTip - that.percentList[index - 1] < 1 ? 0 : myTip - that.percentList[index - 1]);
+                            that.dataList[index].percent = Math.round(100 - myTip);
+                            that.dataList[index - 1].percent = Math.round(myTip - that.percentList[index - 1]);
                             that.divWidthList[index] = 100 - myTip;
                             that.divWidthList[index - 1] = myTip - that.percentList[index - 1];
                         }

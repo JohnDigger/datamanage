@@ -79,8 +79,7 @@
             <div class="view-obj-bing" v-for="item, index in objList" :key="index">
                 <div class="view-obj-type">
                     <div style="display: flex;">
-                        <div class="view-obj-rect"
-                            :style="`background: ${colorList[index]};`">
+                        <div class="view-obj-rect" :style="`background: ${colorList[index]};`">
                         </div>
                         <div>&nbsp;{{ item.name }}</div>
                     </div>
@@ -93,420 +92,522 @@
             <Slider :data-list="objList"></Slider>
         </div><br><br>
         <!-- 重点渠道 -->
-        <div class="view-title">
+        <!-- <div class="view-title">
             <div class="view-time">实物型重点渠道</div>
-        </div><br><br>
+        </div><br><br> -->
+
         <!-- 服务型行业 -->
         <div class="view-title">
             <div class="view-time">服务型行业</div>
             <div class="view-beizhu">注：各个品类数据依次为总额，总量，比例</div>
+        </div>
+        <div class="view-obj">
+            <div>
+                <label for="obj-sale-money">网络零售额：</label>
+                <input type="text" id="obj-sale-money" v-model="service.serviceSaleMoney" /> 元
+            </div>
+            <div>
+                <label for="obj-sale-num">网络零售量：</label>
+                <input type="text" id="obj-sale-num" v-model="service.serviceSaleNum" /> 件
+            </div>
+            <hr>
+            <div class="view-obj-bing" v-for="item, index in serviceList" :key="index">
+                <div class="view-obj-type">
+                    <div style="display: flex;">
+                        <div class="view-obj-rect" :style="`background: ${colorList[index]};`">
+                        </div>
+                        <div>&nbsp;{{ item.name }}</div>
+                    </div>
+                    <input type="text" :value="item.money">
+                    <input type="text" :value="item.num">
+                    <div>{{ item.percent }}%</div>
+                </div>
+            </div>
+            <!-- 百分条 -->
+            <!-- <Slider :data-list="serviceList"></Slider> -->
         </div><br><br>
-		
 
-		
-		
         <!-- 重点网商列表 -->
-		<div class="view-title">
-		    <div class="view-time">重点网商列表</div>
-		</div><br>
-		
-		<div class="key-netproviders">
-			<br>
-			
-			<div class="data-operate">
-				<button class="add-data" @click="addData">
-					增加
-				</button>
-				<button class="delete-data" @click="deleteData">
-					删除
-				</button>
-			</div>
-			
-			<div class="add-key-netprovider" v-for="(div,index) in divs" :key="index">
-				<label for="providerName">店铺名称：</label>
-				<input type="text" id="providerName" v-model="div.name">
-				
-				<label for="providerPlatform">所属平台：</label>
-				<input type="text" id="providerPlatform" v-model="div.platform">
-				
-			</div><br>
-		</div><br><br>
+        <div class="view-title">
+            <div class="view-time">重点网商列表</div>
+        </div><br>
+
+        <div class="key-netproviders">
+            <br>
+
+            <div class="data-operate">
+                <div class="add-data" @click="addData" style="white-space: nowrap; padding: 5px 15px; user-select: none; border-radius: 5px;">
+                    增加
+                </div>
+                <div class="delete-data" @click="deleteData" style="white-space: nowrap; padding: 5px 15px; user-select: none; border-radius: 5px;">
+                    删除
+                </div>
+            </div>
+
+            <div class="add-key-netprovider" v-for="(div, index) in divs" :key="index">
+                <label for="providerName">店铺名称：</label>
+                <input type="text" id="providerName" v-model="div.name">
+
+                <label for="providerPlatform">所属平台：</label>
+                <input type="text" id="providerPlatform" v-model="div.platform">
+
+            </div><br>
+        </div><br><br>
         <!-- 农产品列表 -->
-		<div class="view-title">
-		    <div class="view-time">年度零售数据趋势分析</div>
-		</div><br><br>
-		
-		<div class="annual-data">
-			  <div class="grid-container">
-			    <div v-for="(item, index) in items" :key="index" class="grid-item">
-			      <div class="item-content">
-					  <h3>{{item.month}}月</h3>
-					  <div class="add-annual-data">
-						<label for="providerName">零售额：</label>
-						<input type="text" id="providerName" v-model="item.retailSales"> 万元
-						<br><br>
-						<label for="providerName">零售量：</label>
-						<input type="text" id="providerName" v-model="item.countSales"> 万件
-					  </div>
-				  </div>
-			    </div>
-			  </div>
-			  
-			  
-		</div>
-		
+        <div class="view-title">
+            <div class="view-time">农产品行业交易分析</div>
+        </div><br>
+        <div class="annual-data">
+            <div class="grid-container" style="height: 370px;">
+                <div v-for="(item, index) in 6" :key="index" class="grid-item">
+                    <div class="item-content">
+                        <div class="add-annual-data">
+                            <label for="providerName">名字：</label>
+                            <input type="text" id="providerName" v-model="item.retailSales">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <label for="providerName">零售额：</label>
+                            <input type="text" id="providerName" v-model="item.retailSales"> 万元
+                            <br>
+                            <label for="providerName">零售量：</label>
+                            <input type="text" id="providerName" v-model="item.countSales"> 万件
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+
+        <!-- 年度趋势分析 -->
+        <div class="view-title">
+            <div class="view-time">年度零售数据趋势分析</div>
+        </div><br>
+        <div class="annual-data">
+            <div class="grid-container">
+                <div v-for="(item, index) in items" :key="index" class="grid-item">
+                    <div class="item-content">
+                        <h3>{{ item.month }}月</h3>
+                        <div class="add-annual-data">
+                            <label for="providerName">零售额：</label>
+                            <input type="text" id="providerName" v-model="item.retailSales"> 万元
+                            <br><br>
+                            <label for="providerName">零售量：</label>
+                            <input type="text" id="providerName" v-model="item.countSales"> 万件
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 提交按钮 -->
+        <div style="width: 100px; height: 36px; background: #2746aa;
+            margin: 20px auto; line-height: 36px; border-radius: 5px;">
+            提交
+        </div>
     </div>
 </template>
 
 <script>
-    import Slider from '../slider.vue'
-    export default {
-        name: 'data1',
-        props: {
-            month: String
-        },
-        components: {
-            Slider
-        },
-        data() {
-            return {
-                totalMoney: 0, // 全网销售额
-                totalNum: 0, // 全网销售量
-                shopNum: 0, // 店铺数量
-                serviceAddMoney: 0, // 服务站累计交易额
-                totalServiceNum: 0, // 服务站总数量
-                wl: { // 网零发展指数部分
-                    devlopment: 0,
-                    saleMoney: 0,
-                    shopNum: 0,
-                    saleNum: 0,
-                    worker: 0
+import Slider from '../slider.vue'
+export default {
+    name: 'data1',
+    props: {
+        month: String
+    },
+    components: {
+        Slider
+    },
+    data() {
+        return {
+            totalMoney: 0, // 全网销售额
+            totalNum: 0, // 全网销售量
+            shopNum: 0, // 店铺数量
+            serviceAddMoney: 0, // 服务站累计交易额
+            totalServiceNum: 0, // 服务站总数量
+            wl: { // 网零发展指数部分
+                devlopment: 0,
+                saleMoney: 0,
+                shopNum: 0,
+                saleNum: 0,
+                worker: 0
+            },
+            colorList: [
+                '#f03e3e', '#d6336c', '#ae3ec9', '#7048e8', '#4263eb', '#1c7ed6',
+                '#1098ad', '#0ca678', '#37b24d', '#74b816', '#f59f00', '#f76707'
+            ],
+            obj: { // 实物型
+                objSaleMoney: 1000,
+                objSaleNum: 10
+            },
+            objList: [
+                {
+                    name: '母婴',
+                    money: 100,
+                    percent: 10,
+                    num: 1
                 },
-                obj: { // 实物型
-                    objSaleMoney: 1000,
-                    objSaleNum: 50
+                {
+                    name: '食品酒水',
+                    money: 200,
+                    percent: 20,
+                    num: 2
                 },
-                objList: [
-                    {
-                        name: '母婴',
-                        money: 100,
-                        percent: 10,
-                        num: 1
-                    },
-                    {
-                        name: '食品酒水',
-                        money: 200,
-                        percent: 20,
-                        num: 2
-                    },
-                    {
-                        name: '家具家装',
-                        money: 300,
-                        percent: 30,
-                        num: 3
-                    },
-                    {
-                        name: '户外运动',
-                        money: 400,
-                        percent: 40,
-                        num: 4
-                    }
-                ],
-                colorList: [
-                    '#f03e3e',
-                    '#d6336c',
-                    '#ae3ec9',
-                    '#7048e8',
-                    '#4263eb',
-                    '#1c7ed6',
-                    '#1098ad',
-                    '#0ca678',
-                    '#37b24d',
-                    '#74b816',
-                    '#f59f00',
-                    '#f76707'
-                ],
-				
-				divs: [], // 存放动态创建的 div 元素
-				nextId: 1, // 用于生成每个 div 的唯一标识符
-				
-				provider:{
-					name:"",
-					flatform:""
-				},
+                {
+                    name: '家具家装',
+                    money: 300,
+                    percent: 30,
+                    num: 3
+                },
+                {
+                    name: '户外运动',
+                    money: 400,
+                    percent: 40,
+                    num: 4
+                }
+            ],
+            service: { // 服务型
+                serviceSaleMoney: 3200,
+                serviceSaleNum: 32
+            },
+            serviceList: [
+                {
+                    name: '在线餐饮',
+                    money: 400,
+                    percent: 10,
+                    num: 4
+                },
+                {
+                    name: '拍卖',
+                    money: 400,
+                    percent: 15,
+                    num: 4
+                },
+                {
+                    name: '虚拟商品',
+                    money: 400,
+                    percent: 5,
+                    num: 4
+                },
+                {
+                    name: '休闲娱乐',
+                    money: 400,
+                    percent: 20,
+                    num: 4
+                },
+                {
+                    name: '医疗健康',
+                    money: 400,
+                    percent: 25,
+                    num: 4
+                },
+                {
+                    name: '在线旅游',
+                    money: 400,
+                    percent: 15,
+                    num: 4
+                },
+                {
+                    name: '生活服务',
+                    money: 400,
+                    percent: 5,
+                    num: 4
+                },
+                {
+                    name: '教育培训',
+                    money: 400,
+                    percent: 5,
+                    num: 4
+                }
+            ],
 
-				
-				  items: [
-					  {
-						  month:1,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:2,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:3,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:4,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:5,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:6,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:7,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:8,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:9,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:10,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:11,
-						retailSales:"",
-						countSales:""
-					  },
-					  {
-						  month:12,
-						retailSales:"",
-						countSales:""
-					  },
-				  ]
+            divs: [], // 存放动态创建的 div 元素
+            nextId: 1, // 用于生成每个 div 的唯一标识符
+
+            provider: {
+                name: "",
+                flatform: ""
+            },
+            items: [
+                {
+                    month: 1,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 2,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 3,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 4,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 5,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 6,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 7,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 8,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 9,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 10,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 11,
+                    retailSales: "",
+                    countSales: ""
+                },
+                {
+                    month: 12,
+                    retailSales: "",
+                    countSales: ""
+                },
+            ]
+        }
+    },
+    mounted() {
+
+        this.calcPercent()
+    },
+
+    created() {
+        // 创建一个初始的 div 元素对象，并添加到 divs 数组中
+        const initialDiv = {
+            id: this.nextId++,
+            name: "",
+            flatform: ""
+        }
+        this.divs.push(initialDiv)
+        // var annualData = {
+        //   month:0,
+        //   retailSales:"",
+        //   countSales:""
+        // }
+
+        // for (let i=1;i<=12;i++){
+        // 	annualData.month++;
+        // 	this.annualDatas.push(annualData);
+        // 	console.log(annualData);
+        // }
+
+        // console.log(this.annualDatas)
+    },
+
+    methods: {
+        calcPercent() {
+            for (var i = 0; i < this.objList.length; i++) {
+                this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
             }
         },
-        mounted() {
 
-            this.calcPercent()
+        addData() {
+            console.log("添加数据");
+
+            const newDiv = {
+                id: this.nextId++,
+                name: "",
+                flatform: ""
+            }
+            this.divs.push(newDiv)
         },
-		
-		  created() {
-			// 创建一个初始的 div 元素对象，并添加到 divs 数组中
-			const initialDiv = {
-			  id: this.nextId++,
-			  name:"",
-			  flatform:""
-			}
-			this.divs.push(initialDiv)
-			// var annualData = {
-			//   month:0,
-			//   retailSales:"",
-			//   countSales:""
-			// }
-			
-			// for (let i=1;i<=12;i++){
-			// 	annualData.month++;
-			// 	this.annualDatas.push(annualData);
-			// 	console.log(annualData);
-			// }
-			
-			// console.log(this.annualDatas)
-		  },
-		
-        methods: {
-            calcPercent(){
-                for(var i=0; i<this.objList.length; i++){
-                    this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
-                }
-            },
-			
-			addData(){
-				console.log("添加数据");
-				
-				  const newDiv = {
-					id: this.nextId++,
-					name:"",
-					flatform:""
-				  }
-				  this.divs.push(newDiv)
-			},
-			
-			deleteData(){
-				console.log("删除数据");
-				  if (this.divs.length > 0) {
-					this.divs.pop()
-				}
-			}
-        },
-    }
+
+        deleteData() {
+            console.log("删除数据");
+            if (this.divs.length > 0) {
+                this.divs.pop()
+            }
+        }
+    },
+}
 </script>
 
 <style lang="less" scoped>
-    label {
-        font-size: 16px;
+label {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 150px;
+}
+
+hr {
+    width: 120%;
+}
+
+.view-title {
+
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    .view-time {
+        font-size: 28px;
         font-weight: 600;
-        display: inline-block;
-        min-width: 150px;
-    }
-    hr {
-        width: 120%;
     }
 
-    .view-title {
-		
+    .view-beizhu {
+        border: 1px #fff solid;
+        background: #2746aa;
+        padding: 5px 15px 5px 15px;
+    }
+}
+
+.view-total {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0 0 0;
+
+    .total-box {
         display: flex;
-        justify-content: space-between;
-        align-content: center;
-        .view-time {
-            font-size: 28px;
-            font-weight: 600;
-        }
-        .view-beizhu {
-            border: 1px #fff solid;
-            background: #2746aa;
-            padding: 5px 15px 5px 15px;
-        }
-    }
+        flex-direction: column;
+        align-items: flex-start;
+        width: 34%;
+        border: 1px white solid;
+        // transform: skewX(10deg);
+        padding: 0 0 15px 0;
 
-    .view-total {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 10px 0 0 0;
-        .total-box {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 34%;
-            border: 1px white solid;
-            // transform: skewX(10deg);
-            padding: 0 0 15px 0;
-            
-            &>div {
-                // transform: skewX(-10deg);
-                margin: 10px 0 0 10px;
-            }
+        &>div {
+            // transform: skewX(-10deg);
+            margin: 10px 0 0 10px;
+        }
 
-            .little-title {
-                font-size: 18px;
-                font-weight: 900;
-                width: 100%;
-                text-align: center;
-                margin: 10px 0 10px 0;
-            }
+        .little-title {
+            font-size: 18px;
+            font-weight: 900;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0 10px 0;
         }
     }
+}
 
-    .view-obj {
+.view-obj {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px white solid;
+    padding: 5px 0 10px 0;
+    margin: 10px 0 0 0;
+
+    &>div {
+        margin: 10px 20px 0 20px;
+    }
+
+    .view-obj-bing {
         display: flex;
         flex-wrap: wrap;
-        border: 1px white solid;
-        padding: 5px 0 10px 0;
-        margin: 10px 0 0 0;
-        &> div {
-            margin: 10px 20px 0 20px;
-        }
-        .view-obj-bing{
+
+        .view-obj-type {
             display: flex;
             flex-wrap: wrap;
-            .view-obj-type {
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: column;
-                line-height: 26px;
-                margin: 0 20px 0 0;
-                .view-obj-rect {
-                    height: 24px;
-                    width: 24px;
-                    // border: 1px #999999 solid;
-                    box-shadow: 1px 1px 3px 0 #b3beff;
-                }
-                &> input {
-                    margin-top: 3px;
-                    width: 90px;
-                }
+            flex-direction: column;
+            line-height: 26px;
+            margin: 0 20px 0 0;
+
+            .view-obj-rect {
+                height: 24px;
+                width: 24px;
+                // border: 1px #999999 solid;
+                box-shadow: 1px 1px 3px 0 #b3beff;
             }
-        }
-        .obj-percent {
-            width: 100%;
-            height: 32px;
-            border-radius: 5px;
-            overflow: hidden;
-            display: flex;
-            margin-right: 20px;
-            .percent-rect {
-                height: 32px;
+
+            &>input {
+                margin-top: 3px;
+                width: 90px;
             }
         }
     }
-	
-	.key-netproviders{
-		border: 1px white solid;
-		
-		.data-operate{
-			display: flex;
-			flex: rows;
-			margin: auto;
-			width: 13%;
 
-			
-			.add-data{
+    .obj-percent {
+        width: 100%;
+        height: 32px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        margin-right: 20px;
 
-				background-color: #2057aa;
-				color: white;
+        .percent-rect {
+            height: 32px;
+        }
+    }
+}
 
-			}
-			.delete-data{
+.key-netproviders {
+    border: 1px white solid;
 
-				margin-left: 30%;
-				background-color: #aa103e;
-				color: white;
-			}
-		}
-		
-		.add-key-netprovider{
-			display: flex;
-			flex: rows;
-			width: 60%;
-			margin: auto;
-			margin-top: 10px;
+    .data-operate {
+        display: flex;
+        flex: rows;
+        margin: auto;
+        width: 13%;
 
-		}
-	}
-	
-	.annual-data{
-		border: 1px white solid;
-		.grid-container {
-		  display: grid;
-		  grid-template-columns: repeat(2, 1fr);
-		  grid-template-rows: repeat(6, 1fr);
-		  gap: 10px;
 
-		}
+        .add-data {
 
-		.grid-item {
-		  padding: 10px;
+            background-color: #2057aa;
+            color: white;
 
-		}
+        }
 
-		.item-content {
+        .delete-data {
 
-		  padding: 10px;
-		  text-align: center;
-		}
-	}
-</style>
+            margin-left: 30%;
+            background-color: #aa103e;
+            color: white;
+        }
+    }
+
+    .add-key-netprovider {
+        display: flex;
+        flex: rows;
+        width: 60%;
+        margin: auto;
+        margin-top: 10px;
+
+    }
+}
+
+.annual-data {
+    border: 1px white solid;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+
+    }
+
+    .grid-item {
+        padding: 10px;
+
+    }
+
+    .item-content {
+
+        padding: 10px;
+        text-align: center;
+    }
+}</style>
