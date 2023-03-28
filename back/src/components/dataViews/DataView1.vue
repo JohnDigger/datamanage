@@ -427,12 +427,33 @@ export default {
             }
         },
         submit(){
-          console.log(this.items)
+          this.submitPanel()
           request.request({
             url: '/back/inshop/save',
             method: 'POST',
             data: {
               list: this.divs
+            }
+          }).then(res => {
+            if (res.status === 200){
+              this.$message({
+                type: 'success',
+                message: '添加成功'
+              });
+            }
+          }).catch(err => {
+            console.log(err)
+            // this.$router.push('/month')
+          })
+          let data = []
+          this.items.forEach((ele)=>{
+            data.push({dateTime:this.$route.query.selectMonth.substring(0,4)+ele.month.toString().padStart(2, '0'),yearMoney: ele.retailSales,yearCount: ele.countSales,dataAddress:this.$route.query.areaName})
+          })
+          request.request({
+            url: '/back/inallyeartrend/save',
+            method: 'POST',
+            data: {
+              list: data
             }
           }).then(res => {
             if (res.status === 200){
@@ -492,6 +513,51 @@ export default {
           console.log(err)
           // this.$router.push('/month')
         })
+
+        request.request({
+          url: '/back/indetailpanel/save',
+          method: 'POST',
+          data: {
+            time: this.$route.query.selectMonth,
+            dataAddress: this.$route.query.areaName,
+            detailMoney: this.obj.objSaleMoney,
+            detailNum: this.obj.objSaleNum,
+            type: 'sale'
+          }
+        }).then(res => {
+          if (res.status === 200){
+            this.$message({
+              type: 'success',
+              message: '添加成功'
+            });
+          }
+        }).catch(err => {
+          console.log(err)
+          // this.$router.push('/month')
+        })
+
+        request.request({
+          url: '/back/indetailpanel/save',
+          method: 'POST',
+          data: {
+            time: this.$route.query.selectMonth,
+            dataAddress: this.$route.query.areaName,
+            detailMoney: this.service.serviceSaleMoney,
+            detailNum: this.service.serviceSaleNum,
+            type: 'service'
+          }
+        }).then(res => {
+          if (res.status === 200){
+            this.$message({
+              type: 'success',
+              message: '添加成功'
+            });
+          }
+        }).catch(err => {
+          console.log(err)
+          // this.$router.push('/month')
+        })
+
       },
 
     },

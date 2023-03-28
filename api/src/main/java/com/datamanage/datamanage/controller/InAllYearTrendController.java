@@ -1,9 +1,11 @@
 package com.datamanage.datamanage.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.datamanage.datamanage.entity.InAllYearTrendEntity;
+import com.datamanage.datamanage.entity.RequestEntity;
 import com.datamanage.datamanage.service.InAllYearTrendService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
@@ -49,9 +51,26 @@ public class InAllYearTrendController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InAllYearTrendEntity inAllYearTrend){
-		inAllYearTrendService.save(inAllYearTrend);
+//    public R save(@RequestBody InAllYearTrendEntity inAllYearTrend){
+    public R save(@RequestBody Map<String, Object> params) {
+//		inAllYearTrendService.save(inAllYearTrend);
+        List<Map<String, Object>> list = (List<Map<String, Object>>) params.get("list");
+        for (Map<String, Object> obj : list) {
+            String dateTime = (String) obj.get("dateTime");
+            String yearMoney = (String) obj.get("yearMoney");
+            String yearCount = (String) obj.get("yearCount");
+            String dataAddress = (String) obj.get("dataAddress");
+            if (yearCount != null && yearMoney != null){
+                System.out.println(yearCount);
+                InAllYearTrendEntity inAllYearTrendEntity = new InAllYearTrendEntity();
+                inAllYearTrendEntity.setDateTime(dateTime);
+                inAllYearTrendEntity.setYearMoney(yearMoney);
+                inAllYearTrendEntity.setYearCount(yearCount);
+                inAllYearTrendEntity.setDataAddress(dataAddress);
+                inAllYearTrendService.save(inAllYearTrendEntity);
+            }
 
+        }
         return R.ok();
     }
 

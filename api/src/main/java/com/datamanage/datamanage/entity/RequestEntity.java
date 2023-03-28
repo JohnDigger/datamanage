@@ -14,5 +14,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestEntity {
-    private List<InShopEntity> inShopEntities;
+    private List<InAllYearTrendEntity> inAllYearTrendEntities;
 }
