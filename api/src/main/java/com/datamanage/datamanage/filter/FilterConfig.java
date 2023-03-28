@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     @Bean
-    public FilterRegistrationBean registryFilter() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
+    public FilterRegistrationBean<CorsFilter> registryFilter() {
+        FilterRegistrationBean<CorsFilter> registration = new FilterRegistrationBean<>();
         registration.setFilter(new CorsFilter()); // 添加过滤的类
         registration.addUrlPatterns("/*"); // 设置过滤地址
         registration.setName("CorsFilter"); // 设置过滤器名字

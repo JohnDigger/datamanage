@@ -7,9 +7,12 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /**
- * 
- * 
+ *
+ *
  * @author ${author}
  * @email ${email}
  * @date 2023-03-24 09:57:09
@@ -20,15 +23,17 @@ public class FrontMonthEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 *
 	 */
 	@TableId
 	private Integer id;
 	/**
-	 * 
+	 *
 	 */
+	@NotEmpty
+	@NotNull
 	private String frontDate;
 
-	private String dataAddress;
+	private String dataAddressId;
 
 }

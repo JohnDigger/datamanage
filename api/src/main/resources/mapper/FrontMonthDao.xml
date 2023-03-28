@@ -7,7 +7,7 @@
     <resultMap type="com.datamanage.datamanage.entity.FrontMonthEntity" id="frontMonthMap">
         <result property="id" column="id"/>
         <result property="frontDate" column="front_date"/>
-        <result property="dataAddress" column="data_address"/>
+        <result property="dataAddressId" column="data_address_id"/>
     </resultMap>
 
 

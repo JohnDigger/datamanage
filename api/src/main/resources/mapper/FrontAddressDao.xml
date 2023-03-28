@@ -7,6 +7,8 @@
     <resultMap type="com.datamanage.datamanage.entity.FrontAddressEntity" id="frontAddressMap">
         <result property="id" column="id"/>
         <result property="dataAddress" column="data_address"/>
+        <result property="platformService" column="platform_service"/>
+        <result property="level2Url" column="level2_url"/>
     </resultMap>
 
 

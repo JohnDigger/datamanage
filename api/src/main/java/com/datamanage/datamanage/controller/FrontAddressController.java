@@ -1,34 +1,39 @@
 package com.datamanage.datamanage.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.datamanage.datamanage.entity.FrontAddressEntity;
+import com.datamanage.datamanage.entity.FrontMonthEntity;
 import com.datamanage.datamanage.service.FrontAddressService;
+import com.datamanage.datamanage.service.FrontMonthService;
+import com.datamanage.datamanage.utils.DateUtils;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 
 
 /**
- * 
+ *
  *
  * @author ${author}
  * @email ${email}
  * @date 2023-03-24 15:02:27
  */
+@CrossOrigin
 @RestController
 @RequestMapping("back/frontaddress")
 public class FrontAddressController {
     @Autowired
     private FrontAddressService frontAddressService;
-
+    @Autowired
+    private FrontMonthService frontMonthService;
     /**
      * 列表
      */
@@ -54,8 +59,17 @@ public class FrontAddressController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody FrontAddressEntity frontAddress){
+    public R save(@RequestBody @Validated FrontAddressEntity frontAddress,@RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime){
+
 		frontAddressService.save(frontAddress);
+        List<String> dateList = new ArrayList<>();
+        dateList = DateUtils.getYearMonths(startTime,endTime);
+        dateList.forEach(ele ->{
+            FrontMonthEntity frontMonthEntity  = new FrontMonthEntity();
+            frontMonthEntity.setFrontDate(ele);
+            frontMonthEntity.setDataAddressId(String.valueOf(frontAddress.getId()));
+            frontMonthService.save(frontMonthEntity);
+        });
 
         return R.ok();
     }
@@ -78,6 +92,12 @@ public class FrontAddressController {
 		frontAddressService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+    @GetMapping("/insertDate")
+    public void insertDate(@RequestParam("startTime")String startTime,
+                        @RequestParam("endTime")String endTime){
+        System.out.println(DateUtils.getYearMonths(startTime, endTime));
     }
 
 }

@@ -21,7 +21,7 @@
         <!-- 弹出框 -->
         <div v-if="block" class="block-box">
             <div class="block-box-input">
-                <div class="block-box-title">添加日期</div> 
+                <div class="block-box-title">添加日期</div>
                 <div>
                     <label for="name">日期：</label>
                     <input type="text" v-model="inputYear"> 年
@@ -29,7 +29,7 @@
                 </div>
                 <div style="float: right; display: flex;">
                     <div @click="block = false" class="input-button">取消</div>
-                    <div @click="addArea" class="input-button">添加</div>
+                    <div @click="addDate" class="input-button">添加</div>
                 </div>
             </div>
             <div class="block-box-bg"></div>
@@ -41,6 +41,7 @@
     import Bgd from '../components/bgd.vue'
     import Banner from '../components/banner.vue'
     import { useRoute } from 'vue-router'
+    import request from "@/utils/request";
     export default {
         name: 'month',
         components: {
@@ -53,22 +54,8 @@
                 block: false,
                 inputYear: '',
                 inputMonth: '',
-                areaName: route.query.areaName || '',
-                month: [
-                    {name: "2020年3月", isSelect: true},
-                    {name: "2020年4月", isSelect: false},
-                    {name: "2020年5月", isSelect: true},
-                    {name: "2020年6月", isSelect: true},
-                    {name: "2020年7月", isSelect: true},
-                    {name: "2020年8月", isSelect: true},
-                    {name: "2020年9月", isSelect: true},
-                    {name: "2020年10月", isSelect: true},
-                    {name: "2020年11月", isSelect: true},
-                    {name: "2020年12月", isSelect: true},
-                    {name: "2021年1月", isSelect: true},
-                    {name: "2021年2月", isSelect: true},
-                    {name: "2021年3月", isSelect: true}
-                ]
+                areaName: '',
+                month: []
             }
         },
         methods: {
@@ -77,8 +64,50 @@
             },
             openBox() {
                 this.block = true
-            }
+            },
+          init(address) {
+            request.request({
+              url: '/back/frontmonth/list?addressName='+address+'&t='+Date.now()+'&page='+1+'&limit='+100+'&key='+'',
+              method: 'GET',
+              data: {
+
+              }
+            }).then(res => {
+              if (res.status === 200){
+                res.data.page.list.map((item)=>{
+                  this.month.push({name:item.frontDate,isSelect: true})
+                })
+              }
+            }).catch(err => {
+              console.log(err)
+              // this.$router.push('/month')
+            })
+          },
+          addDate(){
+            request.request({
+              url: '/back/frontmonth/save?addressName='+this.areaName,
+              method: 'POST',
+              data: {
+                frontDate: this.inputYear+"-"+this.inputMonth.toString().padStart(2, '0'),
+                dataAddressId: ''
+              }
+            }).then(res => {
+              if (res.status === 200){
+                this.$message({
+                  type: 'success',
+                  message: '添加成功'
+                });
+              }
+            }).catch(err => {
+              console.log(err)
+              // this.$router.push('/month')
+            })
+          }
         },
+      mounted() {
+        this.areaName = this.$route.query.areaName
+        this.init(this.areaName)
+      }
     }
 </script>
 

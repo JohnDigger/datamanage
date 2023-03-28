@@ -149,7 +149,7 @@
                 <input type="text" id="providerName" v-model="div.name">
 
                 <label for="providerPlatform">所属平台：</label>
-                <input type="text" id="providerPlatform" v-model="div.platform">
+                <input type="text" id="providerPlatform" v-model="div.belongTo">
 
             </div><br>
         </div><br><br>
@@ -199,7 +199,7 @@
 
         <!-- 提交按钮 -->
         <div style="width: 100px; height: 36px; background: #2746aa;
-            margin: 20px auto; line-height: 36px; border-radius: 5px;">
+            margin: 20px auto; line-height: 36px; border-radius: 5px;" @click="submit">
             提交
         </div>
     </div>
@@ -207,6 +207,7 @@
 
 <script>
 import Slider from '../slider.vue'
+import request from "@/utils/request";
 export default {
     name: 'data1',
     props: {
@@ -397,9 +398,11 @@ export default {
     created() {
         // 创建一个初始的 div 元素对象，并添加到 divs 数组中
         const initialDiv = {
-            id: this.nextId++,
-            name: "",
-            flatform: ""
+          index: this.nextId++,
+          name: "",
+          belongTo: "",
+          time: this.$route.query.selectMonth,
+          dataAddress: this.$route.query.areaName,
         }
         this.divs.push(initialDiv)
         // var annualData = {
@@ -423,7 +426,27 @@ export default {
                 this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
             }
         },
+        submit(){
+          console.log(this.items)
+          request.request({
+            url: '/back/inshop/save',
+            method: 'POST',
+            data: {
+              list: this.divs
+            }
+          }).then(res => {
+            if (res.status === 200){
+              this.$message({
+                type: 'success',
+                message: '添加成功'
+              });
+            }
+          }).catch(err => {
+            console.log(err)
+            // this.$router.push('/month')
+          })
 
+        },
         addData() {
             console.log("添加数据");
 
@@ -440,7 +463,37 @@ export default {
             if (this.divs.length > 0) {
                 this.divs.pop()
             }
-        }
+        },
+      submitPanel(){
+        request.request({
+          url: '/back/indata/save',
+          method: 'POST',
+          data: {
+            time: this.$route.query.selectMonth,
+            dataAddress: this.$route.query.areaName,
+            totalSaleMoney:this.totalMoney,
+            totalSaleCount: this.totalNum,
+            shopNum: this.shopNum,
+            wlSaleMoney: this.wl.saleMoney,
+            wlSaleNum: this.wl.saleNum,
+            wlDevelopment: this.wl.devlopment,
+            wlShopNum: this.wl.shopNum,
+            wlWorkNum: this.wl.worker
+
+          }
+        }).then(res => {
+          if (res.status === 200){
+            this.$message({
+              type: 'success',
+              message: '添加成功'
+            });
+          }
+        }).catch(err => {
+          console.log(err)
+          // this.$router.push('/month')
+        })
+      },
+
     },
 }
 </script>

@@ -6,16 +6,16 @@
         <div class="login-title title">蔚洋电子商务大数据管理系统</div>
         <div class="login-box">
             <!-- <div class="login-title">登录</div> -->
-            
+
             <div class="login-content">
                 <div>
                     <label for="username"><b>用户名：</b></label>
-                    <input type="text" id="username" placeholder="请输入用户名" 
+                    <input type="text" id="username" placeholder="请输入用户名"
                         class="login-input" autocomplete="off" v-model="username">
                 </div>
                 <div>
                     <label for="password">&nbsp;&nbsp;&nbsp;<b>密码：</b></label>
-                    <input type="password" id="password" placeholder="请输入密码" 
+                    <input type="password" id="password" placeholder="请输入密码"
                         class="login-input" autocomplete="off" v-model="password">
                 </div>
                 <button class="login-button" @click="login">登录</button>
@@ -41,26 +41,42 @@
         methods: {
             // 登录
             login() {
-                request.request({
-                    url: '/login',
-                    method: 'POST',
-                    data: {
-                        username: this.username,
-                        password: this.password
-                    }
-                }).then(res => {
-                    console.log('请求成功')
-                    console.log(res)
-                    this.$message({
-                        type: 'success',
-                        message: '登录成功'
-                    });
-                    this.$router.push('/index')
-                }).catch(err => {
-                    console.log(err)
-                    this.$router.push('/index')
+              if (this.username === "admin"){
+                if (this.password === "admin"){
+                  this.$router.push('/index')
+                }else {
+                  this.$message({
+                    type: 'Warning',
+                    message: '密码错误'
+                  })
+                }
+              }else{
+                this.$message({
+                  message: '用户不存在',
+                  type: 'Warning'
                 })
+              }
             }
+            //     request.request({
+            //         url: '/login',
+            //         method: 'POST',
+            //         data: {
+            //             username: this.username,
+            //             password: this.password
+            //         }
+            //     }).then(res => {
+            //         console.log('请求成功')
+            //         console.log(res)
+            //         this.$message({
+            //             type: 'success',
+            //             message: '登录成功'
+            //         });
+            //         this.$router.push('/index')
+            //     }).catch(err => {
+            //         console.log(err)
+            //         this.$router.push('/index')
+            //     })
+            // }
         },
     }
 </script>
@@ -136,5 +152,5 @@
         }
     }
 
-    
+
 </style>
