@@ -90,19 +90,7 @@
                 </div>
             </div>
             <!-- 百分条 -->
-            <div style="width: 100%; margin-right: 20px;">
-                <div class="block" v-for="item, index in objList" :key="index" style="display: flex;">
-                    <div style="white-space: nowrap;">{{ item.name }}：</div>
-                    <el-slider v-model="item.percent"></el-slider>
-                </div>
-            </div>
-            <div class="obj-percent">
-                <div v-for="item, index in objList" 
-                    :style="`background: ${colorList[index]}; width: ${item.percent}%;`" 
-                    class="percent-rect" :key="index">
-                    <div style="color: white; line-height: 32px;">{{ item.percent }}%</div>
-                </div>
-            </div>
+            <Slider :data-list="objList"></Slider>
         </div><br><br>
         <!-- 重点渠道 -->
         <div class="view-title">
@@ -150,25 +138,25 @@
                     {
                         name: '母婴',
                         money: 100,
-                        percent: 0,
+                        percent: 10,
                         num: 1
                     },
                     {
                         name: '食品酒水',
                         money: 200,
-                        percent: 0,
+                        percent: 20,
                         num: 2
                     },
                     {
                         name: '家具家装',
                         money: 300,
-                        percent: 0,
+                        percent: 30,
                         num: 3
                     },
                     {
                         name: '户外运动',
                         money: 400,
-                        percent: 0,
+                        percent: 40,
                         num: 4
                     }
                 ],
@@ -197,19 +185,7 @@
                     this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
                 }
             },
-            calcWatch(newVal, oldVal) {
-                
-            }
         },
-        watch: {
-            objList: {
-                handler(newVal, oldVal) {
-                    console.log(newVal, '---', oldVal)
-                },
-                deep: true,
-                immediate: true
-            }
-        }
     }
 </script>
 
@@ -274,7 +250,7 @@
         padding: 5px 0 10px 0;
         margin: 10px 0 0 0;
         &> div {
-            margin: 10px 0 0 20px;
+            margin: 10px 20px 0 20px;
         }
         .view-obj-bing{
             display: flex;
