@@ -101,6 +101,10 @@
             <div class="view-time">服务型行业</div>
             <div class="view-beizhu">注：各个品类数据依次为总额，总量，比例</div>
         </div><br><br>
+		
+
+		
+		
         <!-- 重点网商列表 -->
 		<div class="view-title">
 		    <div class="view-time">重点网商列表</div>
@@ -118,12 +122,12 @@
 				</button>
 			</div>
 			
-			<div class="add-key-netprovider" v-for="div in divs" :key="div.id">
+			<div class="add-key-netprovider" v-for="(div,index) in divs" :key="index">
 				<label for="providerName">店铺名称：</label>
-				<input type="text" id="providerName" v-model="provider.name">
+				<input type="text" id="providerName" v-model="div.name">
 				
 				<label for="providerPlatform">所属平台：</label>
-				<input type="text" id="providerPlatform" v-model="provider.platform">
+				<input type="text" id="providerPlatform" v-model="div.platform">
 				
 			</div><br>
 		</div><br><br>
@@ -136,13 +140,13 @@
 			  <div class="grid-container">
 			    <div v-for="(item, index) in items" :key="index" class="grid-item">
 			      <div class="item-content">
-					  <h3>{{item}}月</h3>
+					  <h3>{{item.month}}月</h3>
 					  <div class="add-annual-data">
 						<label for="providerName">零售额：</label>
-						<input type="text" id="providerName" v-model="provider.name"> 万元
+						<input type="text" id="providerName" v-model="item.retailSales"> 万元
 						<br><br>
 						<label for="providerName">零售量：</label>
-						<input type="text" id="providerName" v-model="provider.name"> 万件
+						<input type="text" id="providerName" v-model="item.countSales"> 万件
 					  </div>
 				  </div>
 			    </div>
@@ -225,24 +229,74 @@
 				
 				divs: [], // 存放动态创建的 div 元素
 				nextId: 1, // 用于生成每个 div 的唯一标识符
+				
 				provider:{
 					name:"",
 					flatform:""
 				},
+
 				
 				  items: [
-					'1',
-					'2',
-					'3',
-					'4',
-					'5',
-					'6',
-					'7',
-					'8',
-					'9',
-					'10',
-					'11',
-					'12'
+					  {
+						  month:1,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:2,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:3,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:4,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:5,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:6,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:7,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:8,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:9,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:10,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:11,
+						retailSales:"",
+						countSales:""
+					  },
+					  {
+						  month:12,
+						retailSales:"",
+						countSales:""
+					  },
 				  ]
             }
         },
@@ -255,8 +309,23 @@
 			// 创建一个初始的 div 元素对象，并添加到 divs 数组中
 			const initialDiv = {
 			  id: this.nextId++,
+			  name:"",
+			  flatform:""
 			}
 			this.divs.push(initialDiv)
+			// var annualData = {
+			//   month:0,
+			//   retailSales:"",
+			//   countSales:""
+			// }
+			
+			// for (let i=1;i<=12;i++){
+			// 	annualData.month++;
+			// 	this.annualDatas.push(annualData);
+			// 	console.log(annualData);
+			// }
+			
+			// console.log(this.annualDatas)
 		  },
 		
         methods: {
@@ -271,6 +340,8 @@
 				
 				  const newDiv = {
 					id: this.nextId++,
+					name:"",
+					flatform:""
 				  }
 				  this.divs.push(newDiv)
 			},
@@ -424,10 +495,12 @@
 		  grid-template-columns: repeat(2, 1fr);
 		  grid-template-rows: repeat(6, 1fr);
 		  gap: 10px;
+
 		}
 
 		.grid-item {
 		  padding: 10px;
+
 		}
 
 		.item-content {
