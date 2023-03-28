@@ -102,7 +102,55 @@
             <div class="view-beizhu">注：各个品类数据依次为总额，总量，比例</div>
         </div><br><br>
         <!-- 重点网商列表 -->
+		<div class="view-title">
+		    <div class="view-time">重点网商列表</div>
+		</div><br>
+		
+		<div class="key-netproviders">
+			<br>
+			
+			<div class="data-operate">
+				<button class="add-data" @click="addData">
+					增加
+				</button>
+				<button class="delete-data" @click="deleteData">
+					删除
+				</button>
+			</div>
+			
+			<div class="add-key-netprovider" v-for="div in divs" :key="div.id">
+				<label for="providerName">店铺名称：</label>
+				<input type="text" id="providerName" v-model="provider.name">
+				
+				<label for="providerPlatform">所属平台：</label>
+				<input type="text" id="providerPlatform" v-model="provider.platform">
+				
+			</div><br>
+		</div><br><br>
         <!-- 农产品列表 -->
+		<div class="view-title">
+		    <div class="view-time">年度零售数据趋势分析</div>
+		</div><br><br>
+		
+		<div class="annual-data">
+			  <div class="grid-container">
+			    <div v-for="(item, index) in items" :key="index" class="grid-item">
+			      <div class="item-content">
+					  <h3>{{item}}月</h3>
+					  <div class="add-annual-data">
+						<label for="providerName">零售额：</label>
+						<input type="text" id="providerName" v-model="provider.name"> 万元
+						<br><br>
+						<label for="providerName">零售量：</label>
+						<input type="text" id="providerName" v-model="provider.name"> 万件
+					  </div>
+				  </div>
+			    </div>
+			  </div>
+			  
+			  
+		</div>
+		
     </div>
 </template>
 
@@ -173,18 +221,66 @@
                     '#74b816',
                     '#f59f00',
                     '#f76707'
-                ]
+                ],
+				
+				divs: [], // 存放动态创建的 div 元素
+				nextId: 1, // 用于生成每个 div 的唯一标识符
+				provider:{
+					name:"",
+					flatform:""
+				},
+				
+				  items: [
+					'1',
+					'2',
+					'3',
+					'4',
+					'5',
+					'6',
+					'7',
+					'8',
+					'9',
+					'10',
+					'11',
+					'12'
+				  ]
             }
         },
         mounted() {
+
             this.calcPercent()
         },
+		
+		  created() {
+			// 创建一个初始的 div 元素对象，并添加到 divs 数组中
+			const initialDiv = {
+			  id: this.nextId++,
+			}
+			this.divs.push(initialDiv)
+		  },
+		
         methods: {
             calcPercent(){
                 for(var i=0; i<this.objList.length; i++){
                     this.objList[i].percent = this.objList[i].money / this.obj.objSaleMoney * 100
                 }
             },
+			
+			addData(){
+				console.log("添加数据");
+				
+				  const newDiv = {
+					id: this.nextId++,
+				  }
+				  this.divs.push(newDiv)
+			},
+			
+			deleteData(){
+				console.log("删除数据");
+				  if (this.divs.length > 0) {
+					this.divs.pop()
+				}
+			}
         },
     }
 </script>
@@ -201,6 +297,7 @@
     }
 
     .view-title {
+		
         display: flex;
         justify-content: space-between;
         align-content: center;
@@ -285,4 +382,58 @@
             }
         }
     }
+	
+	.key-netproviders{
+		border: 1px white solid;
+		
+		.data-operate{
+			display: flex;
+			flex: rows;
+			margin: auto;
+			width: 13%;
+
+			
+			.add-data{
+
+				background-color: #2057aa;
+				color: white;
+
+			}
+			.delete-data{
+
+				margin-left: 30%;
+				background-color: #aa103e;
+				color: white;
+			}
+		}
+		
+		.add-key-netprovider{
+			display: flex;
+			flex: rows;
+			width: 60%;
+			margin: auto;
+			margin-top: 10px;
+
+		}
+	}
+	
+	.annual-data{
+		border: 1px white solid;
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: repeat(2, 1fr);
+		  grid-template-rows: repeat(6, 1fr);
+		  gap: 10px;
+		}
+
+		.grid-item {
+		  padding: 10px;
+		}
+
+		.item-content {
+
+		  padding: 10px;
+		  text-align: center;
+		}
+	}
 </style>
