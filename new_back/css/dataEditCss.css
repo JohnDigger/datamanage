@@ -1,0 +1,76 @@
+.boxDiv{
+    width: 80%;
+    margin: auto;
+}
+
+.titleDiv{
+    text-align: center;
+}
+
+.editDiv{
+
+}
+
+.editTitleDiv{
+    text-align: left;
+}
+
+.monthCheckBox{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-left: 25px;
+}
+
+.monthCheckDiv{
+    display: flex;
+    width: 150px;
+
+}
+
+.monthDiv{
+    border: 1px gray solid;
+    width: 125px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    padding: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.monthDiv:hover{
+    cursor: pointer;
+}
+
+.cheakMark{
+    margin-left: -15px;
+    margin-top: -15px;
+    height: 10px;
+}
+
+.cheakMark span:before{
+    content: "\2713"; /* Unicode编码对号图标 */
+    color: #0ce80c; /* 对号图标颜色 */
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.editFooterDiv{
+    text-align: right;
+}
+
+.editFooterDiv button{
+    background-color: white;
+    border: 1px gray solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.editFooterDiv button:active{
+    background-color: gray;
+}
