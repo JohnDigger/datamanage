@@ -54,8 +54,8 @@ public class InShopController {
     @Autowired
     private InShopDao inShopDao;
     @RequestMapping("/save")
-    public R save(@RequestBody Object params){
-        List<Map<String, Object>> list = (List<Map<String, Object>>) params;
+    public R save(@RequestBody Map<String, Object> params){
+        List<Map<String, Object>> list = (List<Map<String, Object>>) params.get("list");
         for (Map<String, Object> obj : list) {
             int index = (int) obj.get("index");
             String name = (String) obj.get("name");

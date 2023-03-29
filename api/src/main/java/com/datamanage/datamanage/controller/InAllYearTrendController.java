@@ -60,7 +60,7 @@ public class InAllYearTrendController {
             String yearMoney = (String) obj.get("yearMoney");
             String yearCount = (String) obj.get("yearCount");
             String dataAddress = (String) obj.get("dataAddress");
-            if (yearCount != null && yearMoney != null){
+            if (yearCount != null && yearMoney != null && !yearCount.equals("") && !yearMoney.equals("")){
                 System.out.println(yearCount);
                 InAllYearTrendEntity inAllYearTrendEntity = new InAllYearTrendEntity();
                 inAllYearTrendEntity.setDateTime(dateTime);
