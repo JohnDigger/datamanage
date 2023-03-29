@@ -1,8 +1,11 @@
+
+let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
+
 $.ajax({
     url: "http://36.133.200.169:8098/back/frontmonth/list",
     type: "GET",
     data: {
-        "addressName": "云州区",
+        "addressName":areaName,
         "t": Date.now(),
         "page": 1,
         "limit": 100,
@@ -30,7 +33,6 @@ function setDate(allDate,dateLength){
 
 
         // 获取年份和月份
-        console.log(allDate[d].frontDate);
         const year = new Date(allDate[d].frontDate).getFullYear();
         const month = new Date(allDate[d].frontDate).getMonth() + 1;
 
@@ -60,3 +62,8 @@ function setDate(allDate,dateLength){
     }
 }
 
+let editNextButton = window.document.getElementById("editNextButton");
+let checkDate = "2021年3月"
+editNextButton.addEventListener("click", function (){
+    window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate;
+})
