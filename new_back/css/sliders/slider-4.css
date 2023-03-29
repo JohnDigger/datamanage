@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.f-hk-4 {
+    position: absolute;
+    top: -3px;
+    height: 26px;
+    width: 8px;
+    z-index: 1;
+    cursor: move;
+}
+
+.f-range-4 {
+    height: 20px;
+    width: 100%;
+    position: relative;
+    background: #70BAFF;
+}
+
+.f-w100-4{
+    width: 100%;
+}
+
+.f-range-tips-4 {
+    display: none;
+    color: #fff;
+    width: 35px;
+    font-size: 12px;
+    height: 22px;
+    line-height: 17px;
+    z-index: 2;
+    position: relative;
+    top: -30px;
+    left: -15px;
+    text-align: center;
+    background-image: url(../../images/rangeNum.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.detail-slider-content-4 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 20px 0;
+}
+.detail-slider-box-4 {
+    display: flex;
+    margin: 0 38px 16px 0;
+}
+.detail-slider-color-4 {
+    width: 24px;
+    height: 20px;
+    box-shadow: 2px 2px 3px 0 #797979;
+    margin: 0 8px 0 0;
+}
+.detail-slider-text-4 {
+    display: flex;
+    flex-direction: column;
+}
+.detail-slider-text-4 > div {
+    padding: 0 0 5px 0;
+}

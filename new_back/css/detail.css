@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+/* all */
+input {
+    width: 100px;
+    height: 20px;
+    border: 1px #797979 solid;
+    vertical-align: middle;
+}
+label {
+    vertical-align: middle;
+}
+select {
+    width: 100px;
+    height: 20px;
+    border: 1px #797979 solid;
+    vertical-align: middle;
+}
+.float-right {
+    float: right;
+}
+.detail-unit {
+    display: inline;
+    vertical-align: middle;
+}
+
+
+/* detail-css */
+.detail-box {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0 20px 0;
+}
+.detail-text {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-little-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.detail-date {
+    font-size: 16px;
+    font-weight: 900;
+}
+.detail-tip {
+    border: 1px #797979 solid;
+    padding: 5px 15px;
+    background: #ffff80;
+}
+
+.detail-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.detail-inputs > div {
+    margin: 0 0 10px 0;
+    line-height: 22px;
+}
+.detail-inputs > div > label {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.detail-first {
+    margin: 20px 0 0 0;
+}
+.detail-first-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.detail-first-title > div > div > label {
+    font-size: 18px;
+    font-weight: 900;
+}
+.detail-title-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 38%;
+}
+
+.shop-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+}
+.shop-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.shop-inputs > div > input {
+    width: 200px;
+}
+.shop-inputs > div > select {
+    width: 200px;
+}
+
+.nong-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.nong-inputs > div > input {
+    width: 120px;
+}
+.nong-inputs > div > select {
+    width: 120px;
+}
+
+.commit-button {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 60px 0;
+    padding: 8px 25px;
+    border-radius: 5px;
+    background: #169bd5;
+    text-align: center;
+    width: 60px;
+    float: right;
+}
