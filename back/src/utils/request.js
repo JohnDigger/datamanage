@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // 地址
-var url = 'http://localhost:8081'
+// var url = 'http://localhost:8081'
+var url = 'http://36.133.200.169:8098'
 
 const service = axios.create({
     baseURL: url,
