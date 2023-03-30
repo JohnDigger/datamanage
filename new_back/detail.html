@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>蔚洋电子商务大数据管理系统</title>
     <link rel="stylesheet" href="./css/detail.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/sliders/slider-1.css">
@@ -24,7 +24,7 @@
 <body>
     <div class="detail-box">
         <!-- no.0 -->
-        <div class="detail-title">蔚洋电子上午大数据管理系统</div>
+        <div class="detail-title">蔚洋电子商务大数据管理系统</div>
         <hr>
         <div class="detail-text">
             <div class="detail-little-title">
@@ -32,19 +32,21 @@
                 <div class="detail-tip">注：全网零售额=实物型总额+服务型总额，全网零售量=实物型零售量+服务型零售量</div>
             </div>
             <div class="detail-inputs">
-                <div>
-                    <div id="qwlse"><b>全网零售额</b>&nbsp;&nbsp;18273198 元</div>
+                <div style="display: flex;">
+                    <div id="qwlse"><b>全网零售额&nbsp;&nbsp;</b>0</div>
+                    <div>&nbsp;元</div>
                 </div>
-                <div>
-                    <div id="lsl"><b>零售量</b>&nbsp;&nbsp;1234531 件</div>
+                <div style="display: flex;">
+                    <div id="lsl"><b>零售量&nbsp;&nbsp;</b>0</div>
+                    <div>&nbsp;件</div>
                 </div>
                 <div>
                     <label for="dpsl">店铺数量</label>
-                    <input type="text" id="dpsl" value="0">
+                    <input type="number" id="dpsl" value="0">
                 </div>
                 <div>
                     <label for="cyry">从业人员</label>
-                    <input type="text" id="cyry" value="0">
+                    <input type="number" id="cyry" value="0">
                 </div>
                 <div>
                     <label for="wlzs">网零指数</label>
@@ -60,12 +62,12 @@
                 <div class="detail-title-content">
                     <div>
                         <label for="swxze">实物型总额</label>
-                        <input type="text" id="swxze" value="1000">
+                        <input type="number" id="swxze" value="1000">
                         <div class="detail-unit">元</div>
                     </div>
                     <div>
                         <label for="swlsl">零售量</label>
-                        <input type="text" id="swlsl" value="100">
+                        <input type="number" id="swlsl" value="100">
                         <div class="detail-unit">件</div>
                     </div>
                 </div>
@@ -227,12 +229,12 @@
                 <div class="detail-title-content" style="width: 45%;">
                     <div>
                         <label for="swxzdqdsj">实物型重点渠道数据</label>
-                        <input type="text" id="swxzdqdsj" value="1000">
+                        <input type="number" id="swxzdqdsj" value="1000">
                         <div class="detail-unit">元</div>
                     </div>
                     <div>
                         <label for="swlslzdqd">零售量</label>
-                        <input type="text" id="swlslzdqd" value="100">
+                        <input type="number" id="swlslzdqd" value="100">
                         <div class="detail-unit">件</div>
                     </div>
                 </div>
@@ -301,12 +303,12 @@
                 <div class="detail-title-content" style="width: 42%;">
                     <div>
                         <label for="ncpjyze">农产品交易总额</label>
-                        <input type="text" id="ncpjyze" value="1000">
+                        <input type="number" id="ncpjyze" value="1000">
                         <div class="detail-unit">元</div>
                     </div>
                     <div>
                         <label for="ncplsl">零售量</label>
-                        <input type="text" id="ncplsl" value="100">
+                        <input type="number" id="ncplsl" value="100">
                         <div class="detail-unit">件</div>
                     </div>
                 </div>
@@ -408,12 +410,12 @@
                 <div class="detail-title-content">
                     <div>
                         <label for="fwxze">服务型总额</label>
-                        <input type="text" id="fwxze" value="1000">
+                        <input type="number" id="fwxze" value="1000">
                         <div class="detail-unit">元</div>
                     </div>
                     <div>
                         <label for="fwlsl">零售量</label>
-                        <input type="text" id="fwlsl" value="100">
+                        <input type="number" id="fwlsl" value="100">
                         <div class="detail-unit">件</div>
                     </div>
                 </div>
@@ -522,12 +524,12 @@
                 <div class="detail-title-content" style="width: 45%;">
                     <div>
                         <label for="fwxzdqdsj">服务型重点渠道数据</label>
-                        <input type="text" id="fwxzdqdsj" value="1000">
+                        <input type="number" id="fwxzdqdsj" value="1000">
                         <div class="detail-unit">元</div>
                     </div>
                     <div>
                         <label for="fwlslzdqd">零售量</label>
-                        <input type="text" id="fwlslzdqd" value="100">
+                        <input type="number" id="fwlslzdqd" value="100">
                         <div class="detail-unit">件</div>
                     </div>
                 </div>
@@ -594,1455 +596,117 @@
         <div>
             <div class="shop-title">实物型店铺TOP10</div>
             <hr>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-1">店铺名称 </label>
-                    <input type="text" id="mc-1">
-                </div>
-                <div>
-                    <label for="wz-1">店铺网址 </label>
-                    <input type="text" id="wz-1">
-                </div>
-                <div>
-                    <label for="ls-1">零售额 </label>
-                    <input type="text" id="ls-1">
-                </div>
-                <div>
-                    <label for="qd-1">渠道 </label>
-                    <select name="" id="qd-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-2">店铺名称 </label>
-                    <input type="text" id="mc-2">
-                </div>
-                <div>
-                    <label for="wz-2">店铺网址 </label>
-                    <input type="text" id="wz-2">
-                </div>
-                <div>
-                    <label for="ls-2">零售额 </label>
-                    <input type="text" id="ls-2">
-                </div>
-                <div>
-                    <label for="qd-2">渠道 </label>
-                    <select name="" id="qd-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-3">店铺名称 </label>
-                    <input type="text" id="mc-3">
-                </div>
-                <div>
-                    <label for="wz-3">店铺网址 </label>
-                    <input type="text" id="wz-3">
-                </div>
-                <div>
-                    <label for="ls-3">零售额 </label>
-                    <input type="text" id="ls-3">
-                </div>
-                <div>
-                    <label for="qd-3">渠道 </label>
-                    <select name="" id="qd-3">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-4">店铺名称 </label>
-                    <input type="text" id="mc-4">
-                </div>
-                <div>
-                    <label for="wz-4">店铺网址 </label>
-                    <input type="text" id="wz-4">
-                </div>
-                <div>
-                    <label for="ls-4">零售额 </label>
-                    <input type="text" id="ls-4">
-                </div>
-                <div>
-                    <label for="qd-4">渠道 </label>
-                    <select name="" id="qd-4">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-5">店铺名称 </label>
-                    <input type="text" id="mc-5">
-                </div>
-                <div>
-                    <label for="wz-5">店铺网址 </label>
-                    <input type="text" id="wz-5">
-                </div>
-                <div>
-                    <label for="ls-5">零售额 </label>
-                    <input type="text" id="ls-5">
-                </div>
-                <div>
-                    <label for="qd-5">渠道 </label>
-                    <select name="" id="qd-5">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-6">店铺名称 </label>
-                    <input type="text" id="mc-6">
-                </div>
-                <div>
-                    <label for="wz-6">店铺网址 </label>
-                    <input type="text" id="wz-6">
-                </div>
-                <div>
-                    <label for="ls-6">零售额 </label>
-                    <input type="text" id="ls-6">
-                </div>
-                <div>
-                    <label for="qd-6">渠道 </label>
-                    <select name="" id="qd-6">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-7">店铺名称 </label>
-                    <input type="text" id="mc-7">
-                </div>
-                <div>
-                    <label for="wz-7">店铺网址 </label>
-                    <input type="text" id="wz-7">
-                </div>
-                <div>
-                    <label for="ls-7">零售额 </label>
-                    <input type="text" id="ls-7">
-                </div>
-                <div>
-                    <label for="qd-7">渠道 </label>
-                    <select name="" id="qd-7">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-8">店铺名称 </label>
-                    <input type="text" id="mc-8">
-                </div>
-                <div>
-                    <label for="wz-8">店铺网址 </label>
-                    <input type="text" id="wz-8">
-                </div>
-                <div>
-                    <label for="ls-8">零售额 </label>
-                    <input type="text" id="ls-8">
-                </div>
-                <div>
-                    <label for="qd-8">渠道 </label>
-                    <select name="" id="qd-8">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-9">店铺名称 </label>
-                    <input type="text" id="mc-9">
-                </div>
-                <div>
-                    <label for="wz-9">店铺网址 </label>
-                    <input type="text" id="wz-9">
-                </div>
-                <div>
-                    <label for="ls-9">零售额 </label>
-                    <input type="text" id="ls-9">
-                </div>
-                <div>
-                    <label for="qd-9">渠道 </label>
-                    <select name="" id="qd-9">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-10">店铺名称 </label>
-                    <input type="text" id="mc-10">
-                </div>
-                <div>
-                    <label for="wz-10">店铺网址 </label>
-                    <input type="text" id="wz-10">
-                </div>
-                <div>
-                    <label for="ls-10">零售额 </label>
-                    <input type="text" id="ls-10">
-                </div>
-                <div>
-                    <label for="qd-10">渠道 </label>
-                    <select name="" id="qd-10">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
+            <script>
+                for (var i=0; i<10; i++){
+                    document.write(
+                        '<div class="shop-inputs" id="sw-shop">' +
+                            '<div>' + 
+                                '<label for="mc-1">店铺名称 </label>' +
+                                '<input type="text" id="mc-1">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="wz-1">店铺网址 </label>' +
+                                '<input type="text" id="wz-1">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="ls-1">零售额 </label>' +
+                                '<input type="text" id="ls-1">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="qd-1">渠道 </label>' +
+                                '<select name="" id="qd-1">' +
+                                    '<option value="" selected>请选择</option>' +
+                                    '<option value="京东">京东</option>' +
+                                    '<option value="天猫">天猫</option>' +
+                                    '<option value="淘宝">淘宝</option>' +
+                                    ' <option value="其他">其他</option>' +
+                                '</select>' +
+                            '</div>' +
+                        '</div>'
+                    )
+                }
+            </script>
         </div><br>
 
         <!-- fw-shop -->
         <div>
             <div class="shop-title">服务型店铺TOP10</div>
             <hr>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-1-1">店铺名称 </label>
-                    <input type="text" id="mc-1-1">
-                </div>
-                <div>
-                    <label for="wz-1-1">店铺网址 </label>
-                    <input type="text" id="wz-1-1">
-                </div>
-                <div>
-                    <label for="ls-1-1">零售额 </label>
-                    <input type="text" id="ls-1-1">
-                </div>
-                <div>
-                    <label for="qd-1-1">渠道 </label>
-                    <select name="" id="qd-1-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-2-1">店铺名称 </label>
-                    <input type="text" id="mc-2-1">
-                </div>
-                <div>
-                    <label for="wz-2-1">店铺网址 </label>
-                    <input type="text" id="wz-2-1">
-                </div>
-                <div>
-                    <label for="ls-2-1">零售额 </label>
-                    <input type="text" id="ls-2-1">
-                </div>
-                <div>
-                    <label for="qd-2-1">渠道 </label>
-                    <select name="" id="qd-2-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-3-1">店铺名称 </label>
-                    <input type="text" id="mc-3-1">
-                </div>
-                <div>
-                    <label for="wz-3-1">店铺网址 </label>
-                    <input type="text" id="wz-3-1">
-                </div>
-                <div>
-                    <label for="ls-3-1">零售额 </label>
-                    <input type="text" id="ls-3-1">
-                </div>
-                <div>
-                    <label for="qd-3-1">渠道 </label>
-                    <select name="" id="qd-3-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-4-1">店铺名称 </label>
-                    <input type="text" id="mc-4-1">
-                </div>
-                <div>
-                    <label for="wz-4-1">店铺网址 </label>
-                    <input type="text" id="wz-4-1">
-                </div>
-                <div>
-                    <label for="ls-4-1">零售额 </label>
-                    <input type="text" id="ls-4-1">
-                </div>
-                <div>
-                    <label for="qd-4-1">渠道 </label>
-                    <select name="" id="qd-4-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-5-1">店铺名称 </label>
-                    <input type="text" id="mc-5-1">
-                </div>
-                <div>
-                    <label for="wz-5-1">店铺网址 </label>
-                    <input type="text" id="wz-5-1">
-                </div>
-                <div>
-                    <label for="ls-5-1">零售额 </label>
-                    <input type="text" id="ls-5-1">
-                </div>
-                <div>
-                    <label for="qd-5-1">渠道 </label>
-                    <select name="" id="qd-5-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-6-1">店铺名称 </label>
-                    <input type="text" id="mc-6-1">
-                </div>
-                <div>
-                    <label for="wz-6-1">店铺网址 </label>
-                    <input type="text" id="wz-6-1">
-                </div>
-                <div>
-                    <label for="ls-6-1">零售额 </label>
-                    <input type="text" id="ls-6-1">
-                </div>
-                <div>
-                    <label for="qd-6-1">渠道 </label>
-                    <select name="" id="qd-6-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-7-1">店铺名称 </label>
-                    <input type="text" id="mc-7-1">
-                </div>
-                <div>
-                    <label for="wz-7-1">店铺网址 </label>
-                    <input type="text" id="wz-7-1">
-                </div>
-                <div>
-                    <label for="ls-7-1">零售额 </label>
-                    <input type="text" id="ls-7-1">
-                </div>
-                <div>
-                    <label for="qd-7-1">渠道 </label>
-                    <select name="" id="qd-7-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-8-1">店铺名称 </label>
-                    <input type="text" id="mc-8-1">
-                </div>
-                <div>
-                    <label for="wz-8-1">店铺网址 </label>
-                    <input type="text" id="wz-8-1">
-                </div>
-                <div>
-                    <label for="ls-8-1">零售额 </label>
-                    <input type="text" id="ls-8-1">
-                </div>
-                <div>
-                    <label for="qd-8-1">渠道 </label>
-                    <select name="" id="qd-8-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-9-1">店铺名称 </label>
-                    <input type="text" id="mc-9-1">
-                </div>
-                <div>
-                    <label for="wz-9-1">店铺网址 </label>
-                    <input type="text" id="wz-9-1">
-                </div>
-                <div>
-                    <label for="ls-9-1">零售额 </label>
-                    <input type="text" id="ls-9-1">
-                </div>
-                <div>
-                    <label for="qd-9-1">渠道 </label>
-                    <select name="" id="qd-9-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div class="shop-inputs">
-                <div>
-                    <label for="mc-10-1">店铺名称 </label>
-                    <input type="text" id="mc-10-1">
-                </div>
-                <div>
-                    <label for="wz-10-1">店铺网址 </label>
-                    <input type="text" id="wz-10-1">
-                </div>
-                <div>
-                    <label for="ls-10-1">零售额 </label>
-                    <input type="text" id="ls-10-1">
-                </div>
-                <div>
-                    <label for="qd-10-1">渠道 </label>
-                    <select name="" id="qd-10-1">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">美团</option>
-                        <option value="天猫">饿了么</option>
-                        <option value="淘宝">美团团购</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
+            <script>
+                for (var i=0; i<10; i++){
+                    document.write(
+                        '<div class="shop-inputs">' +
+                            '<div>' +
+                                '<label for="mc-2">店铺名称 </label>' +
+                                '<input type="text" id="mc-2">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="wz-2">店铺网址 </label>' +
+                                '<input type="text" id="wz-2">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="ls-2">零售额 </label>' +
+                                '<input type="text" id="ls-2">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="qd-2">渠道 </label>' +
+                                '<select name="" id="qd-2">' +
+                                    '<option value="" selected>请选择</option>' +
+                                    '<option value="京东">美团</option>' +
+                                    '<option value="天猫">饿了么</option>' +
+                                    '<option value="淘宝">美团团购</option>' +
+                                    '<option value="其他">其他</option>' +
+                                '</select>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                }
+            </script>
         </div><br>
 
         <!-- nong -->
         <div>
             <div class="shop-title">农产品单品TOP30</div>
             <hr>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="nong-inputs">
-                <div>
-                    <label for="mc-1-2">单品名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="mc-1-2">店铺名称 </label>
-                    <input type="text" id="mc-1-2">
-                </div>
-                <div>
-                    <label for="wz-1-2">店铺网址 </label>
-                    <input type="text" id="wz-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售额 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="ls-1-2">零售量 </label>
-                    <input type="text" id="ls-1-2">
-                </div>
-                <div>
-                    <label for="qd-1-2">渠道 </label>
-                    <select name="" id="qd-1-2">
-                        <option value="" selected>请选择</option>
-                        <option value="京东">京东</option>
-                        <option value="天猫">天猫</option>
-                        <option value="淘宝">淘宝</option>
-                        <option value="其他">其他</option>
-                    </select>
-                </div>
-            </div>
+            <script>
+                for (var i=0; i<30; i++){
+                    document.write(
+                        '<div>' +
+                            '<div class="nong-inputs">' +
+                            '<div>' +
+                                '<label for="mc-3">单品名称 </label>' +
+                                '<input type="text" id="mc-3">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="mc-3">店铺名称 </label>' +
+                                '<input type="text" id="mc-3">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="wz-3">店铺网址 </label>' +
+                                '<input type="text" id="wz-3">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="ls-3">零售额 </label>' +
+                                '<input type="text" id="ls-3">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="ls-3">零售量 </label>' +
+                                '<input type="text" id="ls-3">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="qd-3">渠道 </label>' +
+                                '<select name="" id="qd-3">' +
+                                    '<option value="" selected>请选择</option>' +
+                                    '<option value="京东">京东</option>' +
+                                    '<option value="天猫">天猫</option>' +
+                                    '<option value="淘宝">淘宝</option>' +
+                                    '<option value="其他">其他</option>' +
+                                '</select>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                }
+            </script>
         </div><hr><br>
         
         <!-- commit -->
@@ -2050,6 +714,7 @@
     </div>
 </body>
 
+<script src="./js/detail.js"></script>
 <script src="./js/sliders/slider-1.js"></script>
 <script src="./js/sliders/slider-2.js"></script>
 <script src="./js/sliders/slider-3.js"></script>

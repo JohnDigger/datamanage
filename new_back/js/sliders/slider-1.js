@@ -134,8 +134,6 @@ $(function () {
         }
         var totalWidth = $(".f-w100-1").width() - 8 * (i + 4 - 1 - i);
         var setLeft = parseInt((1 - getVal / 100) * (totalWidth)) + 8 * (i);
-        console.log("totalWidth --> ", totalWidth)
-        console.log("setLeft --> ", setLeft)
         //初始化left值
         $(".f-hk-1").eq(i).css("left", setLeft);
         //初始化值

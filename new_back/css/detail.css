@@ -139,4 +139,5 @@ select {
     text-align: center;
     width: 60px;
     float: right;
+    user-select: none;
 }
