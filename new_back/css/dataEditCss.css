@@ -49,6 +49,7 @@
     margin-left: -15px;
     margin-top: -15px;
     height: 10px;
+    display: none;
 }
 
 .cheakMark span:before{
@@ -56,10 +57,29 @@
     color: #0ce80c; /* 对号图标颜色 */
     font-weight: bolder;
     font-size: 30px;
+
+
 }
 
 .editFooterDiv{
     text-align: right;
+}
+
+.errorDiv{
+    text-align: right;
+
+    display: none;
+    justify-content: flex-end;
+
+
+}
+.errorDiv p{
+
+    text-align: center;
+    font-size: 10px;
+    width: 100px;
+    margin-top: 0;
+    color: red;
 }
 
 .editFooterDiv button{

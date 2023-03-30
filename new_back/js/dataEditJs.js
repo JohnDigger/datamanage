@@ -1,10 +1,15 @@
 
 let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
-let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNjgwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY"
+// let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNj" +
+//     "gwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY";
+let token = window.localStorage.getItem("token");
+
+var allDate = "";
+var dateLength = "";
 
 $.ajax({
-    // url: "http://36.133.200.169:8098/back/frontmonth/list",
-    url: "http://127.0.0.1:8081/back/frontmonth/list",
+    url: "http://36.133.200.169:8098/back/frontmonth/list",
+    // url: "http://127.0.0.1:8081/back/frontmonth/list",
     type: "GET",
     headers: {
         "Authorization": `Bearer ${token}`,
@@ -18,8 +23,9 @@ $.ajax({
         "key": ""
     },
     success: function(data) {
-        let allDate = data.page.list;
-        let dateLength = data.page.list.length;
+
+        allDate = data.page.list;
+        dateLength = data.page.list.length;
         setDate(allDate,dateLength);
     },
     error: function(xhr, status, error) {
@@ -27,16 +33,17 @@ $.ajax({
     }
 });
 
-let lastCheck = null;
+var lastCheck = null;
+let editNextButton = window.document.getElementById("editNextButton");
+
 function mouseDown(event){
     let monthDiv = event.target;
-    console.log(lastCheck);
     if (monthDiv.style.backgroundColor != "skyblue"){
-        // cheakMark.style.display = "block";
+        window.document.getElementById("error").style.display = "none";
+
         monthDiv.style.backgroundColor = "skyblue";
         monthDiv.removeEventListener("mouseenter", mouseEnter);
         monthDiv.removeEventListener("mouseleave", mouseLeave);
-
 
 
         if (lastCheck != null){
@@ -52,7 +59,10 @@ function mouseDown(event){
         monthDiv.addEventListener("mouseleave", mouseLeave);
         lastCheck = null;
     }
+
+
 }
+
 
 function mouseEnter(event){
     let monthDiv = event.target;
@@ -101,13 +111,37 @@ function setDate(allDate,dateLength){
         monthDiv.addEventListener("mouseenter", mouseEnter);
         monthDiv.addEventListener("mouseleave", mouseLeave);
 
+        if (allDate[d].isEdited == "1"){
+            cheakMark.style.display = "block";
+        }
+        else {
+            cheakMark.style.display = "none";
+        }
+
     }
 }
 
-let editNextButton = window.document.getElementById("editNextButton");
-let checkDate = lastCheck;
-
 editNextButton.addEventListener("click", function (){
-    // window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate;
-    console.log(checkDate);
+    // 获取年份和月份
+
+    var checkDate = null;
+
+    for(let d = 0; d <= dateLength-1; d++){
+        const year = new Date(allDate[d].frontDate).getFullYear();
+        const month = new Date(allDate[d].frontDate).getMonth() + 1;
+
+        if (window.document.getElementById(`${year}年${month}月`).style.backgroundColor == "skyblue"){
+            checkDate = allDate[d].frontDate
+
+        }
+    }
+
+    if (checkDate){
+        console.log(checkDate);
+        window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate;
+    }
+    else {
+        window.document.getElementById("error").style.display = "flex";
+    }
+
 })

@@ -10,7 +10,8 @@ function submit(){
         url: "http://36.133.200.169:8098/back/login/authenticate",
         data: JSON.stringify(requestData),
         success: function (response){
-            window.localStorage.setItem("token",response.token)
+            window.localStorage.setItem("token",response.token);
+            window.location.href="areaSelect.html";
         },
         error: function(xhr, status, error) {
             // 请求失败的回调函数
