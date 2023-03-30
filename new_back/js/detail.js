@@ -46,6 +46,5 @@ $(function() {
 
 // calc percent
 function calcPercent(){
-    
 }
 
