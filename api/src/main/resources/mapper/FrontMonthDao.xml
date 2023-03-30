@@ -8,6 +8,7 @@
         <result property="id" column="id"/>
         <result property="frontDate" column="front_date"/>
         <result property="dataAddressId" column="data_address_id"/>
+        <result property="isEdited" column="is_edited"/>
     </resultMap>
 
 

@@ -35,4 +35,6 @@ public class FrontMonthEntity implements Serializable {
 
 	private String dataAddressId;
 
+	private String isEdited;
+
 }

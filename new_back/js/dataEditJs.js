@@ -1,15 +1,15 @@
 
 let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
-// let lastCheck = "";
-let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE0MjU0OSw" +
-    "iZXhwIjoxNjgwMTYwNTQ5fQ.9P0AkK7PQx5_mxUF83gfJpEJ110PA2MLaKKTnn3m-Qc"
+let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNjgwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY"
+
 $.ajax({
-    url: "http://36.133.200.169:8098/back/frontmonth/list",
+    // url: "http://36.133.200.169:8098/back/frontmonth/list",
+    url: "http://127.0.0.1:8081/back/frontmonth/list",
     type: "GET",
-    header:{
-        'Authorization': `Bearer ${token}`
-    }
-    ,
+    headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+    },
     data: {
         "addressName":areaName,
         "t": Date.now(),
@@ -17,14 +17,13 @@ $.ajax({
         "limit": 100,
         "key": ""
     },
-    dataType: "json",
     success: function(data) {
         let allDate = data.page.list;
         let dateLength = data.page.list.length;
         setDate(allDate,dateLength);
     },
     error: function(xhr, status, error) {
-        console.log(error);
+        console.log(`Bearer ${token}`)
     }
 });
 
