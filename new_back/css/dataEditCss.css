@@ -78,6 +78,10 @@ body{
     line-height: 30px;
 }
 
+.editFooterDiv button:hover{
+    background-color: #cbcbcb;
+}
+
 .errorDiv{
     text-align: right;
 
