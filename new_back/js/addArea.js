@@ -13,8 +13,6 @@ function submit(){
         platformService: $("#platform").val(),
         startTime: $("#startTime").val(),
         endTime: $("#endTime").val()
-
-
     };
 
     $.ajax({
