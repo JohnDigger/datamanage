@@ -15,6 +15,7 @@ function submit(){
         endTime: $("#endTime").val()
 
     };
+
     $.ajax({
         type: 'POST',
         contentType: "application/json",
