@@ -11,30 +11,36 @@
         <div class="items">
             <h1>蔚洋电子商务大数据管理系统</h1>
         </div>
-        <div class="items-left" style="border-bottom: grey 2px solid">
-            <h2>新增区域</h2>
+        <div class="addDiv">
+            <div class="items-left">
+                <h2>新增区域</h2>
+            </div>
+            <hr>
+
+            <div class="lableDiv">
+                <div class="items-left form-group">
+                    <label for="addressName">区域名称：</label>
+                    <input type="text" id="addressName" name="addressName" required>
+                </div>
+                <div class="items-left form-group">
+                    <label for="level2Url">二级域名：</label>
+                    <input type="text" id="level2Url" name="level2Url" required>
+                </div>
+                <div class="items-left form-group">
+                    <label for="platform">平台名称：</label>
+                    <input type="text" id="platform" name="platform" required>
+                </div>
+                <div class="items-left form-group">
+                    <label for="startTime">服务期限：</label>
+                    <input type="month" id="startTime" name="startTime" required>
+                    至
+                    <input type="month" id="endTime" name="endTime" required>
+                </div>
+            </div>
         </div>
-        <div class="items-left form-group">
-            <label for="addressName">区域名称：</label>
-            <input type="text" id="addressName" name="addressName" required>
-        </div>
-        <div class="items-left form-group">
-            <label for="level2Url">二级域名：</label>
-            <input type="text" id="level2Url" name="level2Url" required>
-        </div>
-        <div class="items-left form-group">
-            <label for="platform">平台名称：</label>
-            <input type="text" id="platform" name="platform" required>
-        </div>
-        <div class="items-left form-group">
-            <label for="startTime">服务期限：</label>
-            <input type="month" id="startTime" name="startTime" required>
-            至
-            <input type="month" id="endTime" name="endTime" required>
-        </div>
-        <div class="items-right" style="border-top: grey 2px solid">
-            <button class="button-new" id="nextButton"
-                    style="color: black; border: 2px solid gray;">
+        <hr>
+        <div class="items-right">
+            <button class="button-new" id="nextButton">
                 下一步
             </button>
         </div>

@@ -69,12 +69,20 @@ body{
     text-align: right;
 }
 
+.editFooterDiv button{
+    background-color: white;
+    border: 1px gray solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+
 .errorDiv{
     text-align: right;
 
     display: none;
     justify-content: flex-end;
-
 
 }
 .errorDiv p{
@@ -86,14 +94,7 @@ body{
     color: red;
 }
 
-.editFooterDiv button{
-    background-color: white;
-    border: 1px gray solid;
-    border-radius: 5px;
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-}
+
 
 .editFooterDiv button:active{
     background-color: gray;

@@ -1,26 +1,18 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 .container {
-    display: flex;
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    flex-direction: column;
-    height: 100vh;
     /*background-color: #f5f5f5;*/
-    padding: 0 150px;
+    width: 80%;
+    margin: auto;
 }
 .items{
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 .container h1{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .items-left{
-    display: flex;
-    justify-content: left;
+    text-align: left;
+
 }
 .items-right{
     display: flex;
@@ -28,6 +20,7 @@
 }
 .form-group{
     margin: 10px 0;
+
 }
 .form-group label {
     margin-bottom: 5px;
@@ -40,17 +33,32 @@
 }
 .button-new {
     background-color: white;
-    color: black;
-    border: 2px solid #676363;
-    width: 200px;
-    height: 40px;
-    font-size: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 30px
+    /*background-color: white;*/
+    /*color: black;*/
+    /*border: 2px solid #676363;*/
+    /*width: 200px;*/
+    /*height: 40px;*/
+    /*font-size: 15px;*/
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+    /*margin-top: 20px;*/
 }
 button:hover {
     background-color: #cbcbcb;
+}
+
+.lableDiv{
+    /*border: 1px red solid;*/
+}
+
+.addDiv{
+
 }
 
 
