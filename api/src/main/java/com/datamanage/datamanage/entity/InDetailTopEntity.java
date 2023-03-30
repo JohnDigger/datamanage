@@ -49,4 +49,7 @@ public class InDetailTopEntity implements Serializable {
 	 */
 	private String dataDate;
 
+	private String shopName;
+
+	private String detailUrl;
 }

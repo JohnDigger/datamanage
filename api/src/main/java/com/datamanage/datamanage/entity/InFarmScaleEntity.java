@@ -1,5 +1,6 @@
 package com.datamanage.datamanage.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -32,10 +33,7 @@ public class InFarmScaleEntity implements Serializable {
 	 * 
 	 */
 	private Integer saleNum;
-	/**
-	 * 
-	 */
-	private String top1Sale;
+
 	/**
 	 * 
 	 */
@@ -44,5 +42,11 @@ public class InFarmScaleEntity implements Serializable {
 	 * 
 	 */
 	private String dataAddress;
+
+	/**
+	 *
+	 */
+	@TableField(exist = false)
+	private String top1Sale;
 
 }

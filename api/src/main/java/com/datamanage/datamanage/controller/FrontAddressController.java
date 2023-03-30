@@ -57,11 +57,11 @@ public class FrontAddressController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody @Validated FrontAddressEntity frontAddress,@RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime){
+    public R save(@RequestBody FrontAddressEntity frontAddress){
 
 		frontAddressService.save(frontAddress);
         List<String> dateList = new ArrayList<>();
-        dateList = DateUtils.getYearMonths(startTime,endTime);
+        dateList = DateUtils.getYearMonths(frontAddress.getStartTime(),frontAddress.getEndTime());
         dateList.forEach(ele ->{
             FrontMonthEntity frontMonthEntity  = new FrontMonthEntity();
             frontMonthEntity.setFrontDate(ele);

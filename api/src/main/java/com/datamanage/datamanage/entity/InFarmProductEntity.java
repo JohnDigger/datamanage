@@ -41,4 +41,6 @@ public class InFarmProductEntity implements Serializable {
 	 */
 	private String farmDate;
 
+	private String farmName;
+
 }

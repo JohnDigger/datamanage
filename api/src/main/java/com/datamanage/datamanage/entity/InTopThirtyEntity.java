@@ -49,4 +49,10 @@ public class InTopThirtyEntity implements Serializable {
 	 */
 	private String dataAddress;
 
+	private String shopUrl;
+
+	private String shopNum;
+
+	private String dataDate;
+
 }

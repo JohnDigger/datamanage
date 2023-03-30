@@ -12,6 +12,8 @@
         <result property="type" column="type"/>
         <result property="dataAddress" column="data_address"/>
         <result property="dataDate" column="data_date"/>
+        <result property="shopName" column="shop_name"/>
+        <result property="detailUrl" column="detail_url"/>
     </resultMap>
 
 

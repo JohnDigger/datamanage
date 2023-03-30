@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.datamanage.datamanage.entity.InDataEntity;
 import com.datamanage.datamanage.service.InDataService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -51,7 +52,16 @@ public class InDataController {
      */
     @RequestMapping("/save")
     public R save(@RequestBody InDataEntity inData){
-		inDataService.save(inData);
+        QueryWrapper<InDataEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("time", inData.getTime())
+                .eq("data_address",inData.getDataAddress());
+
+        if (inDataService.list(queryWrapper).size() == 0){
+            inDataService.save(inData);
+
+        } else{
+            inDataService.update(inData,queryWrapper);
+        }
 
         return R.ok();
     }

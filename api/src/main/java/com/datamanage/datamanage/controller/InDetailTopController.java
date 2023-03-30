@@ -3,7 +3,9 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.datamanage.datamanage.entity.InDetailTopEntity;
+import com.datamanage.datamanage.entity.InObjectEntity;
 import com.datamanage.datamanage.service.InDetailTopService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
@@ -49,8 +51,19 @@ public class InDetailTopController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InDetailTopEntity inDetailTop){
-		inDetailTopService.save(inDetailTop);
+    public R save(@RequestBody InDetailTopEntity[] inDetailTop){
+        Arrays.asList(inDetailTop).forEach(ele->{
+            QueryWrapper<InDetailTopEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("data_address",ele.getDataAddress())
+                    .eq("data_date",ele.getDataDate())
+                    .eq("type",ele.getType())
+                    .eq("detail_num",ele.getDetailNum());
+            if (inDetailTopService.list(queryWrapper).size() == 0){
+                inDetailTopService.save(ele);
+            }else {
+                inDetailTopService.update(ele,queryWrapper);
+            }
+        });
 
         return R.ok();
     }

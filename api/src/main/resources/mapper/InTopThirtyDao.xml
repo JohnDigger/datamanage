@@ -12,6 +12,9 @@
         <result property="saleNum" column="sale_num"/>
         <result property="saleChannel" column="sale_channel"/>
         <result property="dataAddress" column="data_address"/>
+        <result property="shopUrl" column="shop_url"/>
+        <result property="shopNum" column="shop_num"/>
+        <result property="dataDate" column="data_date"/>
     </resultMap>
 
 

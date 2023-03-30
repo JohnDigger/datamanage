@@ -19,4 +19,5 @@ import java.util.List;
 public interface InFarmScaleDao extends BaseMapper<InFarmScaleEntity> {
 	@Select("SELECT * FROM in_farm_scale WHERE in_farm_scale.data_address = #{address} AND in_farm_scale.sale_date = #{date} ")
     List<InFarmScaleEntity> getPanel(String address,String date);
+
 }

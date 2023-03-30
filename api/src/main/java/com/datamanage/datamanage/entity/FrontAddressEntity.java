@@ -1,5 +1,6 @@
 package com.datamanage.datamanage.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -29,14 +30,16 @@ public class FrontAddressEntity implements Serializable {
 	/**
 	 *
 	 */
-	@NotNull
-	@NotEmpty
+
 	private String dataAddress;
-	@NotNull
-	@NotEmpty
+
 	private String level2Url;
-	@NotNull
-	@NotEmpty
+
 	private String platformService;
+
+	@TableField(exist = false)
+	private String startTime;
+	@TableField(exist = false)
+	private String endTime;
 
 }

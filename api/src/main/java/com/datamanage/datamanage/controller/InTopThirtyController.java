@@ -3,6 +3,8 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InDetailTopEntity;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,6 @@ public class InTopThirtyController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params) throws Exception {
         PageUtils page = inTopThirtyService.queryPage(params);
-
         return R.ok().put("page", page);
     }
 
@@ -52,8 +53,18 @@ public class InTopThirtyController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InTopThirtyEntity inTopThirty){
-		inTopThirtyService.save(inTopThirty);
+    public R save(@RequestBody InTopThirtyEntity[] inTopThirty){
+        Arrays.asList(inTopThirty).forEach(ele->{
+            QueryWrapper<InTopThirtyEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("data_address",ele.getDataAddress())
+                    .eq("data_date",ele.getDataDate())
+                    .eq("shop_num",ele.getShopNum());
+            if (inTopThirtyService.list(queryWrapper).size() == 0){
+                inTopThirtyService.save(ele);
+            }else {
+                inTopThirtyService.update(ele,queryWrapper);
+            }
+        });
 
         return R.ok();
     }
@@ -79,8 +90,8 @@ public class InTopThirtyController {
     }
 
     @GetMapping("/getThirty")
-    public R getThirty(@RequestParam("address")String address){
-        return R.ok().put("data",inTopThirtyService.getTopThirty(address));
+    public R getThirty(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inTopThirtyService.getTopThirty(address,date));
     }
 
 }

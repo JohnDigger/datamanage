@@ -3,6 +3,8 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InDataEntity;
 import com.datamanage.datamanage.entity.InDetailPanelEntity;
 import com.datamanage.datamanage.service.InDetailPanelService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -50,7 +52,16 @@ public class InDetailPanelController {
      */
     @RequestMapping("/save")
     public R save(@RequestBody InDetailPanelEntity inDetailPanel){
-		inDetailPanelService.save(inDetailPanel);
+        QueryWrapper<InDetailPanelEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("data_date", inDetailPanel.getDataDate())
+                .eq("data_address",inDetailPanel.getDataAddress())
+                .eq("type",inDetailPanel.getType());
+        if (inDetailPanelService.list(queryWrapper).size() == 0){
+            inDetailPanelService.save(inDetailPanel);
+
+        } else{
+            inDetailPanelService.update(inDetailPanel,queryWrapper);
+        }
 
         return R.ok();
     }

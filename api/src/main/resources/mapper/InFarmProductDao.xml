@@ -10,6 +10,7 @@
         <result property="farmNum" column="farm_num"/>
         <result property="farmAddress" column="farm_address"/>
         <result property="farmDate" column="farm_date"/>
+        <result property="farmName" column="farm_name"/>
     </resultMap>
 
 

@@ -1,9 +1,13 @@
 package com.datamanage.datamanage.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InChannelEntity;
 import com.datamanage.datamanage.entity.InFarmProductEntity;
+import com.datamanage.datamanage.entity.InFarmScaleEntity;
 import com.datamanage.datamanage.service.InFarmProductService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
@@ -49,8 +53,18 @@ public class InFarmProductController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InFarmProductEntity inFarmProduct){
-		inFarmProductService.save(inFarmProduct);
+    public R save(@RequestBody List<InFarmProductEntity> inFarmProduct){
+        inFarmProduct.forEach(ele->{
+            QueryWrapper<InFarmProductEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("farm_date",ele.getFarmDate())
+                    .eq("farm_address",ele.getFarmAddress())
+                    .eq("farm_name",ele.getFarmName());
+            if (inFarmProductService.list(queryWrapper).size() == 0){
+                inFarmProductService.save(ele);
+            }else {
+                inFarmProductService.update(ele,queryWrapper);
+            }
+        });
 
         return R.ok();
     }

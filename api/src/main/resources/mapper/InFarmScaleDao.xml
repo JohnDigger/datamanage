@@ -8,7 +8,6 @@
         <result property="id" column="id"/>
         <result property="saleMoney" column="sale_money"/>
         <result property="saleNum" column="sale_num"/>
-        <result property="top1Sale" column="top1_sale"/>
         <result property="saleDate" column="sale_date"/>
         <result property="dataAddress" column="data_address"/>
     </resultMap>

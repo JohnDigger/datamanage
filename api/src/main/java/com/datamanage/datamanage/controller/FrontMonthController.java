@@ -36,7 +36,7 @@ public class FrontMonthController {
     public R list(@RequestParam Map<String, Object> params) throws Exception {
         PageUtils page = frontMonthService.queryPage(params);
         Integer id =  frontAddressService.list(new QueryWrapper<FrontAddressEntity>().eq("data_address",params.get("addressName")).select("id")).get(0).getId();
-        List<FrontMonthEntity> frontMonthEntities = frontMonthService.list(new QueryWrapper<FrontMonthEntity>().select("front_date").eq("data_address_id",id));
+        List<FrontMonthEntity> frontMonthEntities = frontMonthService.list(new QueryWrapper<FrontMonthEntity>().select("front_date","is_edited").eq("data_address_id",id));
         page.setList(frontMonthEntities);
         return R.ok().put("page", page);
     }
@@ -57,8 +57,6 @@ public class FrontMonthController {
      */
     @RequestMapping("/save")
     public R save(@RequestBody FrontMonthEntity frontMonth,@RequestParam("addressName")String addressName){
-        System.out.println(frontMonth);
-        System.out.println(addressName);
         Integer id =  frontAddressService.list(new QueryWrapper<FrontAddressEntity>().eq("data_address",addressName).select("id")).get(0).getId();
         frontMonth.setDataAddressId(String.valueOf(id));
 		frontMonthService.save(frontMonth);

@@ -1,8 +1,10 @@
 package com.datamanage.datamanage.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.datamanage.datamanage.entity.InChannelEntity;
 import com.datamanage.datamanage.service.InChannelService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -49,8 +51,20 @@ public class InChannelController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InChannelEntity inChannel){
-		inChannelService.save(inChannel);
+    public R save(@RequestBody List<InChannelEntity> inChannel){
+        inChannel.forEach(ele->{
+            QueryWrapper<InChannelEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("channel_date",ele.getChannelDate())
+                    .eq("channel_area",ele.getChannelArea())
+                    .eq("type",ele.getType())
+                    .eq("channel_name",ele.getChannelName());
+            if (inChannelService.list(queryWrapper).size() == 0){
+                inChannelService.save(ele);
+            }else {
+                inChannelService.update(ele,queryWrapper);
+            }
+        });
+//		inChannelService.save(inChannel);
 
         return R.ok();
     }

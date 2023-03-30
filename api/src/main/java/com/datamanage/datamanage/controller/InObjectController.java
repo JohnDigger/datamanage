@@ -3,6 +3,8 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InChannelEntity;
 import com.datamanage.datamanage.entity.InObjectEntity;
 import com.datamanage.datamanage.service.InObjectService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -49,8 +51,18 @@ public class InObjectController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InObjectEntity inObject){
-		inObjectService.save(inObject);
+    public R save(@RequestBody InObjectEntity[] inObject){
+        Arrays.asList(inObject).forEach(ele->{
+            QueryWrapper<InObjectEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("object_date",ele.getObjectDate())
+                    .eq("object_name",ele.getObjectName())
+                    .eq("object_address",ele.getObjectAddress());
+            if (inObjectService.list(queryWrapper).size() == 0){
+                inObjectService.save(ele);
+            }else {
+                inObjectService.update(ele,queryWrapper);
+            }
+        });
 
         return R.ok();
     }

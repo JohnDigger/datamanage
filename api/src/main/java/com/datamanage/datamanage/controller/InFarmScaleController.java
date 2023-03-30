@@ -3,6 +3,9 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InDataEntity;
+import com.datamanage.datamanage.service.InTopThirtyService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +34,6 @@ public class InFarmScaleController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params) throws Exception {
         PageUtils page = inFarmScaleService.queryPage(params);
-
         return R.ok().put("page", page);
     }
 
@@ -42,7 +44,6 @@ public class InFarmScaleController {
     @RequestMapping("/info/{id}")
     public R info(@PathVariable("id") Integer id){
 		InFarmScaleEntity inFarmScale = inFarmScaleService.getById(id);
-
         return R.ok().put("inFarmScale", inFarmScale);
     }
 
@@ -51,7 +52,16 @@ public class InFarmScaleController {
      */
     @RequestMapping("/save")
     public R save(@RequestBody InFarmScaleEntity inFarmScale){
-		inFarmScaleService.save(inFarmScale);
+        QueryWrapper<InFarmScaleEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("sale_date", inFarmScale.getSaleDate())
+                .eq("data_address",inFarmScale.getDataAddress());
+
+        if (inFarmScaleService.list(queryWrapper).size() == 0){
+            inFarmScaleService.save(inFarmScale);
+
+        } else{
+            inFarmScaleService.update(inFarmScale,queryWrapper);
+        }
 
         return R.ok();
     }

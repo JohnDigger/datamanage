@@ -1,5 +1,6 @@
 package com.datamanage.datamanage.service.impl;
 
+import com.datamanage.datamanage.service.InTopThirtyService;
 import com.datamanage.datamanage.utils.PageUtils;
 import com.datamanage.datamanage.utils.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ import com.datamanage.datamanage.service.InFarmScaleService;
 public class InFarmScaleServiceImpl extends ServiceImpl<InFarmScaleDao, InFarmScaleEntity> implements InFarmScaleService {
     @Autowired
     private InFarmScaleDao inFarmScaleDao;
+    @Autowired
+    private InTopThirtyService inTopThirtyService;
     @Override
     public PageUtils queryPage(Map<String, Object> params) throws Exception {
         IPage<InFarmScaleEntity> page = this.page(
@@ -32,7 +35,11 @@ public class InFarmScaleServiceImpl extends ServiceImpl<InFarmScaleDao, InFarmSc
 
     @Override
     public List<InFarmScaleEntity> getPanel(String address, String date) {
-        return inFarmScaleDao.getPanel(address, date);
+        List<InFarmScaleEntity> list = inFarmScaleDao.getPanel(address, date);
+        list.forEach(ele->{
+            ele.setTop1Sale(String.valueOf(inTopThirtyService.getTop(address, date)));
+        });
+        return list;
     }
 
 }

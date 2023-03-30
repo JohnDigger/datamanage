@@ -3,6 +3,8 @@ package com.datamanage.datamanage.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.datamanage.datamanage.entity.InObjectEntity;
 import com.datamanage.datamanage.entity.InServiceEntity;
 import com.datamanage.datamanage.service.InServiceService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -49,9 +51,18 @@ public class InServiceController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody InServiceEntity inService){
-		inServiceService.save(inService);
-
+    public R save(@RequestBody InServiceEntity[] inService){
+        Arrays.asList(inService).forEach(ele->{
+            QueryWrapper<InServiceEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("service_date",ele.getServiceDate())
+                    .eq("service_name",ele.getServiceName())
+                    .eq("service_address",ele.getServiceAddress());
+            if (inServiceService.list(queryWrapper).size() == 0){
+                inServiceService.save(ele);
+            }else {
+                inServiceService.update(ele,queryWrapper);
+            }
+        });
         return R.ok();
     }
 

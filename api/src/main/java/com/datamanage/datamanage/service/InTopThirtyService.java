@@ -17,6 +17,7 @@ import java.util.Map;
 public interface InTopThirtyService extends IService<InTopThirtyEntity> {
 
     PageUtils queryPage(Map<String, Object> params) throws Exception;
-    List<InTopThirtyEntity> getTopThirty(String address);
+    List<InTopThirtyEntity> getTopThirty(String address,String date_time);
+    Integer getTop(String address,String data_date);
 }
 
