@@ -23,8 +23,7 @@ function submit(){
             "Authorization": `Bearer ${token}`,
             "Content-Type": "application/json"
         },
-        // url: "http://36.133.200.169:8098/back/frontaddress/save",
-        url: "http://localhost:8081/back/frontaddress/save",
+        url: "http://36.133.200.169:8098/back/frontaddress/save",
         data: JSON.stringify(requestData),
         success: function (response){
             window.location.href="dateEdit.html?areaName="+areaName.valueOf().value;
