@@ -8,14 +8,14 @@
     /*align-items: center;*/
     flex-direction: column;
     height: 100vh;
-    background-color: #f5f5f5;
-    padding: 0 200px;
+    /*background-color: #f5f5f5;*/
+    padding: 0 150px;
 }
 .items{
     display: flex;
     justify-content: center;
 }
-.container h2{
+.container h1{
     margin-top: 20px;
 }
 .items-left{
