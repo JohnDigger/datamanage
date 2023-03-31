@@ -131,7 +131,7 @@ $(function () {
         else {
             getValNext = 0;
         }
-        var totalWidth = $(".f-w100-4").width() - 8 * (i + 4 - 1 - i);
+        var totalWidth = $(".f-w100-4").width() - 8 * i;
         var setLeft = parseInt((1 - getVal / 100) * (totalWidth)) + 8 * (i);
         //初始化left值
         $(".f-hk-4").eq(i).css("left", setLeft);

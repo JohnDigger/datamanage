@@ -1,7 +1,7 @@
 
 // request url
 var url = "http://36.133.200.169:8098"
-// var url = "http://172.17.49.59:8081"
+// var url = "http://172.30.202.130:8081"
 var token =  "Bearer " +  window.localStorage.getItem("token")
 
 // handle data
@@ -10,6 +10,13 @@ $(function() {
     // click commit
     $(".commit-button").click(function(){
         var isCommit = confirm("是否提交该表单？");
+        var ik = $("input[type='number']");
+        for (var i=0; i<ik.length; i++){
+            if (ik[i].value == '' || ik[i].value < 0){
+                ik[i].value = 0
+            }
+        }
+
         var len = 0;
         if(isCommit) {
             var reqUrl = decodeURI(location.search);
@@ -42,13 +49,24 @@ $(function() {
                 swData.push(
                     {
                         objectPercent: parseFloat(parseInt(children[3].innerText) / 100),
+                        objectNum: children[2].innerText,
+                        objectMoney: children[1].innerText,
                         objectName: children[0].innerText,
                         objectAddress: area,
-                        objectDate: date
+                        objectDate: date,
                     }
                 )
             }
             console.log("实物型数据==> ", swData)
+            // sw import detail
+            const swImDetail = {
+                dataAddress: area,
+                dataDate: date,
+                type: "sale",
+                detailMoney: $("input#swxzdqdsj").val(),
+                detailCount: $("input#swlslzdqd").val()
+            }
+            console.log("实物型重点渠道详情数据==> ", swImDetail)
             // sw import data list
             let swImData = [];
             var swImDivs = $(".detail-slider-text-2");
@@ -107,6 +125,8 @@ $(function() {
                 fwData.push(
                     {
                         servicePercent: parseFloat(parseInt(children[3].innerText) / 100),
+                        serviceNum: children[2].innerText,
+                        serviceMoney: children[1].innerText,
                         serviceName: children[0].innerText,
                         serviceAddress: area,
                         serviceDate: date
@@ -114,7 +134,16 @@ $(function() {
                 )
             }
             console.log("服务型数据==> ", fwData)
-            // sw import data list
+            // fw import detail
+            const fwImDetail = {
+                dataAddress: area,
+                dataDate: date,
+                type: "service",
+                detailMoney: $("input#fwxzdqdsj").val(),
+                detailCount: $("input#fwlslzdqd").val()
+            }
+            console.log("服务型重点渠道详情数据==> ", fwImDetail)
+            // fw import data list
             let fwImData = [];
             var fwImDivs = $(".detail-slider-text-5");
             for (var i=0; i<fwImDivs.length; i++){
@@ -220,6 +249,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/indata/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -237,6 +267,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/inobject/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -250,10 +281,29 @@ $(function() {
                     console.log("实物型数据提交失败 ==> ", xhr, status, error);
                 }
             })
+            // commit sw import detail
+            $.ajax({
+                url: `${url}/back/indetailimportant/save`,
+                type: "POST",
+                async: false,
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': "application/json"
+                },
+                data: JSON.stringify(swImDetail),
+                success: res => {
+                    console.log("实物型重点渠道详情数据提交成功");
+                    len++;
+                },
+                error: (xhr, status, error) => {
+                    console.log("实物型重点渠道详情数据提交成功 ==> ", xhr, status, error);
+                }
+            })
             // commit sw import data
             $.ajax({
                 url: `${url}/back/inchannel/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -271,6 +321,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/indetailpanel/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -288,6 +339,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/indetailtop/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -306,6 +358,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/inservice/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -319,10 +372,29 @@ $(function() {
                     console.log("服务型数据提交失败 ==> ", xhr, status, error);
                 }
             })
+            // commit fw import detail
+            $.ajax({
+                url: `${url}/back/indetailimportant/save`,
+                type: "POST",
+                async: false,
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': "application/json"
+                },
+                data: JSON.stringify(fwImDetail),
+                success: res => {
+                    console.log("服务型重点渠道详情数据提交成功");
+                    len++;
+                },
+                error: (xhr, status, error) => {
+                    console.log("服务型重点渠道详情数据提交成功 ==> ", xhr, status, error);
+                }
+            })
             // commit fw import data
             $.ajax({
                 url: `${url}/back/inchannel/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -340,6 +412,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/indetailpanel/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -357,6 +430,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/indetailtop/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -375,6 +449,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/infarmproduct/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -392,6 +467,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/infarmscale/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -409,6 +485,7 @@ $(function() {
             $.ajax({
                 url: `${url}/back/intopthirty/save`,
                 type: "POST",
+                async: false,
                 headers: {
                     'Authorization': token,
                     'Content-Type': "application/json"
@@ -423,24 +500,15 @@ $(function() {
                 }
             })
         }
-        setTimeout(() => {
-            if (len == 12){
-                alert("表单提交成功！")
-            }
-            else if (len > 0){
-                setTimeout(() => {
-                    if (len == 12){
-                        alert("表单提交成功！")
-                    }
-                    else {
-                        alert("部分信息出现错误！")
-                    }
-                }, 3000)
-            }
-            else {
-                alert("表单提交失败！")
-                window.location.href = '/login.html';
-            }
-        }, 2000)
+        if (len == 14){
+            alert("表单提交成功！")
+        }
+        else if (len > 0){
+            alert("部分信息出现错误！")
+        }
+        else {
+            alert("表单提交失败！")
+            window.location.href = '/login.html';
+        }
     })
 });
