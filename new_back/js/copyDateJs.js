@@ -1,6 +1,8 @@
 
 let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
 let editMonth = decodeURIComponent(location.search.substring(1).split("&")[1].split("=")[1]);
+let currentArea = window.document.getElementById("currentArea");
+currentArea.innerText = "当前区域："+areaName;
 
 // let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNj" +
 //     "gwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY";
@@ -145,3 +147,7 @@ editNextButton.addEventListener("click", function (){
     }
 
 })
+
+function back(){
+    window.history.back();
+}

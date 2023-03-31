@@ -66,7 +66,9 @@ body{
 }
 
 .editFooterDiv{
-    text-align: right;
+    display: flex;
+    justify-content: right;
+    gap: 20px;
 }
 
 .editFooterDiv button{
@@ -102,4 +104,17 @@ body{
 
 .editFooterDiv button:active{
     background-color: gray;
+}
+
+.header{
+    display: flex;
+    gap: 20px;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a p{
+    vertical-align: center;
 }

@@ -3,6 +3,8 @@ let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].spl
 // let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNj" +
 //     "gwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY";
 let token = window.localStorage.getItem("token");
+let currentArea = window.document.getElementById("currentArea");
+currentArea.innerText = "当前区域："+areaName;
 
 var allDate = "";
 var dateLength = "";
@@ -152,3 +154,7 @@ editNextButton.addEventListener("click", function (){
     }
 
 })
+
+function back(){
+    window.history.back();
+}

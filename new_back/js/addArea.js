@@ -39,3 +39,7 @@ function submit(){
     });
 
 }
+
+function back(){
+    window.history.back();
+}

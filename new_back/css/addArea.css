@@ -17,6 +17,7 @@
 .items-right{
     display: flex;
     justify-content: right;
+    gap: 20px;
 }
 .form-group{
     margin: 10px 0;
@@ -59,6 +60,19 @@ button:hover {
 
 .addDiv{
 
+}
+
+.header{
+    display: flex;
+    gap: 20px;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a p{
+    vertical-align: center;
 }
 
 
