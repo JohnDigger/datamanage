@@ -77,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/back/serpanel/getList").permitAll()
                 .antMatchers("/back/frontmonth/list").permitAll()
                 .antMatchers("/back/inobject/getTrend").permitAll()
+                .antMatchers("/back/inservice/getServiceListData").permitAll()
                 .antMatchers("/error").permitAll()
                 .anyRequest().authenticated()
                 .and()
