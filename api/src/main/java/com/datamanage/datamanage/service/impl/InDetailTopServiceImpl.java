@@ -34,4 +34,9 @@ public class InDetailTopServiceImpl extends ServiceImpl<InDetailTopDao, InDetail
         return inDetailTopDao.getTopTen(date, address, type);
     }
 
+    @Override
+    public List<InDetailTopEntity> getTopTenOrder(String date, String address, String type) {
+        return inDetailTopDao.getTopTenOrder(date, address, type);
+    }
+
 }

@@ -19,4 +19,6 @@ import java.util.List;
 public interface InChannelDao extends BaseMapper<InChannelEntity> {
 	@Select("SELECT in_channel.channel_name as name,in_channel.channel_num as value FROM in_channel WHERE in_channel.channel_area = #{address} AND in_channel.channel_date = #{date} AND in_channel.type = #{type}")
     List<NameValueEntity> getChannel(String address,String date,String type);
+    @Select("SELECT * FROM in_channel WHERE in_channel.channel_area = #{address} AND in_channel.channel_date = #{date} AND in_channel.type = #{type}")
+    List<InChannelEntity> getChannelList(String address,String date,String type);
 }

@@ -19,5 +19,7 @@ public interface InServiceService extends IService<InServiceEntity> {
 
     PageUtils queryPage(Map<String, Object> params) throws Exception;
     List<NameValueEntity> getService(String address, String date);
+    List<InServiceEntity> getServiceList(String address,String date);
+    List<InServiceEntity> getServiceListData(String address,String date);
 }
 

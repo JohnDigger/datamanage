@@ -21,4 +21,10 @@ public interface InObjectDao extends BaseMapper<InObjectEntity> {
             "FROM in_object\n" +
             "WHERE in_object.object_address = #{address} AND in_object.object_date = #{date} \n")
     List<NameValueEntity> getList(String address,String date);
+    @Select("SELECT * \n" +
+            "FROM in_object\n" +
+            "WHERE in_object.object_address = #{address} AND in_object.object_date = #{date} \n")
+    List<InObjectEntity> getObjList(String address,String date);
+    @Select("SELECT * FROM in_object WHERE object_date LIKE '${date}-%' AND object_address = #{address} order by object_date \n")
+    List<InObjectEntity> getTrend(String address,String date);
 }

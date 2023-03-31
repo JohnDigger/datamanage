@@ -41,4 +41,8 @@ public class InServiceEntity implements Serializable {
 	 */
 	private String serviceDate;
 
+	private String serviceMoney;
+
+	private String serviceNum;
+
 }

@@ -37,4 +37,14 @@ public class InObjectServiceImpl extends ServiceImpl<InObjectDao, InObjectEntity
         return inObjectDao.getList(address, date);
     }
 
+    @Override
+    public List<InObjectEntity> getObjList(String address, String date) {
+        return inObjectDao.getObjList(address, date);
+    }
+
+    @Override
+    public List<InObjectEntity> getTrend(String address, String date) {
+        return inObjectDao.getTrend(address, date);
+    }
+
 }

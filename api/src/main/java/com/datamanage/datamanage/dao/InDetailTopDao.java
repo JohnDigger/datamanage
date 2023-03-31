@@ -27,4 +27,16 @@ public interface InDetailTopDao extends BaseMapper<InDetailTopEntity> {
             "ORDER BY in_detail_top.detail_money\n" +
             "LIMIT 10")
     List<InDetailTopEntity> getTopTen(String date,String address,String type);
+
+    @Select("SELECT\n" +
+            "\t*\n" +
+            "FROM\n" +
+            "\tin_detail_top\n" +
+            "WHERE\n" +
+            "\tin_detail_top.data_date = #{date} AND\n" +
+            "\tin_detail_top.data_address = #{address} AND\n" +
+            "\tin_detail_top.type = #{type}\n" +
+            "ORDER BY in_detail_top.detail_num\n" +
+            "LIMIT 10")
+    List<InDetailTopEntity> getTopTenOrder(String date,String address,String type);
 }

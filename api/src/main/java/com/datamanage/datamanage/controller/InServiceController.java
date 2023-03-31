@@ -90,4 +90,13 @@ public class InServiceController {
     public R getService(@RequestParam("address")String address,@RequestParam("date")String date){
         return R.ok().put("data",inServiceService.getService(address, date));
     }
+    @GetMapping("/getServiceList")
+    public R getServiceList(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inServiceService.getServiceList(address, date));
+    }
+
+    @GetMapping("/getServiceListData")
+    public R getServiceListData(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inServiceService.getServiceListData(address, date));
+    }
 }

@@ -66,6 +66,7 @@ public class FrontAddressController {
             FrontMonthEntity frontMonthEntity  = new FrontMonthEntity();
             frontMonthEntity.setFrontDate(ele);
             frontMonthEntity.setDataAddressId(String.valueOf(frontAddress.getId()));
+            frontMonthEntity.setIsEdited("0");
             frontMonthService.save(frontMonthEntity);
         });
 

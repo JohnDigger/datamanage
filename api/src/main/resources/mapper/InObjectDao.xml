@@ -10,6 +10,8 @@
         <result property="objectName" column="object_name"/>
         <result property="objectAddress" column="object_address"/>
         <result property="objectDate" column="object_date"/>
+        <result property="objectMoney" column="object_money"/>
+        <result property="objectNum" column="object_num"/>
     </resultMap>
 
 

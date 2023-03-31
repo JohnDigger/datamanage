@@ -76,6 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/back/fppanel/getList").permitAll()
                 .antMatchers("/back/serpanel/getList").permitAll()
                 .antMatchers("/back/frontmonth/list").permitAll()
+                .antMatchers("/back/inobject/getTrend").permitAll()
                 .antMatchers("/error").permitAll()
                 .anyRequest().authenticated()
                 .and()

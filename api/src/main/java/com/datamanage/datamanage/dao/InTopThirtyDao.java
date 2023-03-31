@@ -21,4 +21,7 @@ public interface InTopThirtyDao extends BaseMapper<InTopThirtyEntity> {
 
 	@Select("SELECT MAX(in_top_thirty.sale_money) FROM in_top_thirty WHERE in_top_thirty.data_address = #{address} AND in_top_thirty.data_date = #{data_date}")
     Integer getTop(String address,String data_date);
+
+    @Select("select * FROM in_top_thirty WHERE in_top_thirty.data_address = #{address} and in_top_thirty.data_date = #{date_time}  ORDER BY in_top_thirty.shop_num")
+    List<InTopThirtyEntity> getTopThirtyOrder(String address,String date_time);
 }

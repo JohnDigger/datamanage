@@ -94,4 +94,9 @@ public class InTopThirtyController {
         return R.ok().put("data",inTopThirtyService.getTopThirty(address,date));
     }
 
+    @GetMapping("/getThirtyOrder")
+    public R getThirtyOrder(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inTopThirtyService.getTopThirtyOrder(address,date));
+    }
+
 }

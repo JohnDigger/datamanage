@@ -10,6 +10,8 @@
         <result property="serviceName" column="service_name"/>
         <result property="serviceAddress" column="service_address"/>
         <result property="serviceDate" column="service_date"/>
+        <result property="serviceMoney" column="service_money"/>
+        <result property="serviceNum" column="service_num"/>
     </resultMap>
 
 

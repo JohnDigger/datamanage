@@ -77,6 +77,7 @@ public class InDetailTableController {
 
     @GetMapping("/getTable")
     public R getTable(@RequestParam("date")String date,@RequestParam("address")String address,@RequestParam("type")String type){
+
         return R.ok().put("data",inDetailTableService.getTable(date, address, type));
     }
 

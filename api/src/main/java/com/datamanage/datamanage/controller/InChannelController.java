@@ -94,4 +94,9 @@ public class InChannelController {
         return R.ok().put("data",inChannelService.getChannel(address, date, type));
     }
 
+    @GetMapping("/getChannel")
+    public R getChannelList(@RequestParam("address")String address,@RequestParam("date")String date,@RequestParam("type")String type){
+        return R.ok().put("data",inChannelService.getChannelList(address, date, type));
+    }
+
 }

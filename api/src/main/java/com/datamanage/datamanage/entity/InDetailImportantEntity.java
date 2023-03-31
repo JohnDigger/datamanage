@@ -12,11 +12,11 @@ import lombok.Data;
  * 
  * @author ${author}
  * @email ${email}
- * @date 2023-03-26 00:58:52
+ * @date 2023-03-31 16:15:20
  */
 @Data
-@TableName("in_object")
-public class InObjectEntity implements Serializable {
+@TableName("in_detail_important")
+public class InDetailImportantEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -27,22 +27,22 @@ public class InObjectEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Float objectPercent;
+	private String dataAddress;
 	/**
 	 * 
 	 */
-	private String objectName;
+	private String dataDate;
 	/**
 	 * 
 	 */
-	private String objectAddress;
+	private String type;
 	/**
 	 * 
 	 */
-	private String objectDate;
-
-	private String objectMoney;
-
-	private String objectNum;
+	private String detailCount;
+	/**
+	 * 
+	 */
+	private String detailMoney;
 
 }

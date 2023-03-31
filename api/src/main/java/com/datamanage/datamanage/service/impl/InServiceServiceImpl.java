@@ -35,4 +35,15 @@ public class InServiceServiceImpl extends ServiceImpl<InServiceDao, InServiceEnt
         return inServiceDao.getService(address, date);
     }
 
+    @Override
+    public List<InServiceEntity> getServiceList(String address, String date) {
+        return inServiceDao.getServiceList(address, date);
+    }
+
+    @Override
+    public List<InServiceEntity> getServiceListData(String address, String date) {
+        return inServiceDao.getServiceListData(address, date);
+    }
+
+
 }

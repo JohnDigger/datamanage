@@ -93,4 +93,9 @@ public class InDetailTopController {
         return R.ok().put("data",inDetailTopService.getTopTen(date,address , type));
     }
 
+    @GetMapping("/getTenByOrder")
+    public R getTenByOrder(@RequestParam("address")String address,@RequestParam("date")String date,@RequestParam("type")String type){
+        return R.ok().put("data",inDetailTopService.getTopTenOrder(date,address ,type));
+    }
+
 }

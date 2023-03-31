@@ -20,5 +20,10 @@ public interface InServiceDao extends BaseMapper<InServiceEntity> {
     @Select("SELECT in_service.service_name as name,in_service.service_percent AS value\n" +
             "FROM in_service WHERE in_service.service_address = #{address} AND in_service.service_date = #{date}")
     List<NameValueEntity> getService(String address,String date);
-	
+    @Select("SELECT *\n" +
+            "FROM in_service WHERE in_service.service_address = #{address} AND in_service.service_date = #{date}")
+    List<InServiceEntity> getServiceList(String address,String date);
+
+    @Select("SELECT * FROM in_service WHERE service_date LIKE '${date}-%' AND service_address = #{address} ORDER BY service_date")
+    List<InServiceEntity> getServiceListData(String address,String date);
 }

@@ -68,8 +68,19 @@ public class FrontMonthController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody FrontMonthEntity frontMonth){
-		frontMonthService.updateById(frontMonth);
+    public R update(@RequestParam("dataDate")String date,@RequestParam("dataAddress")String address){
+        FrontMonthEntity frontMonth = new FrontMonthEntity();
+        frontMonth.setFrontDate(date);
+        QueryWrapper<FrontAddressEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("id").eq("data_address",address);
+        FrontAddressEntity frontAddressEntity =  frontAddressService.list(queryWrapper).get(0);
+        frontMonth.setDataAddressId(String.valueOf(frontAddressEntity.getId()));
+        QueryWrapper<FrontMonthEntity> wrapper = new QueryWrapper<>();
+        wrapper.select("id").eq("front_date",frontMonth.getFrontDate()).eq("data_address_id",frontAddressEntity.getId());
+        frontMonth.setIsEdited("1");
+        FrontMonthEntity frontMonthEntity = frontMonthService.list(wrapper).get(0);
+        frontMonth.setId(frontMonthEntity.getId());
+        frontMonthService.updateById(frontMonth);
 
         return R.ok();
     }

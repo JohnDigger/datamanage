@@ -41,4 +41,9 @@ public class InTopThirtyServiceImpl extends ServiceImpl<InTopThirtyDao, InTopThi
         return inTopThirtyDao.getTop(address, data_date);
     }
 
+    @Override
+    public List<InTopThirtyEntity> getTopThirtyOrder(String address, String date_time) {
+        return inTopThirtyDao.getTopThirtyOrder(address, date_time);
+    }
+
 }

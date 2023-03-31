@@ -57,6 +57,7 @@ public class InObjectController {
             queryWrapper.eq("object_date",ele.getObjectDate())
                     .eq("object_name",ele.getObjectName())
                     .eq("object_address",ele.getObjectAddress());
+            System.out.println(ele);
             if (inObjectService.list(queryWrapper).size() == 0){
                 inObjectService.save(ele);
             }else {
@@ -91,5 +92,16 @@ public class InObjectController {
     public R getList(@RequestParam("address")String address,@RequestParam("date") String date){
         return R.ok().put("data",inObjectService.getList(address, date));
     }
+
+    @GetMapping("/getObj")
+    public R getObjList(@RequestParam("address")String address,@RequestParam("date") String date){
+        return R.ok().put("data",inObjectService.getObjList(address, date));
+    }
+
+    @GetMapping("/getTrend")
+    public R getTrend(@RequestParam("address")String address,@RequestParam("date") String date){
+        return R.ok().put("data",inObjectService.getTrend(address, date));
+    }
+
 
 }
