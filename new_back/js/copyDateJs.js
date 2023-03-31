@@ -1,5 +1,7 @@
 
 let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
+let editMonth = decodeURIComponent(location.search.substring(1).split("&")[1].split("=")[1]);
+
 // let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNj" +
 //     "gwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY";
 let token = window.localStorage.getItem("token");
@@ -79,45 +81,42 @@ function mouseLeave(event){
 function setDate(allDate,dateLength){
     // 遍历日期范围内的每个月份
     for (let d = 0; d <= dateLength-1; d++) {
-        // 创建div元素
-        const monthCheckDiv = document.createElement('div');
-        const monthDiv = document.createElement('div');
-        const cheakMark = document.createElement('div');
-        const markSpan = document.createElement('span');
-
-
-        // 获取年份和月份
-        const year = new Date(allDate[d].frontDate).getFullYear();
-        const month = new Date(allDate[d].frontDate).getMonth() + 1;
-        monthDiv.setAttribute("id",`${year}年${month}月`);
-
-        // 设置div的内容为年份和月份
-        monthDiv.textContent = `${year}年${month}月`;
-
-        monthCheckDiv.className = "monthCheckDiv";
-        monthDiv.className = "monthDiv";
-        cheakMark.className = "checkMark";
-        cheakMark.setAttribute("id",allDate[d].frontDate);
-
-        let parent = document.getElementById('monthCheckBoxId');
-        parent.appendChild(monthCheckDiv);
-        monthCheckDiv.appendChild(monthDiv);
-        monthCheckDiv.appendChild(cheakMark);
-        cheakMark.appendChild(markSpan);
-
-        cheakMark.className = "cheakMark span:before"
-        // 将div添加到文档中
-
-        monthDiv.addEventListener("mousedown", mouseDown);
-        monthDiv.addEventListener("mouseenter", mouseEnter);
-        monthDiv.addEventListener("mouseleave", mouseLeave);
-
         if (allDate[d].isEdited == "1"){
-            cheakMark.style.display = "block";
+            // 创建div元素
+            const monthCheckDiv = document.createElement('div');
+            const monthDiv = document.createElement('div');
+            const cheakMark = document.createElement('div');
+            const markSpan = document.createElement('span');
+
+
+            // 获取年份和月份
+            const year = new Date(allDate[d].frontDate).getFullYear();
+            const month = new Date(allDate[d].frontDate).getMonth() + 1;
+            monthDiv.setAttribute("id",`${year}年${month}月`);
+
+            // 设置div的内容为年份和月份
+            monthDiv.textContent = `${year}年${month}月`;
+
+            monthCheckDiv.className = "monthCheckDiv";
+            monthDiv.className = "monthDiv";
+            cheakMark.className = "checkMark";
+            cheakMark.setAttribute("id",allDate[d].frontDate);
+
+            let parent = document.getElementById('monthCheckBoxId');
+            parent.appendChild(monthCheckDiv);
+            monthCheckDiv.appendChild(monthDiv);
+            monthCheckDiv.appendChild(cheakMark);
+            cheakMark.appendChild(markSpan);
+
+            cheakMark.className = "cheakMark span:before"
+            // 将div添加到文档中
+
+            monthDiv.addEventListener("mousedown", mouseDown);
+            monthDiv.addEventListener("mouseenter", mouseEnter);
+            monthDiv.addEventListener("mouseleave", mouseLeave);
+
         }
-        else {
-            cheakMark.style.display = "none";
-        }
+
 
     }
 }
@@ -130,22 +129,16 @@ editNextButton.addEventListener("click", function (){
     for(let d = 0; d <= dateLength-1; d++){
         const year = new Date(allDate[d].frontDate).getFullYear();
         const month = new Date(allDate[d].frontDate).getMonth() + 1;
-
-        if (window.document.getElementById(`${year}年${month}月`).style.backgroundColor == "skyblue"){
-            checkDate = allDate[d].frontDate
-
+        if (allDate[d].isEdited == "1") {
+            if (window.document.getElementById(`${year}年${month}月`).style.backgroundColor == "skyblue") {
+                checkDate = allDate[d].frontDate
+            }
         }
     }
 
     if (checkDate){
         console.log(checkDate);
-        if (window.document.getElementById(checkDate).style.display == "block"){
-            window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate+"&copyMonth="+checkDate;
-        }
-        else {
-            window.location.href="copyDate.html?areaName="+areaName+"&editDate="+checkDate;
-        }
-
+        window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+checkDate;
     }
     else {
         window.document.getElementById("error").style.display = "flex";

@@ -1,11 +1,13 @@
 
 let checkAreaButton = window.document.getElementById("nextButton");
 let areaNameInput = window.document.getElementById("addressName");
+let token = window.localStorage.getItem("token");
+console.log(token);
 let areaName = areaNameInput;
 // checkAreaButton.addEventListener("click", function (){
 //     window.location.href="dateEdit.html?areaName="+areaName.valueOf().value;
 // })
-let token = window.localStorage.getItem("token");
+
 function submit(){
     var requestData = {
         dataAddress: $("#addressName").val(),
