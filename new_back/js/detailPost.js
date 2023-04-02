@@ -27,7 +27,8 @@ $(function() {
             // get area
             var area = strings[0].split("=")[1];
             // get date
-            var date = strings[1].split("=")[1];
+            var now = strings[1].split("=")[1];
+            var date = strings[2].split("=")[1];
             // index data
             const indexData = {
                 time: date,
@@ -502,6 +503,26 @@ $(function() {
         }
         if (len == 14){
             alert("表单提交成功！")
+            // edit isSelect
+            $.ajax({
+                url: `${url}/back/frontmonth/update`,
+                type: "GET",
+                async: false,
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': "application/json"
+                },
+                data: {
+                    dataDate: now,
+                    dataAddress: area
+                },
+                success: res => {
+                    console.log("提交成功 --> 修改月份完成情况");
+                },
+                error: (xhr, status, error) => {
+                    console.log("提交失败 ==> ", xhr, status, error);
+                }
+            })
         }
         else if (len > 0){
             alert("部分信息出现错误！")

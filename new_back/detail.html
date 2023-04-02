@@ -18,11 +18,29 @@
         body::-webkit-scrollbar {
             display: none;
         }
+        .header{
+            display: flex;
+            gap: 20px;
+        }
+
+        .header a {
+            text-decoration: none;
+        }
+
+        .header a p{
+            vertical-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="detail-box">
+        <div class="header">
+            <div onclick="back()" style="user-select: none;">
+                <p>返回上页</p>
+            </div>
+            <p id="currentArea"></p>
+        </div>
         <!-- no.0 -->
         <div class="detail-title">蔚洋电子商务大数据管理系统</div>
         <hr>
@@ -710,7 +728,14 @@
         <div class="commit-button">提交</div>
     </div>
 </body>
-
+<script>
+    let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1])
+    let currentArea = document.getElementById("currentArea")
+    currentArea.innerText = "当前区域："+ areaName;
+    function back(){
+        window.location.href = "dateEdit.html?areaName=" + areaName
+    }
+</script>
 <script src="./js/detailGet.js"></script>
 <script src="./js/detailData.js"></script>
 <script src="./js/detailPost.js"></script>

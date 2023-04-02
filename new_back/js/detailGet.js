@@ -10,7 +10,7 @@ var strings = reqUrl.split("&")
 // get area
 var area = strings[0].split("=")[1]
 // get date
-var date = strings[1].split("=")[1]
+var date = strings[2].split("=")[1]
 
 // ----------------------------- get ------------------------
 $(function(){
