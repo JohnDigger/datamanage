@@ -126,10 +126,14 @@ editNextButton.addEventListener("click", function (){
     // 获取年份和月份
 
     var checkDate = null;
+    var have_edit = false;
 
     for(let d = 0; d <= dateLength-1; d++){
         const year = new Date(allDate[d].frontDate).getFullYear();
         const month = new Date(allDate[d].frontDate).getMonth() + 1;
+        if (window.document.getElementById(`${year}年${month}月`).style.display == "block"){
+            have_edit = true;
+        }
 
         if (window.document.getElementById(`${year}年${month}月`).style.backgroundColor == "skyblue"){
             checkDate = allDate[d].frontDate
@@ -139,11 +143,11 @@ editNextButton.addEventListener("click", function (){
 
     if (checkDate){
         console.log(checkDate);
-        if (window.document.getElementById(checkDate).style.display == "block"){
-            window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate+"&copyMonth="+checkDate;
+        if (have_edit){
+            window.location.href="copyDate.html?areaName="+areaName+"&editDate="+checkDate;
         }
         else {
-            window.location.href="copyDate.html?areaName="+areaName+"&editDate="+checkDate;
+            window.location.href="detail.html?areaName="+areaName+"&editDate="+checkDate+"&copyMonth="+checkDate;
         }
 
     }
