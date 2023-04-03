@@ -12,8 +12,8 @@ addAreaButton.addEventListener("click", function (){
 
 window.onload =  function (){
     $.ajax({
-        url: "http://36.133.200.169:8098/back/frontaddress/list",
-        // url: "http://127.0.0.1:8081/back/frontmonth/list",
+        // url: "http://36.133.200.169:8098/back/frontaddress/list",
+        url: "http://117.50.183.219:8098/back/frontaddress/list",
         type: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,

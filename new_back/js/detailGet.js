@@ -1,7 +1,7 @@
 // ---------------------------- init ------------------------
 // request url
-var url = "http://36.133.200.169:8098"
-// var url = "http://172.17.49.59:8081"
+// var url = "http://36.133.200.169:8098"
+var url = "http://117.50.183.219:8098"
 // request token
 var token =  "Bearer " +  window.localStorage.getItem("token")
 // area and date
