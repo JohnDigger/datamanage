@@ -131,13 +131,13 @@ editNextButton.addEventListener("click", function (){
     for(let d = 0; d <= dateLength-1; d++){
         const year = new Date(allDate[d].frontDate).getFullYear();
         const month = new Date(allDate[d].frontDate).getMonth() + 1;
-        if (window.document.getElementById(`${year}年${month}月`).style.display == "block"){
+        console.log(window.document.getElementById(allDate[d].frontDate));
+        if (window.document.getElementById(allDate[d].frontDate).style.display == "block"){
             have_edit = true;
         }
 
         if (window.document.getElementById(`${year}年${month}月`).style.backgroundColor == "skyblue"){
             checkDate = allDate[d].frontDate
-
         }
     }
 
