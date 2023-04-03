@@ -3,9 +3,10 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://36.133.200.169:3306/data-manage-platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: root
-            password: sctu@123456
+            url: jdbc:mysql://117.50.183.219:3306/data-manage-platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: fhrdr
+#            username: root
+            password: 123456
             initial-size: 10
             max-active: 100
             min-idle: 10

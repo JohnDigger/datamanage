@@ -2,11 +2,15 @@
 let checkAreaButton = window.document.getElementById("nextButton");
 let areaNameInput = window.document.getElementById("addressName");
 let token = window.localStorage.getItem("token");
-console.log(token);
 let areaName = areaNameInput;
 // checkAreaButton.addEventListener("click", function (){
 //     window.location.href="dateEdit.html?areaName="+areaName.valueOf().value;
 // })
+window.onload = function (){
+    if (localStorage.getItem("token") === null){
+        window.location.href='login.html'
+    }
+}
 
 function submit(){
     var requestData = {

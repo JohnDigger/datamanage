@@ -8,8 +8,8 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 
- * 
+ *
+ *
  * @author ${author}
  * @email ${email}
  * @date 2023-03-26 00:58:52
@@ -20,24 +20,24 @@ public class InObjectEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 *
 	 */
 	@TableId
 	private Integer id;
 	/**
-	 * 
+	 *
 	 */
 	private Float objectPercent;
 	/**
-	 * 
+	 *
 	 */
 	private String objectName;
 	/**
-	 * 
+	 *
 	 */
 	private String objectAddress;
 	/**
-	 * 
+	 *
 	 */
 	private String objectDate;
 
@@ -45,4 +45,19 @@ public class InObjectEntity implements Serializable {
 
 	private String objectNum;
 
+	public void setObjectMoney(String objectMoney) {
+		if (objectMoney == null) {
+			this.objectMoney = "0";
+		}else {
+			this.objectMoney = objectMoney;
+		}
+	}
+
+	public void setObjectNum(String objectNum) {
+		if (objectNum == null) {
+			this.objectNum = "0";
+		}else {
+			this.objectNum = objectNum;
+		}
+	}
 }

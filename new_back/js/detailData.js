@@ -14,7 +14,7 @@ $(function(){
     $("input#ncplsl")[0].max = s_num
     $("input#fwxzdqdsj")[0].max = f_money
     $("input#fwlslzdqd")[0].max = f_num
-    
+
     // check input
     $('input#swxze').on('input propertychange',function(){
         s_money = parseInt($(this).val())
@@ -54,7 +54,7 @@ $(function(){
             $("input#fwxzdqdsj")[0].value = $('input#fwxze')[0].value
         }
     })
-    
+
     $('input#swlsl').on('input propertychange',function(){
         s_num = parseInt($(this).val())
         $("div#lsl")[0].lastChild.data = s_num + f_num
@@ -93,3 +93,8 @@ $(function(){
         }
     })
 })
+window.onload = function (){
+    if (localStorage.getItem("token") === null){
+        window.location.href='login.html'
+    }
+}

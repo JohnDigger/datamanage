@@ -10,7 +10,11 @@ let token = window.localStorage.getItem("token");
 
 var allDate = "";
 var dateLength = "";
-
+window.onload = function (){
+    if (localStorage.getItem("token") === null){
+        window.location.href='login.html'
+    }
+}
 $.ajax({
     // url: "http://36.133.200.169:8098/back/frontmonth/list",
     url: "http://117.50.183.219:8098/back/frontmonth/list",

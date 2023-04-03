@@ -11,6 +11,11 @@ addAreaButton.addEventListener("click", function (){
 })
 
 window.onload =  function (){
+
+    if (localStorage.getItem("token") === null){
+        window.location.href='login.html'
+    }
+
     $.ajax({
         // url: "http://36.133.200.169:8098/back/frontaddress/list",
         url: "http://117.50.183.219:8098/back/frontaddress/list",
