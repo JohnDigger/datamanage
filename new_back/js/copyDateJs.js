@@ -155,3 +155,7 @@ editNextButton.addEventListener("click", function (){
 function back(){
     window.history.back();
 }
+
+function skip(){
+    window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+editMonth;
+}
