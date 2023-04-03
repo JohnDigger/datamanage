@@ -11,6 +11,11 @@ var strings = reqUrl.split("&")
 var area = strings[0].split("=")[1]
 // get date
 var date = strings[2].split("=")[1]
+var now = strings[1].split("=")[1]
+
+// set date
+var nowList = now.split("-")
+$(".detail-date")[0].outerText = nowList[0] + "年" + nowList[1] + "月"
 
 // ----------------------------- get ------------------------
 $(function(){

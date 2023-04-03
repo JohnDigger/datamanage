@@ -1,7 +1,7 @@
 
 // request url
 // var url = "http://36.133.200.169:8098"
-var url = "http://172.30.202.130:8098"
+var url = "http://117.50.183.219:8098"
 var token =  "Bearer " +  window.localStorage.getItem("token")
 
 // handle data
@@ -523,6 +523,8 @@ $(function() {
                     console.log("提交失败 ==> ", xhr, status, error);
                 }
             })
+            // to month
+            window.location.href = `/dateEdit.html?areaName=${areaName}`;
         }
         else if (len > 0){
             alert("部分信息出现错误！")
