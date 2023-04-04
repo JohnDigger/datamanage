@@ -1,5 +1,6 @@
 package com.datamanage.datamanage.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.datamanage.datamanage.entity.FrontAddressEntity;
 import com.datamanage.datamanage.entity.FrontMonthEntity;
 import com.datamanage.datamanage.service.FrontAddressService;
@@ -77,9 +78,17 @@ public class FrontAddressController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody FrontAddressEntity frontAddress){
-		frontAddressService.updateById(frontAddress);
-
+    public R update(@RequestParam("address")String address,@RequestParam("image_url")String url){
+        QueryWrapper<FrontAddressEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("data_address",address);
+        if (frontAddressService.list(queryWrapper).size() == 0){
+            return R.error("failed");
+        }else {
+            FrontAddressEntity frontAddressEntity = new FrontAddressEntity();
+            frontAddressEntity.setDataAddress(address);
+            frontAddressEntity.setImageUrl(url);
+            frontAddressService.update(frontAddressEntity,queryWrapper);
+        }
         return R.ok();
     }
 
@@ -97,6 +106,13 @@ public class FrontAddressController {
     public void insertDate(@RequestParam("startTime")String startTime,
                         @RequestParam("endTime")String endTime){
         System.out.println(DateUtils.getYearMonths(startTime, endTime));
+    }
+
+    @GetMapping("getImage")
+    public R getImage(@RequestParam("address")String address){
+        QueryWrapper<FrontAddressEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("data_address",address);
+        return R.ok().put("data",frontAddressService.list(queryWrapper));
     }
 
 }

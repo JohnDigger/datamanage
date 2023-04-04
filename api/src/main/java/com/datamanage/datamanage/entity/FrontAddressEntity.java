@@ -37,6 +37,8 @@ public class FrontAddressEntity implements Serializable {
 
 	private String platformService;
 
+	private String imageUrl;
+
 	@TableField(exist = false)
 	private String startTime;
 	@TableField(exist = false)

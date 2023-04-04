@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- * 
+ *
  *
  * @author ${author}
  * @email ${email}
@@ -92,12 +92,11 @@ public class InDataController {
     }
 
     @GetMapping("/getList")
-    public R getList(@RequestParam("year")String year,@RequestParam("month")String month){
-        return R.ok().put("data",inDataService.getList(year, month));
+    public R getList(@RequestParam("year")String year,@RequestParam("month")String month,@RequestParam("address")String address){
+        return R.ok().put("data",inDataService.getList(year, month,address));
     }
     @GetMapping("/getAll")
     public R getMap(){
-        System.out.println(inDataService.getAll());
         return R.ok().put("data",inDataService.getAll());
     }
 }

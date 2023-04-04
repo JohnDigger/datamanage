@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- * 
+ *
  *
  * @author ${author}
  * @email ${email}
@@ -100,8 +100,8 @@ public class InChannelController {
     }
 
     @GetMapping("/channelList")
-    public R getChannelList(){
-        return R.ok().put("data",inChannelService.channelList());
+    public R getChannelList(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inChannelService.channelList(address,date));
     }
 
 }

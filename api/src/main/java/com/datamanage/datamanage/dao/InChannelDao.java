@@ -9,8 +9,8 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * 
- * 
+ *
+ *
  * @author ${author}
  * @email ${email}
  * @date 2023-03-26 13:57:16
@@ -24,12 +24,12 @@ public interface InChannelDao extends BaseMapper<InChannelEntity> {
     @Select("SELECT\n" +
             "\tid,\n" +
             "\tchannel_name,\n" +
-            "\tSUM(channel_count) channel_num,\n" +
+            "\tSUM(channel_count) channel_count,\n" +
             "\tchannel_date,\n" +
             "\tchannel_area,\n" +
             "\tSUM(channel_money) channel_money\n" +
             "FROM\n" +
-            "\tin_channel\n" +
+            "\tin_channel WHERE channel_area = #{address} AND channel_date = #{date} \n" +
             "GROUP BY channel_name")
-    List<InChannelEntity> channelList();
+    List<InChannelEntity> channelList(String address,String date);
 }

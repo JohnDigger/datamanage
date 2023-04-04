@@ -42,8 +42,8 @@ public class InChannelServiceImpl extends ServiceImpl<InChannelDao, InChannelEnt
     }
 
     @Override
-    public List<InChannelEntity> channelList() {
-        return inChannelDao.channelList();
+    public List<InChannelEntity> channelList(String address, String date) {
+        return inChannelDao.channelList(address, date);
     }
 
 }

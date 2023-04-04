@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author ${author}
  * @email ${email}
@@ -19,7 +19,7 @@ public interface InDataService extends IService<InDataEntity> {
     PageUtils queryPage(Map<String, Object> params) throws Exception;
 
     List<InDataEntity> getPanel(String address, String dateTime);
-    List<InDataEntity> getList(String year,String month);
+    List<InDataEntity> getList(String year,String month,String address);
     Map<String,String> getAll();
 }
 

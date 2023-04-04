@@ -36,8 +36,8 @@ public class InDataServiceImpl extends ServiceImpl<InDataDao, InDataEntity> impl
     }
 
     @Override
-    public List<InDataEntity> getList(String year, String month) {
-        return inDataDao.getList(year, month);
+    public List<InDataEntity> getList(String year, String month,String address) {
+        return inDataDao.getList(year, month, address);
     }
 
     @Override

@@ -83,6 +83,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/error").permitAll()
                 .antMatchers("/back/indata/getList").permitAll()
                 .antMatchers("/back/indata/getAll").permitAll()
+                .antMatchers("/back/frontaddress/getImage").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

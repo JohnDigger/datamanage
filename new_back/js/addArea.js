@@ -58,17 +58,16 @@ function pushImg(){
 
     $.ajax({
         type: 'POST',
-        contentType: "application/json",
+        contentType: false,
         headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "multipart/form-data"
+            "Authorization": `Bearer ${token}`
         },
         // url: "http://36.133.200.169:8098/back/frontaddress/save",
         url: host + "/back/file/uploadimages",
         data: form,
         processData: false,
         success: function (response){
-            window.location.href="dateEdit.html?areaName="+areaName.valueOf().value;
+            alert("上传成功")
         },
         error: function(xhr, status, error) {
             // 请求失败的回调函数

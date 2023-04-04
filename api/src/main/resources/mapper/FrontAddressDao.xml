@@ -9,6 +9,7 @@
         <result property="dataAddress" column="data_address"/>
         <result property="platformService" column="platform_service"/>
         <result property="level2Url" column="level2_url"/>
+        <result property="imageUrl" column="image_url"/>
     </resultMap>
 
 
