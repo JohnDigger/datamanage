@@ -41,4 +41,9 @@ public class InChannelServiceImpl extends ServiceImpl<InChannelDao, InChannelEnt
         return inChannelDao.getChannelList(address, date, type);
     }
 
+    @Override
+    public List<InChannelEntity> channelList() {
+        return inChannelDao.channelList();
+    }
+
 }

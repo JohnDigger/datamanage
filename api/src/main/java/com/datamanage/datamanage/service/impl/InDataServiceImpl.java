@@ -35,4 +35,14 @@ public class InDataServiceImpl extends ServiceImpl<InDataDao, InDataEntity> impl
         return inDataDao.getPanel(address, dateTime);
     }
 
+    @Override
+    public List<InDataEntity> getList(String year, String month) {
+        return inDataDao.getList(year, month);
+    }
+
+    @Override
+    public Map<String, String> getAll() {
+        return inDataDao.getAll();
+    }
+
 }

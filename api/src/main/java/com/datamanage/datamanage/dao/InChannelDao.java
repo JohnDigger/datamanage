@@ -21,4 +21,15 @@ public interface InChannelDao extends BaseMapper<InChannelEntity> {
     List<NameValueEntity> getChannel(String address,String date,String type);
     @Select("SELECT * FROM in_channel WHERE in_channel.channel_area = #{address} AND in_channel.channel_date = #{date} AND in_channel.type = #{type}")
     List<InChannelEntity> getChannelList(String address,String date,String type);
+    @Select("SELECT\n" +
+            "\tid,\n" +
+            "\tchannel_name,\n" +
+            "\tSUM(channel_count) channel_num,\n" +
+            "\tchannel_date,\n" +
+            "\tchannel_area,\n" +
+            "\tSUM(channel_money) channel_money\n" +
+            "FROM\n" +
+            "\tin_channel\n" +
+            "GROUP BY channel_name")
+    List<InChannelEntity> channelList();
 }

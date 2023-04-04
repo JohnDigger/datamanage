@@ -6,13 +6,14 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.datamanage.datamanage.entity.InShopEntity" id="inShopMap">
         <result property="id" column="id"/>
-        <result property="time" column="time"/>
-        <result property="index" column="index"/>
+        <result property="shopTime" column="shop_time"/>
+        <result property="shopIndex" column="shop_index"/>
         <result property="name" column="name"/>
         <result property="saleMoney" column="sale_money"/>
         <result property="saleNum" column="sale_num"/>
         <result property="belongTo" column="belong_to"/>
         <result property="dataAddress" column="data_address"/>
+        <result property="shopUrl" column="shop_url"/>
     </resultMap>
 
 

@@ -21,4 +21,6 @@ public interface InShopDao extends BaseMapper<InShopEntity> {
     List<InShopEntity> getAll(String address);
     @Insert("INSERT INTO in_shop(`index`, `name`, `belong_to`, `data_address`, `time`) VALUES (#{index},#{name},#{belongTo},#{dataAddress},#{time})")
     void insertInShop(Integer index, String name, String belongTo, String dataAddress, String time);
+    @Select("SELECT * FROM in_shop WHERE data_address = #{address} AND shop_time = #{date}")
+    List<InShopEntity> getList(String address,String date);
 }

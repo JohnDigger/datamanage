@@ -45,4 +45,8 @@ public class InChannelEntity implements Serializable {
 	 */
 	private String type;
 
+	private String channelMoney;
+
+	private String channelCount;
+
 }

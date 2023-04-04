@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.datamanage.datamanage.dao.InShopDao;
+import com.datamanage.datamanage.entity.InDetailTopEntity;
 import com.datamanage.datamanage.entity.InShopEntity;
 import com.datamanage.datamanage.service.InShopService;
 import com.datamanage.datamanage.utils.PageUtils;
@@ -51,34 +53,19 @@ public class InShopController {
     /**
      * 保存
      */
-    @Autowired
-    private InShopDao inShopDao;
     @RequestMapping("/save")
-    public R save(@RequestBody Map<String, Object> params){
-        List<Map<String, Object>> list = (List<Map<String, Object>>) params.get("list");
-        for (Map<String, Object> obj : list) {
-            int index = (int) obj.get("index");
-            String name = (String) obj.get("name");
-            String belongTo = (String) obj.get("belongTo");
-            String time = (String) obj.get("time");
-            String dataAddress = (String)obj.get("dataAddress");
-//            String saleMoney = (String)obj.get("saleMoney");
-//            String saleNum = (String)obj.get("saleNum");
-            System.out.println(name+belongTo+time+dataAddress);
-            // 处理对象中的属性
-            InShopEntity inShopEntity = new InShopEntity();
-            inShopEntity.setName(name);
-            inShopEntity.setIndex(String.valueOf(index));
-            inShopEntity.setBelongTo(belongTo);
-            inShopEntity.setTime(time);
-            inShopEntity.setDataAddress(dataAddress);
-//            inShopEntity.setSaleNum(saleNum);
-//            inShopEntity.setSaleMoney(saleMoney);
-//            inShopService.save(inShopEntity);
-//            inShopDao.insert(inShopEntity);
-            inShopDao.insertInShop(index, name, belongTo, dataAddress, time);
-        }
-
+    public R save(@RequestBody InShopEntity[] inShopEntities){
+        Arrays.asList(inShopEntities).forEach(ele->{
+            QueryWrapper<InShopEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("shop_time",ele.getShopTime())
+                    .eq("shop_index",ele.getShopIndex())
+                    .eq("data_address",ele.getDataAddress());
+            if (inShopService.list(queryWrapper).size() == 0){
+                inShopService.save(ele);
+            }else {
+                inShopService.update(ele,queryWrapper);
+            }
+        });
         return R.ok();
     }
 
@@ -106,4 +93,8 @@ public class InShopController {
         return R.ok().put("data",inShopService.getAll(address));
     }
 
+    @GetMapping("getList")
+    public R shopsList(@RequestParam("address")String address,@RequestParam("date")String date){
+        return R.ok().put("data",inShopService.getList(address,date));
+    }
 }
