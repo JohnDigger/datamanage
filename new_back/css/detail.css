@@ -129,6 +129,19 @@ select {
     width: 120px;
 }
 
+.shop-inputs1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.shop-inputs1 > div > input {
+    width: 150px;
+}
+.shop-inputs1 > div > select {
+    width: 150px;
+}
+
 .commit-button {
     font-size: 20px;
     color: white;

@@ -32,47 +32,47 @@ $(function () {
             $(".f-hk-1").eq(index).find(".f-range-tips-1").css("display", "block");
             //是否第一个
             if (index == 0) {
-                //是否最后一个
-                if (index != $(".f-hk-1").length - 1) {
-                    maxLeft = parseInt($(".f-hk-1").eq(index + 1).css("left")) - 8;
-                } else {
-                    maxLeft = $(".f-w100-1").width();
-                }
+                // //是否最后一个
+                // if (index != $(".f-hk-1").length - 1) {
+                //     maxLeft = parseInt($(".f-hk-1").eq(index + 1).css("left")) - 8;
+                // } else {
+                //     maxLeft = $(".f-w100-1").width();
+                // }
 
-                var newLeft = e.pageX - startX + preLeft;
-                //设置边界
-                if (newLeft > maxLeft) {
-                    newLeft = maxLeft;
-                }
-                if (newLeft < 0) {
-                    newLeft = 0;
-                }
-                //执行拖动
-                $(".f-hk-1").eq(index).css("left", newLeft);
-                //动态改变提示的值
-                var myVal = parseInt((1 - (parseFloat($(".f-hk-1").eq(index).css("left")) - 8 * (index)) / ($(".f-w100-1").width() - 8 * (index + ($(".f-hk-1").length - index - 1)))) * 100) + "%";
-                $(".f-hk-1").eq(index).find(".f-range-tips-1").html(myVal);
-                //改变信息表值
-                var getValNext;
-                if (index != $(".f-hk-1").length - 1) {
-                    getValNext = parseInt($(".f-hk-1").eq(index + 1).find(".f-range-tips-1").html());
-                }
-                else {
-                    getValNext = 0;
-                }
-                $(".detail-slider-box-1").eq(index).find(".detail-slider-per-1").html((parseInt(myVal) - getValNext) + "%");
-                //设置其他值
-                var money = parseInt(parseInt($("input#swxze").val()) * (parseInt(myVal) - getValNext) / 100)
-                var num = parseInt(parseInt($("input#swlsl").val()) * (parseInt(myVal) - getValNext) / 100)
+                // var newLeft = e.pageX - startX + preLeft;
+                // //设置边界
+                // if (newLeft > maxLeft) {
+                //     newLeft = maxLeft;
+                // }
+                // if (newLeft < 0) {
+                //     newLeft = 0;
+                // }
+                // //执行拖动
+                // $(".f-hk-1").eq(index).css("left", newLeft);
+                // //动态改变提示的值
+                // var myVal = parseInt((1 - (parseFloat($(".f-hk-1").eq(index).css("left")) - 8 * (index)) / ($(".f-w100-1").width() - 8 * (index + ($(".f-hk-1").length - index - 1)))) * 100) + "%";
+                // $(".f-hk-1").eq(index).find(".f-range-tips-1").html(myVal);
+                // //改变信息表值
+                // var getValNext;
+                // if (index != $(".f-hk-1").length - 1) {
+                //     getValNext = parseInt($(".f-hk-1").eq(index + 1).find(".f-range-tips-1").html());
+                // }
+                // else {
+                //     getValNext = 0;
+                // }
+                // $(".detail-slider-box-1").eq(index).find(".detail-slider-per-1").html((parseInt(myVal) - getValNext) + "%");
+                // //设置其他值
+                // var money = parseInt(parseInt($("input#swxze").val()) * (parseInt(myVal) - getValNext) / 100)
+                // var num = parseInt(parseInt($("input#swlsl").val()) * (parseInt(myVal) - getValNext) / 100)
 
-                $(".detail-slider-box-1").eq(index).find(".detail-slider-mon-1").html(money);
-                $(".detail-slider-box-1").eq(index).find(".detail-slider-num-1").html(num);
+                // $(".detail-slider-box-1").eq(index).find(".detail-slider-mon-1").html(money);
+                // $(".detail-slider-box-1").eq(index).find(".detail-slider-num-1").html(num);
             } else {
                 //是否最后一个
                 if (index != $(".f-hk-1").length - 1) {
                     maxLeft = parseFloat($(".f-hk-1").eq(index + 1).css("left")) - 8;
                 } else {
-                    maxLeft = $(".f-w100-1").width();
+                    maxLeft = $(".f-w100-1").width() - 8;
                 }
 
                 var newLeft = e.pageX - startX + preLeft;
@@ -87,25 +87,25 @@ $(function () {
                 //执行拖动
                 $(".f-hk-1").eq(index).css("left", newLeft);
                 //动态改变提示的值
-                var myVal = parseInt((1 - (parseFloat($(".f-hk-1").eq(index).css("left")) - 8 * (index)) / ($(".f-w100-1").width() - 8 * (index + ($(".f-hk-1").length - index - 1)))) * 100) + "%";
-                $(".f-hk-1").eq(index).find(".f-range-tips-1").html(myVal);
+                var myVal = (1 - (parseFloat($(".f-hk-1").eq(index).css("left")) - 8 * index) / ($(".f-w100-1").width() - 8 * $(".detail-slider-box-1").length)) * 100;
+                $(".f-hk-1").eq(index).find(".f-range-tips-1").html(parseInt(myVal) + "%");
                 //改变信息表值
                 var getValNext;
                 var getValUp;
                 if (index != $(".f-hk-1").length - 1) {
-                    getValNext = parseInt($(".f-hk-1").eq(index + 1).find(".f-range-tips-1").html());
+                    getValNext = (1 - (parseFloat($(".f-hk-1").eq(index + 1).css("left")) - 8 * (index + 1)) / ($(".f-w100-1").width() - 8 * $(".detail-slider-box-1").length)) * 100;
                 }
                 else {
                     getValNext = 0;
                 }
-                $(".detail-slider-box-1").eq(index).find(".detail-slider-per-1").html((parseInt(myVal) - getValNext) + "%");
-                getValUp = parseInt($(".f-hk-1").eq(index - 1).find(".f-range-tips-1").html());
-                $(".detail-slider-box-1").eq(index - 1).find(".detail-slider-per-1").html((getValUp - parseInt(myVal)) + "%");
+                $(".detail-slider-box-1").eq(index).find(".detail-slider-per-1").html(parseInt(myVal - getValNext) + "%");
+                getValUp = (1 - (parseFloat($(".f-hk-1").eq(index - 1).css("left")) - 8 * (index - 1)) / ($(".f-w100-1").width() - 8 * $(".detail-slider-box-1").length)) * 100;
+                $(".detail-slider-box-1").eq(index - 1).find(".detail-slider-per-1").html(parseInt(getValUp - myVal) + "%");
                 //设置其他值
-                var money = parseInt(parseInt($("input#swxze").val()) * (parseInt(myVal) - getValNext) / 100)
-                var num = parseInt(parseInt($("input#swlsl").val()) * (parseInt(myVal) - getValNext) / 100)
-                var money1 = parseInt(parseInt($("input#swxze").val()) * (getValUp - parseInt(myVal)) / 100)
-                var num1 = parseInt(parseInt($("input#swlsl").val()) * (getValUp - parseInt(myVal)) / 100)
+                var money = Math.round(parseInt($("input#swxze").val()) * parseInt(myVal - getValNext) / 100)
+                var num = Math.round(parseInt($("input#swlsl").val()) * parseInt(myVal - getValNext) / 100)
+                var money1 = Math.round(parseInt($("input#swxze").val()) * parseInt(getValUp - myVal) / 100)
+                var num1 = Math.round(parseInt($("input#swlsl").val()) * parseInt(getValUp - myVal) / 100)
 
                 $(".detail-slider-box-1").eq(index).find(".detail-slider-mon-1").html(money);
                 $(".detail-slider-box-1").eq(index).find(".detail-slider-num-1").html(num);
@@ -132,8 +132,8 @@ $(function () {
         else {
             getValNext = 0;
         }
-        var totalWidth = $(".f-w100-1").width() - 8 * i;
-        var setLeft = parseInt((1 - getVal / 100) * (totalWidth)) + 8 * (i);
+        var totalWidth = $(".f-w100-1").width() - 8 * $(".detail-slider-box-1").length;
+        var setLeft = parseFloat((1 - getVal / 100) * (totalWidth)) + 8 * i;
         //初始化left值
         $(".f-hk-1").eq(i).css("left", setLeft);
         //初始化值

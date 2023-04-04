@@ -723,6 +723,48 @@
                 }
             </script>
         </div><hr><br>
+
+        <!-- shop -->
+        <div>
+            <div class="shop-title">重点网商TOP30</div>
+            <hr>
+            <script>
+                for (var i=0; i<30; i++){
+                    document.write(
+                        '<div class="shop-inputs1">' +
+                            '<div>' +
+                                '<label for="mc-4">店铺名称 </label>' +
+                                '<input type="text" id="mc-4" value="">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="wz-4">店铺网址 </label>' +
+                                '<input type="text" id="wz-4" value="">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="lse-4">零售额 </label>' +
+                                '<input type="number" id="lse-4" value="0">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="lsl-4">零售量 </label>' +
+                                '<input type="number" id="lsl-4" value="0">' +
+                            '</div>' +
+                            '<div>' +
+                                '<label for="sspt-4">所属平台 </label>' + 
+                                '<select name="" id="sspt-4">' +
+                                    '<option value="京东" selected>京东</option>' +
+                                    '<option value="天猫">天猫</option>' +
+                                    '<option value="淘宝">淘宝</option>' +
+                                    '<option value="美团">美团</option>' +
+                                    '<option value="饿了么">饿了么</option>' +
+                                    '<option value="美团团购">美团团购</option>' +
+                                    '<option value="其他">其他</option>' +
+                                '</select>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                }
+            </script>
+        </div><hr><br>
         
         <!-- commit -->
         <div class="commit-button">提交</div>

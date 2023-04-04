@@ -435,7 +435,7 @@ $(function(){
             date: date
         },
         success: res => {
-            console.log("获取服务TOP10数据成功 ==> ", res)
+            console.log("获取农业TOP30数据成功 ==> ", res)
             if (res.data.length > 0){
                 var data = res.data
                 // set data
@@ -461,7 +461,48 @@ $(function(){
             }
         },
         error: (xhr, status, error) => {
-            console.log("获取服务TOP10数据失败 ==> ", xhr, status, error)
+            console.log("获取农业TOP30数据失败 ==> ", xhr, status, error)
+        }
+    })
+    // get shop top30
+    $.ajax({
+        url: `${url}/back/inshop/getList`,
+        type: "GET",
+        async: false,
+        headers: {
+            'Authorization': token,
+            'Content-Type': "application/json"
+        },
+        data: {
+            address: area,
+            date: date
+        },
+        success: res => {
+            console.log("获取重点店铺TOP30数据成功 ==> ", res)
+            if (res.data.length > 0){
+                var data = res.data
+                // set data
+                var mcDivs = $("input#mc-4")
+                var wzDivs = $("input#wz-4")
+                var lseDivs = $("input#lse-4")
+                var lslDivs = $("input#lsl-4")
+                var qdDivs = $("select#sspt-4")
+                for (var i=0; i<10; i++){
+                    mcDivs[i].value = data[i].name
+                    wzDivs[i].value = data[i].shopUrl
+                    lseDivs[i].value = data[i].saleMoney
+                    lslDivs[i].value = data[i].saleNum
+                    for (var j=0; j<qdDivs[i].length; j++){
+                        if (qdDivs[i][j].value == data[i].belongTo){
+                            qdDivs[i][j].selected = true
+                            break
+                        }
+                    }
+                }
+            }
+        },
+        error: (xhr, status, error) => {
+            console.log("获取重点店铺TOP30数据失败 ==> ", xhr, status, error)
         }
     })
 })

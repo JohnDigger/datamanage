@@ -1,7 +1,8 @@
 
 // request url
 // var url = "http://36.133.200.169:8098"
-var url = "http://117.50.183.219:8098"
+// var url = "http://117.50.183.219:8098"
+var url = "http://172.30.207.232:8081"
 var token =  "Bearer " +  window.localStorage.getItem("token")
 
 // handle data
@@ -76,6 +77,8 @@ $(function() {
                 swImData.push(
                     {
                         channelName: children[0].innerText,
+                        channelMoney: children[1].innerText,
+                        channelCount: children[2].innerText,
                         channelNum: parseFloat(parseInt(children[3].innerText) / 100),
                         channelDate: date,
                         channelArea: area,
@@ -243,6 +246,31 @@ $(function() {
                 )
             }
             console.log("农业店铺TOP30==> ", nongTop30)
+
+            // shop top30
+            let shopTop30 = []
+            for (var i=0; i<30; i++){
+                var select = $("select#sspt-4")[i];
+                var qd = "";
+                for (var j=0; j<select.length; j++){
+                    if (select[j].selected){
+                        qd = select[j].value
+                    }
+                }
+                shopTop30.push(
+                    {
+                        shopTime: now,
+                        shopIndex: i+1,
+                        name: $("input#mc-4")[i].value,
+                        saleMoney: $("input#lse-4")[i].value,
+                        saleNum: $("input#lsl-4")[i].value,
+                        belongTo: qd,
+                        dataAddress: area,
+                        shopUrl: $("input#wz-4")[i].value
+                    }
+                )
+            }
+            console.log("重点店铺TOP30==> ", shopTop30)
             
             // -------------------------------------------------------
 
@@ -500,8 +528,26 @@ $(function() {
                     console.log("农业TOP30数据提交失败 ==> ", xhr, status, error);
                 }
             })
+            // commit shop top30
+            $.ajax({
+                url: `${url}/back/inshop/save`,
+                type: "POST",
+                async: false,
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': "application/json"
+                },
+                data: JSON.stringify(shopTop30),
+                success: res => {
+                    console.log("重点店铺TOP30数据提交成功");
+                    len++;
+                },
+                error: (xhr, status, error) => {
+                    console.log("重点店铺TOP30数据提交失败 ==> ", xhr, status, error);
+                }
+            })
         }
-        if (len == 14){
+        if (len == 15){
             alert("表单提交成功！")
             // edit isSelect
             $.ajax({
