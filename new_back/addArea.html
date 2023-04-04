@@ -36,11 +36,18 @@
                     <label for="platform">平台名称：</label>
                     <input type="text" id="platform" name="platform" required>
                 </div>
+
+
                 <div class="items-left form-group">
                     <label for="startTime">服务期限：</label>
                     <input type="month" id="startTime" name="startTime" required>
                     至
                     <input type="month" id="endTime" name="endTime" required>
+                </div>
+
+                <div class="items-left form-group">
+                    <input type="file" id="imgFile" value="选择图片" accept=".jpg, .png, .jpeg">
+                    <button onclick="pushImg()">上传图片</button>
                 </div>
             </div>
         </div>

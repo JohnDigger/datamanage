@@ -17,8 +17,8 @@ window.onload =  function (){
     }
 
     $.ajax({
+        // url: "http://36.133.200.169:8098/back/frontaddress/list",
         url: "http://36.133.200.169:8098/back/frontaddress/list",
-        // url: "http://117.50.183.219:8098/back/frontaddress/list",
         type: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -35,7 +35,20 @@ window.onload =  function (){
             let areaList = data.page.list;
             let length = data.page.list.length;
             const boxDiv = window.document.getElementById("button-list");
+            // for (let d=0;d<=length-1;d++){
+            //     const areaDiv = window.document.createElement("button");
+            //     areaDiv.innerText = areaList[d].dataAddress;
+            //     areaDiv.classList.add("button-green");
+            //     areaDiv.classList.add("margins");
+            //     areaDiv.classList.add("button:hover");
+            //     boxDiv.appendChild(areaDiv);
+            //     boxDiv.addEventListener("click", function (event){
+            //         console.log(event);
+            //         let areaName = event.innerText;
+            //         window.location.href="dateEdit.html?areaName="+areaName;
+            //     })
 
+            // }
             for (let d = 0; d <= length - 1; d++) {
                 const areaDiv = window.document.createElement("button");
                 areaDiv.innerText = areaList[d].dataAddress;
@@ -50,7 +63,7 @@ window.onload =  function (){
                     (function (areaName) {
                         return function (event) {
                             console.log(event);
-                            window.location.href = "dateEdit.html?areaName=" + areaName;
+                            window.location.href = "editArea.html?areaName=" + areaName;
                         };
                     })(areaList[d].dataAddress)
                 );
