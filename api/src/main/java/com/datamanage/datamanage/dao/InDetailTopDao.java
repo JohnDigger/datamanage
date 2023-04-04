@@ -24,7 +24,7 @@ public interface InDetailTopDao extends BaseMapper<InDetailTopEntity> {
             "\tin_detail_top.data_date = #{date} AND\n" +
             "\tin_detail_top.data_address = #{address} AND\n" +
             "\tin_detail_top.type = #{type}\n" +
-            "ORDER BY in_detail_top.detail_money\n" +
+            "ORDER BY in_detail_top.detail_num\n" +
             "LIMIT 10")
     List<InDetailTopEntity> getTopTen(String date,String address,String type);
 

@@ -36,4 +36,9 @@ public class InShopServiceImpl extends ServiceImpl<InShopDao, InShopEntity> impl
         return inShopDao.getAll(address);
     }
 
+    @Override
+    public List<InShopEntity> getList(String address, String date) {
+        return inShopDao.getList(address, date);
+    }
+
 }

@@ -20,5 +20,7 @@ public interface InShopService extends IService<InShopEntity> {
     PageUtils queryPage(Map<String, Object> params) throws Exception;
 
     List<InShopEntity> getAll(String address);
+
+    List<InShopEntity> getList(String address,String date);
 }
 

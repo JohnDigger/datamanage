@@ -20,5 +20,6 @@ public interface InChannelService extends IService<InChannelEntity> {
     PageUtils queryPage(Map<String, Object> params) throws Exception;
     List<NameValueEntity> getChannel(String address, String date, String type);
     List<InChannelEntity> getChannelList(String address,String date,String type);
+    List<InChannelEntity> channelList();
 }
 

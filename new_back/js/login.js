@@ -20,6 +20,7 @@ function submit(){
         // url: "http://127.0.0.1:8081/back/login/authenticate",
         data: JSON.stringify(requestData),
         success: function (response){
+
             window.localStorage.setItem("token",response.token);
             if ($("#remember").val()){
                 localStorage.setItem("userInfo", JSON.stringify({

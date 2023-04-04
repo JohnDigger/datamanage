@@ -90,4 +90,14 @@ public class InDataController {
     public R panel(@RequestParam("address")String address,@RequestParam("dateTime")String dateTime){
         return R.ok().put("data",inDataService.getPanel(address, dateTime));
     }
+
+    @GetMapping("/getList")
+    public R getList(@RequestParam("year")String year,@RequestParam("month")String month){
+        return R.ok().put("data",inDataService.getList(year, month));
+    }
+    @GetMapping("/getAll")
+    public R getMap(){
+        System.out.println(inDataService.getAll());
+        return R.ok().put("data",inDataService.getAll());
+    }
 }

@@ -19,5 +19,7 @@ public interface InDataService extends IService<InDataEntity> {
     PageUtils queryPage(Map<String, Object> params) throws Exception;
 
     List<InDataEntity> getPanel(String address, String dateTime);
+    List<InDataEntity> getList(String year,String month);
+    Map<String,String> getAll();
 }
 

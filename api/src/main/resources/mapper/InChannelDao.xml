@@ -11,6 +11,8 @@
         <result property="channelDate" column="channel_date"/>
         <result property="channelArea" column="channel_area"/>
         <result property="type" column="type"/>
+        <result property="channelMoney" column="channel_money"/>
+        <result property="channelCount" column="channel_count"/>
     </resultMap>
 
 

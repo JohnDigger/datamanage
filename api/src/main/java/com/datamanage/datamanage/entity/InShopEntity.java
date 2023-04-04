@@ -27,11 +27,11 @@ public class InShopEntity implements Serializable {
 	/**
 	 * 统计时间
 	 */
-	private String time;
+	private String shopTime;
 	/**
 	 * 序号
 	 */
-	private String index;
+	private String shopIndex;
 	/**
 	 * 店铺名称
 	 */
@@ -50,5 +50,7 @@ public class InShopEntity implements Serializable {
 	private String belongTo;
 
 	private String dataAddress;
+
+	private String shopUrl;
 
 }

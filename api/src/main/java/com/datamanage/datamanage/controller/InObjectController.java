@@ -57,7 +57,6 @@ public class InObjectController {
             queryWrapper.eq("object_date",ele.getObjectDate())
                     .eq("object_name",ele.getObjectName())
                     .eq("object_address",ele.getObjectAddress());
-            System.out.println(ele);
             if (inObjectService.list(queryWrapper).size() == 0){
                 inObjectService.save(ele);
             }else {
