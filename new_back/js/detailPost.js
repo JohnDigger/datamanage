@@ -1,8 +1,7 @@
 
 // request url
-var url = "http://36.133.200.169:8098"
-// var url = "http://117.50.183.219:8098"
-// var url = "http://172.30.207.232:8081"
+var url = "http://114.117.162.189:8098"
+// var url = "http://36.133.200.169:8098"
 var token =  "Bearer " +  window.localStorage.getItem("token")
 
 // handle data

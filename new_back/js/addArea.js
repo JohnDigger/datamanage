@@ -13,7 +13,7 @@ window.onload = function (){
 }
 
 // request url
-var host = "http://36.133.200.169:8098"
+var host = "http://114.117.162.189:8098"
 
 function submit(){
     var requestData = {
@@ -34,7 +34,6 @@ function submit(){
             "Authorization": `Bearer ${token}`,
             "Content-Type": "application/json"
         },
-        // url: "http://36.133.200.169:8098/back/frontaddress/save",
         url: host + "/back/frontaddress/save",
         data: JSON.stringify(requestData),
         success: function (response){
@@ -62,7 +61,6 @@ function pushImg(){
         headers: {
             "Authorization": `Bearer ${token}`
         },
-        // url: "http://36.133.200.169:8098/back/frontaddress/save",
         url: host + "/back/file/uploadimages",
         data: form,
         processData: false,

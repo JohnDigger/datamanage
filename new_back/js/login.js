@@ -15,9 +15,7 @@ function submit(){
     $.ajax({
         type: 'POST',
         contentType: "application/json",
-        url: "http://36.133.200.169:8098/back/login/authenticate",
-        // url: "http://117.50.183.219:8098/back/login/authenticate",
-        // url: "http://127.0.0.1:8081/back/login/authenticate",
+        url: "http://114.117.162.189:8098/back/login/authenticate",
         data: JSON.stringify(requestData),
         success: function (response){
 

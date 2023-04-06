@@ -17,8 +17,8 @@ window.onload =  function (){
     }
 
     $.ajax({
-        url: "http://36.133.200.169:8098/back/frontaddress/list",
-        // url: "http://117.50.183.219:8098/back/frontaddress/list",
+        url: "http://114.117.162.189:8098/back/frontaddress/list",
+        // url: "http://36.133.200.169:8098/back/frontaddress/list",
         type: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,
