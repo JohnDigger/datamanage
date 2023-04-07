@@ -21,8 +21,8 @@ function submit(){
         level2Url: $("#level2Url").val(),
         platformService: $("#platform").val(),
         startTime: $("#startTime").val(),
-        endTime: $("#endTime").val()
-
+        endTime: $("#endTime").val(),
+        imageUrl: window.urls
 
 
     };
@@ -65,6 +65,7 @@ function pushImg(){
         data: form,
         processData: false,
         success: function (response){
+            window.urls = response.fileList[0]
             alert("上传成功")
         },
         error: function(xhr, status, error) {

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,6 +62,7 @@ public class FrontAddressController {
     public R save(@RequestBody FrontAddressEntity frontAddress){
 
 		frontAddressService.save(frontAddress);
+        System.out.println(frontAddress);
         List<String> dateList = new ArrayList<>();
         dateList = DateUtils.getYearMonths(frontAddress.getStartTime(),frontAddress.getEndTime());
         dateList.forEach(ele ->{
@@ -70,6 +72,15 @@ public class FrontAddressController {
             frontMonthEntity.setIsEdited("0");
             frontMonthService.save(frontMonthEntity);
         });
+
+        try {
+            Process exec = Runtime.getRuntime().exec("/home/big-data/add_address.sh "
+                    + frontAddress.getLevel2Url() + "-dsj" + " " + frontAddress.getLevel2Url());
+            exec.waitFor();
+        } catch (IOException | InterruptedException e) {
+            System.out.println("脚本执行异常...");
+            e.printStackTrace();
+        }
 
         return R.ok();
     }
@@ -108,11 +119,15 @@ public class FrontAddressController {
         System.out.println(DateUtils.getYearMonths(startTime, endTime));
     }
 
-    @GetMapping("getImage")
+    @GetMapping("/getImage")
     public R getImage(@RequestParam("address")String address){
         QueryWrapper<FrontAddressEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("data_address",address);
         return R.ok().put("data",frontAddressService.list(queryWrapper));
+    }
+    @GetMapping("/getName")
+    public R getName(@RequestParam("url")String url){
+        return R.ok().put("data",frontAddressService.getMap(new QueryWrapper<FrontAddressEntity>().eq("level2_url ",url)));
     }
 
 }

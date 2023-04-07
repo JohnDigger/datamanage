@@ -3,10 +3,10 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://117.50.183.219:3306/data-manage-platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: fhrdr
-#            username: root
-            password: 123456
+            url: jdbc:mysql://114.117.162.189:3306/data-manage-platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#            username: fhrdr
+            username: root
+            password: Sabc123xyz
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -36,9 +36,8 @@ spring:
 
 
 file:
-    uploadFolder: "C:/file/"
+    uploadFolder: "/home/big-data/file/"
     imageStaticAccessPath: "/image/"  #回显路径
-    videoStaticAccessPath: "/video/"
 
 ##多数据源的配置
 #dynamic:
