@@ -322,7 +322,7 @@ $(function(){
         data: {
             address: area,
             date: date,
-            type: "sale"
+            type: "service"
         },
         success: res => {
             console.log("获取服务重点渠道列表数据成功 ==> ", res)
@@ -445,7 +445,7 @@ $(function(){
                 var lseDivs = $("input#lse-3")
                 var lslDivs = $("input#lsl-3")
                 var qdDivs = $("select#qd-3")
-                for (var i=0; i<10; i++){
+                for (var i=0; i<30; i++){
                     dpDivs[i].value = data[i].goodsName
                     mcDivs[i].value = data[i].shopName
                     wzDivs[i].value = data[i].shopUrl
@@ -487,7 +487,7 @@ $(function(){
                 var lseDivs = $("input#lse-4")
                 var lslDivs = $("input#lsl-4")
                 var qdDivs = $("select#sspt-4")
-                for (var i=0; i<10; i++){
+                for (var i=0; i<30; i++){
                     mcDivs[i].value = data[i].name
                     wzDivs[i].value = data[i].shopUrl
                     lseDivs[i].value = data[i].saleMoney

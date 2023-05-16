@@ -157,7 +157,9 @@ $(function() {
                         channelNum: parseFloat(parseInt(children[3].innerText) / 100),
                         channelDate: date,
                         channelArea: area,
-                        type: "sale"
+                        channelMoney: children[1].innerText,
+                        channelCount: children[2].innerText,
+                        type: "service"
                     }
                 )
             }
