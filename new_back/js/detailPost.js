@@ -206,6 +206,7 @@ $(function() {
                 nongData.push(
                     {
                         farmMoney: parseFloat(parseInt(children[1].innerText) / 10000),
+                        farmCount: parseFloat(parseInt(children[2].innerText) / 10000),
                         farmNum: parseFloat(parseInt(children[3].innerText) / 100),
                         farmName: children[0].innerText,
                         farmAddress: area,

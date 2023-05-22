@@ -168,7 +168,6 @@ $(function(){
     })
 
     // get nong detail
-    var nongMoney;
     $.ajax({
         url: `${url}/back/infarmscale/getPanel`,
         type: "GET",
@@ -188,7 +187,6 @@ $(function(){
                 // set data
                 $("input#ncpjyze")[0].value = data.saleMoney
                 $("input#ncplsl")[0].value = data.saleNum
-                nongMoney = parseInt(data.saleMoney)
             }
         },
         error: (xhr, status, error) => {
@@ -217,7 +215,7 @@ $(function(){
                 var percent = 100
                 for (var i=0; i<data.length; i++){
                     swDivs[i].textContent = percent + '%'
-                    percent -= parseInt(nongMoney == 0 ? 0 : parseInt(data[i].farmMoney*10000) / nongMoney * 100)
+                    percent -= parseInt(data[i].farmNum*100)
                 }
             }
         },
