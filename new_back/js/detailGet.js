@@ -37,7 +37,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("div#qwlse")[0].lastChild.data = Math.round(data.totalSaleMoney*rate)
+                $("div#qwlse")[0].lastChild.data = (data.totalSaleMoney*rate).toFixed(2)
                 $("div#lsl")[0].lastChild.data = Math.round(data.totalSaleNum*rate)
                 $("input#dpsl")[0].value = Math.round(data.shopNum*rate)
                 $("input#cyry")[0].value = Math.round(data.wlWorkNum*rate)
@@ -69,7 +69,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#swxze")[0].value = Math.round(data.detailMoney*rate)
+                $("input#swxze")[0].value = (data.detailMoney*rate).toFixed(2)
                 $("input#swlsl")[0].value = Math.round(data.detailCount*rate)
             }
         },
@@ -127,7 +127,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#swxzdqdsj")[0].value = Math.round(data.detailMoney*rate)
+                $("input#swxzdqdsj")[0].value = (data.detailMoney*rate).toFixed(2)
                 $("input#swlslzdqd")[0].value = Math.round(data.detailCount*rate)
             }
         },
@@ -185,7 +185,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#ncpjyze")[0].value = Math.round(data.saleMoney*rate)
+                $("input#ncpjyze")[0].value = (data.saleMoney*rate).toFixed(2)
                 $("input#ncplsl")[0].value = Math.round(data.saleNum*rate)
             }
         },
@@ -243,7 +243,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#fwxze")[0].value = Math.round(data.detailMoney*rate)
+                $("input#fwxze")[0].value = (data.detailMoney*rate).toFixed(2)
                 $("input#fwlsl")[0].value = Math.round(data.detailCount*rate)
             }
         },
@@ -300,7 +300,7 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#fwxzdqdsj")[0].value = Math.round(data.detailMoney*rate)
+                $("input#fwxzdqdsj")[0].value = (data.detailMoney*rate).toFixed(2)
                 $("input#fwlslzdqd")[0].value = Math.round(data.detailCount*rate)
             }
         },

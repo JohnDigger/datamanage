@@ -158,7 +158,7 @@ function back(){
 }
 
 function skip(){
-    window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+editMonth;
+    window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+editMonth+"&rate="+1.0;
 }
 function validateInput(input) {
     // 使用正则表达式验证用户输入

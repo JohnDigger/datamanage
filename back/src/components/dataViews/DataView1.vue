@@ -224,7 +224,7 @@ export default {
             serviceAddMoney: 0, // 服务站累计交易额
             totalServiceNum: 0, // 服务站总数量
             wl: { // 网零发展指数部分
-                devlopment: 0,
+                devlopment: 0.0,
                 saleMoney: 0,
                 shopNum: 0,
                 saleNum: 0,
