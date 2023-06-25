@@ -148,6 +148,7 @@ editNextButton.addEventListener("click", function (){
         window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+checkDate+"&rate="+rate;
     }
     else {
+
         window.document.getElementById("error").style.display = "flex";
     }
 
