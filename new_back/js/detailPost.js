@@ -31,7 +31,7 @@ $(function() {
             var date = strings[2].split("=")[1];
             // index data
             const indexData = {
-                time: date,
+                time: now,
                 totalSaleMoney: $("div#qwlse")[0].lastChild.data,
                 totalSaleNum: $("div#lsl")[0].lastChild.data,
                 shopNum: $("input#dpsl").val(),
@@ -54,7 +54,7 @@ $(function() {
                         objectMoney: children[1].innerText,
                         objectName: children[0].innerText,
                         objectAddress: area,
-                        objectDate: date,
+                        objectDate: now,
                     }
                 )
             }
@@ -62,7 +62,7 @@ $(function() {
             // sw import detail
             const swImDetail = {
                 dataAddress: area,
-                dataDate: date,
+                dataDate: now,
                 type: "sale",
                 detailMoney: $("input#swxzdqdsj").val(),
                 detailCount: $("input#swlslzdqd").val()
@@ -79,7 +79,7 @@ $(function() {
                         channelMoney: children[1].innerText,
                         channelCount: children[2].innerText,
                         channelNum: parseFloat(parseInt(children[3].innerText) / 100),
-                        channelDate: date,
+                        channelDate: now,
                         channelArea: area,
                         type: "sale"
                     }
@@ -90,7 +90,7 @@ $(function() {
             const swDetail = {
                 detailCount: $("input#swlsl").val(),
                 detailMoney: $("input#swxze").val(),
-                dataDate: date,
+                dataDate: now,
                 dataAddress: area,
                 type: "sale"
             }
@@ -112,7 +112,7 @@ $(function() {
                         platform: qd,
                         type: "sale",
                         dataAddress: area,
-                        dataDate: date,
+                        dataDate: now,
                         shopName: $("input#mc-1")[i].value,
                         detailUrl: $("input#wz-1")[i].value
                     }
@@ -132,7 +132,7 @@ $(function() {
                         serviceMoney: children[1].innerText,
                         serviceName: children[0].innerText,
                         serviceAddress: area,
-                        serviceDate: date
+                        serviceDate: now
                     }
                 )
             }
@@ -140,7 +140,7 @@ $(function() {
             // fw import detail
             const fwImDetail = {
                 dataAddress: area,
-                dataDate: date,
+                dataDate: now,
                 type: "service",
                 detailMoney: $("input#fwxzdqdsj").val(),
                 detailCount: $("input#fwlslzdqd").val()
@@ -155,7 +155,7 @@ $(function() {
                     {
                         channelName: children[0].innerText,
                         channelNum: parseFloat(parseInt(children[3].innerText) / 100),
-                        channelDate: date,
+                        channelDate: now,
                         channelArea: area,
                         channelMoney: children[1].innerText,
                         channelCount: children[2].innerText,
@@ -168,7 +168,7 @@ $(function() {
             const fwDetail = {
                 detailCount: $("input#fwlsl").val(),
                 detailMoney: $("input#fwxze").val(),
-                dataDate: date,
+                dataDate: now,
                 dataAddress: area,
                 type: "service"
             }
@@ -190,7 +190,7 @@ $(function() {
                         platform: qd,
                         type: "service",
                         dataAddress: area,
-                        dataDate: date,
+                        dataDate: now,
                         shopName: $("input#mc-2")[i].value,
                         detailUrl: $("input#wz-2")[i].value
                     }
@@ -210,7 +210,7 @@ $(function() {
                         farmNum: parseFloat(parseInt(children[3].innerText) / 100),
                         farmName: children[0].innerText,
                         farmAddress: area,
-                        farmDate: date
+                        farmDate: now
                     }
                 )
             }
@@ -219,7 +219,7 @@ $(function() {
             const nongDetail = {
                 saleMoney: $("input#ncpjyze").val(),
                 saleNum: $("input#ncplsl").val(),
-                saleDate: date,
+                saleDate: now,
                 dataAddress: area
             }
             console.log("农业详情数据==> ", nongDetail)
@@ -243,7 +243,7 @@ $(function() {
                         dataAddress: area,
                         shopUrl: $("input#wz-3")[i].value,
                         shopNum: i+1,
-                        dataDate: date
+                        dataDate: now
                     }
                 )
             }
@@ -273,7 +273,7 @@ $(function() {
                 )
             }
             console.log("重点店铺TOP30==> ", shopTop30)
-            
+
             // -------------------------------------------------------
 
             // commit index data

@@ -131,7 +131,7 @@ editNextButton.addEventListener("click", function (){
     // 获取年份和月份
 
     var checkDate = null;
-
+    var rate = null;
     for(let d = 0; d <= dateLength-1; d++){
         const year = new Date(allDate[d].frontDate).getFullYear();
         const month = new Date(allDate[d].frontDate).getMonth() + 1;
@@ -141,10 +141,11 @@ editNextButton.addEventListener("click", function (){
             }
         }
     }
+    rate = document.getElementById("rate").value
 
     if (checkDate){
         console.log(checkDate);
-        window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+checkDate;
+        window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+checkDate+"&rate="+rate;
     }
     else {
         window.document.getElementById("error").style.display = "flex";
@@ -158,4 +159,19 @@ function back(){
 
 function skip(){
     window.location.href="detail.html?areaName="+areaName+"&editDate="+editMonth+"&copyMonth="+editMonth;
+}
+function validateInput(input) {
+    // 使用正则表达式验证用户输入
+    var regex = /^\d+(\.\d{0,2})?$/; // 匹配最多两位小数的数字
+    if (!regex.test(input.value)) {
+        // 如果不符合要求，则阻止用户输入
+        input.value = input.value.replace(/[^\d.]/g,""); // 只保留数字和小数点
+        input.value = input.value.replace(/^\./g,""); // 第一个字符不能是小数点
+        input.value = input.value.replace(/\.{2,}/g,"."); // 不能出现多个小数点
+        input.value = input.value.replace(".","$#$").replace(/\./g,"").replace("$#$","."); // 只允许输入一个小数点
+        if (input.value.indexOf(".") != -1 && input.value.split(".")[1].length > 2) {
+            // 如果小数点后面有超过两位的数字，则截断多余的部分
+            input.value = input.value.substr(0, input.value.indexOf(".") + 3);
+        }
+    }
 }

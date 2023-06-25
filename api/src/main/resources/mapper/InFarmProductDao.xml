@@ -11,6 +11,7 @@
         <result property="farmAddress" column="farm_address"/>
         <result property="farmDate" column="farm_date"/>
         <result property="farmName" column="farm_name"/>
+        <result property="farmCount" column="farm_count"/>
     </resultMap>
 
 

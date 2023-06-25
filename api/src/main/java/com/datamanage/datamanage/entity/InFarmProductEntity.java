@@ -43,4 +43,6 @@ public class InFarmProductEntity implements Serializable {
 
 	private String farmName;
 
+	private Float farmCount;
+
 }

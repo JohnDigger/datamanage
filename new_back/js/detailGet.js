@@ -12,7 +12,7 @@ var area = strings[0].split("=")[1]
 // get date
 var date = strings[2].split("=")[1]
 var now = strings[1].split("=")[1]
-
+var rate = strings[3].split("=")[1]
 // set date
 var nowList = now.split("-")
 $(".detail-date")[0].outerText = nowList[0] + "年" + nowList[1] + "月"
@@ -37,11 +37,11 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("div#qwlse")[0].lastChild.data = data.totalSaleMoney
-                $("div#lsl")[0].lastChild.data = data.totalSaleNum
-                $("input#dpsl")[0].value = data.shopNum
-                $("input#cyry")[0].value = data.wlWorkNum
-                $("input#wlzs")[0].value = data.wlDevelopment
+                $("div#qwlse")[0].lastChild.data = Math.round(data.totalSaleMoney*rate)
+                $("div#lsl")[0].lastChild.data = Math.round(data.totalSaleNum*rate)
+                $("input#dpsl")[0].value = Math.round(data.shopNum*rate)
+                $("input#cyry")[0].value = Math.round(data.wlWorkNum*rate)
+                $("input#wlzs")[0].value = (data.wlDevelopment*rate).toFixed(2)
 
             }
         },
@@ -69,8 +69,8 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#swxze")[0].value = data.detailMoney
-                $("input#swlsl")[0].value = data.detailCount
+                $("input#swxze")[0].value = Math.round(data.detailMoney*rate)
+                $("input#swlsl")[0].value = Math.round(data.detailCount*rate)
             }
         },
         error: (xhr, status, error) => {
@@ -127,8 +127,8 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#swxzdqdsj")[0].value = data.detailMoney
-                $("input#swlslzdqd")[0].value = data.detailCount
+                $("input#swxzdqdsj")[0].value = Math.round(data.detailMoney*rate)
+                $("input#swlslzdqd")[0].value = Math.round(data.detailCount*rate)
             }
         },
         error: (xhr, status, error) => {
@@ -185,8 +185,8 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#ncpjyze")[0].value = data.saleMoney
-                $("input#ncplsl")[0].value = data.saleNum
+                $("input#ncpjyze")[0].value = Math.round(data.saleMoney*rate)
+                $("input#ncplsl")[0].value = Math.round(data.saleNum*rate)
             }
         },
         error: (xhr, status, error) => {
@@ -243,8 +243,8 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#fwxze")[0].value = data.detailMoney
-                $("input#fwlsl")[0].value = data.detailCount
+                $("input#fwxze")[0].value = Math.round(data.detailMoney*rate)
+                $("input#fwlsl")[0].value = Math.round(data.detailCount*rate)
             }
         },
         error: (xhr, status, error) => {
@@ -300,8 +300,8 @@ $(function(){
             if (res.data.length > 0){
                 var data = res.data[0]
                 // set data
-                $("input#fwxzdqdsj")[0].value = data.detailMoney
-                $("input#fwlslzdqd")[0].value = data.detailCount
+                $("input#fwxzdqdsj")[0].value = Math.round(data.detailMoney*rate)
+                $("input#fwlslzdqd")[0].value = Math.round(data.detailCount*rate)
             }
         },
         error: (xhr, status, error) => {
@@ -366,7 +366,7 @@ $(function(){
                 for (var i=0; i<10; i++){
                     mcDivs[i].value = data[i].shopName
                     wzDivs[i].value = data[i].detailUrl
-                    lsDivs[i].value = data[i].detailMoney
+                    lsDivs[i].value = (data[i].detailMoney*rate).toFixed(2)
                     for (var j=0; j<qdDivs[i].length; j++){
                         if (qdDivs[i][j].value == data[i].platform){
                             qdDivs[i][j].selected = true
@@ -405,7 +405,7 @@ $(function(){
                 for (var i=0; i<10; i++){
                     mcDivs[i].value = data[i].shopName
                     wzDivs[i].value = data[i].detailUrl
-                    lsDivs[i].value = data[i].detailMoney
+                    lsDivs[i].value = (data[i].detailMoney*rate).toFixed(2)
                     for (var j=0; j<qdDivs[i].length; j++){
                         if (qdDivs[i][j].value == data[i].platform){
                             qdDivs[i][j].selected = true
@@ -447,8 +447,8 @@ $(function(){
                     dpDivs[i].value = data[i].goodsName
                     mcDivs[i].value = data[i].shopName
                     wzDivs[i].value = data[i].shopUrl
-                    lseDivs[i].value = data[i].saleMoney
-                    lslDivs[i].value = data[i].saleNum
+                    lseDivs[i].value = (data[i].saleMoney*rate).toFixed(2)
+                    lslDivs[i].value = Math.round(data[i].saleNum*rate)
                     for (var j=0; j<qdDivs[i].length; j++){
                         if (qdDivs[i][j].value == data[i].platform){
                             qdDivs[i][j].selected = true
@@ -488,8 +488,8 @@ $(function(){
                 for (var i=0; i<30; i++){
                     mcDivs[i].value = data[i].name
                     wzDivs[i].value = data[i].shopUrl
-                    lseDivs[i].value = data[i].saleMoney
-                    lslDivs[i].value = data[i].saleNum
+                    lseDivs[i].value = (data[i].saleMoney*rate).toFixed(2)
+                    lslDivs[i].value = Math.round(data[i].saleNum*rate)
                     for (var j=0; j<qdDivs[i].length; j++){
                         if (qdDivs[i][j].value == data[i].belongTo){
                             qdDivs[i][j].selected = true
