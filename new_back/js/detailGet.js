@@ -492,6 +492,7 @@ $(function(){
                     lslDivs[i].value = Math.round(data[i].saleNum*rate)
                     for (var j=0; j<qdDivs[i].length; j++){
                         if (qdDivs[i][j].value == data[i].belongTo){
+
                             qdDivs[i][j].selected = true
                             break
                         }
