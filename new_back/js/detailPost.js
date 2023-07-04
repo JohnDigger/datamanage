@@ -32,7 +32,7 @@ $(function() {
             // index data
             const indexData = {
                 time: now,
-                totalSaleMoney: $("div#qwlse")[0].lastChild.data,
+                totalSaleMoney: Number($("div#qwlse")[0].lastChild.data).toFixed(1),
                 totalSaleNum: $("div#lsl")[0].lastChild.data,
                 shopNum: $("input#dpsl").val(),
                 wlSaleMoney: "0",

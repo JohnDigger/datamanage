@@ -36,8 +36,8 @@ $(function(){
             console.log("获取首页数据成功 ==> ", res)
             if (res.data.length > 0){
                 var data = res.data[0]
-                // set data
                 $("div#qwlse")[0].lastChild.data = (data.totalSaleMoney*rate).toFixed(2)
+                // set data
                 $("div#lsl")[0].lastChild.data = Math.round(data.totalSaleNum*rate)
                 $("input#dpsl")[0].value = Math.round(data.shopNum*rate)
                 $("input#cyry")[0].value = Math.round(data.wlWorkNum*rate)
