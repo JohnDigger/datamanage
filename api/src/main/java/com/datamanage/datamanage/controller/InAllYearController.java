@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.*;
 public class InAllYearController {
     @Autowired
     private InAllYearService inAllYearService;
+
+
     /**
      * 列表
      */
