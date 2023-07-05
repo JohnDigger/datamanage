@@ -35,7 +35,6 @@ public class InAllYearController {
         return R.ok().put("page", page);
     }
 
-
     /**
      * 信息
      */
