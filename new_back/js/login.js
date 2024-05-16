@@ -6,7 +6,7 @@ window.onload =  function (){
         $("#password")[0].value = userInfo.password
     }
 }
-
+var host = "http://118.24.31.24:8098"
 function submit(){
     var requestData = {
         username: $("#username").val(),
@@ -15,7 +15,7 @@ function submit(){
     $.ajax({
         type: 'POST',
         contentType: "application/json",
-        url: "http://114.117.162.189:8098/back/login/authenticate",
+        url:  host + "/back/login/authenticate",
         data: JSON.stringify(requestData),
         success: function (response){
 

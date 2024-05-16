@@ -95,6 +95,8 @@ public class InShopController {
 
     @GetMapping("getList")
     public R shopsList(@RequestParam("address")String address,@RequestParam("date")String date){
+        System.out.println("----------------------"+address);
+        System.out.println("----------------------"+date);
         return R.ok().put("data",inShopService.getList(address,date));
     }
 }

@@ -11,8 +11,9 @@ window.onload = function (){
         window.location.href='login.html'
     }
 }
+var host = "http://118.24.31.24:8098"
 $.ajax({
-    url: "http://114.117.162.189:8098/back/frontmonth/list",
+    url:  host + "/back/frontmonth/list",
     // url: "http://36.133.200.169:8098/back/frontmonth/list",
     type: "GET",
     headers: {

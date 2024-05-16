@@ -13,7 +13,7 @@ window.onload = function (){
 }
 
 // request url
-var host = "http://114.117.162.189:8098"
+var host = "http://118.24.31.24:8098"
 
 function submit(){
     var requestData = {

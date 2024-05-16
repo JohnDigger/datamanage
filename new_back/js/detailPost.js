@@ -1,6 +1,6 @@
 
 // request url
-var url = "http://114.117.162.189:8098"
+var url = "http://118.24.31.24:8098"
 // var url = "http://36.133.200.169:8098"
 var token =  "Bearer " +  window.localStorage.getItem("token")
 

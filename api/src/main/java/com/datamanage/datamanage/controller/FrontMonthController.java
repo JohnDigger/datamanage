@@ -73,6 +73,7 @@ public class FrontMonthController {
         frontMonth.setFrontDate(date);
         QueryWrapper<FrontAddressEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("id").eq("data_address",address);
+        System.out.println(frontAddressService.list(queryWrapper));
         FrontAddressEntity frontAddressEntity =  frontAddressService.list(queryWrapper).get(0);
         frontMonth.setDataAddressId(String.valueOf(frontAddressEntity.getId()));
         QueryWrapper<FrontMonthEntity> wrapper = new QueryWrapper<>();

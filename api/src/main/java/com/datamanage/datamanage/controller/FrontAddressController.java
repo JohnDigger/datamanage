@@ -74,8 +74,8 @@ public class FrontAddressController {
         });
 
         try {
-            Process exec = Runtime.getRuntime().exec("/home/big-data/add_address.sh "
-                    + frontAddress.getLevel2Url() + "-dsj" + " " + frontAddress.getLevel2Url());
+            Process exec = Runtime.getRuntime().exec("/bigdata/add_address.sh "
+                    + frontAddress.getLevel2Url());
             exec.waitFor();
         } catch (IOException | InterruptedException e) {
             System.out.println("脚本执行异常...");

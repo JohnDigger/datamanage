@@ -7,7 +7,7 @@ currentArea.innerText = "当前区域："+areaName;
 // let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MDE2MDE3MywiZXhwIjoxNj" +
 //     "gwMTc4MTczfQ.pY5zSfKpE-d6wabNMNiZbNudtlu1F57C0m3zxeYTcPY";
 let token = window.localStorage.getItem("token");
-
+var host = "http://118.24.31.24:8098"
 var allDate = "";
 var dateLength = "";
 window.onload = function (){
@@ -16,7 +16,7 @@ window.onload = function (){
     }
 }
 $.ajax({
-    url: "http://114.117.162.189:8098/back/frontmonth/list",
+    url:  host+"/back/frontmonth/list",
     // url: "http://36.133.200.169:8098/back/frontmonth/list",
     type: "GET",
     headers: {

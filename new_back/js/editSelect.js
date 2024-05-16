@@ -9,7 +9,7 @@ let token = window.localStorage.getItem("token")
 addAreaButton.addEventListener("click", function (){
     window.location.href="addArea.html";
 })
-
+var host = "http://118.24.31.24:8098"
 window.onload =  function (){
 
     if (localStorage.getItem("token") === null){
@@ -18,7 +18,7 @@ window.onload =  function (){
 
     $.ajax({
         // url: "http://36.133.200.169:8098/back/frontaddress/list",
-        url: "http://114.117.162.189:8098/back/frontaddress/list",
+        url: host + "/back/frontaddress/list",
         type: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,

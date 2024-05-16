@@ -1,6 +1,6 @@
 let areaName = decodeURIComponent(location.search.substring(1).split("&")[0].split("=")[1]);
 // var host = "http://36.133.200.169:8098"
-var host = "http://114.117.162.189:8098"
+var host = "http://118.24.31.24:8098"
 
 var token = window.localStorage.getItem("token");
 function back(){
